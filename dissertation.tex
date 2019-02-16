@@ -52,18 +52,23 @@ Introduction.
 \section{Nucleosome EMSA SELEX}
 \label{sec:resultemsaselex}
 
-To study the effect of CpG and non-CpG methylation on the sequence specificity in the nucleosome, I carried out four cycles of EMSA SELEX. The input library (lig147) contained 147-base pair DNA ligands with 101 random base pairs at the centre flanked by i5 and i7 barcoding sequences. In each cycle of EMSA SELEX, the DNA ligands were reconstituted with Xenopus laevis histone octamers. Then, EMSA was conducted to separate naked DNA and DNA bound to histone octamers. This allowed DNA with sequences most conducive to nucleosome reconstitution to proceed to the next cycle.
+% Draw the all-important 'figure 1' and put it somewhere here
 
-The experiment was divided into four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\textwidth]{test}
+  \caption{Overview of SELEX procedure}
+  \label{fig:selex}
+\end{figure}
+
+To study the effect of CpG and non-CpG methylation on the sequence specificity in the nucleosome, I carried out four cycles of EMSA SELEX (figure~\ref{fig:selex}), starting from a input library (lig147) with 101 random base pairs at the centre. DNA with sequences most conducive to nucleosome reconstitution proceeded to the next cycle. The experiment was divided into four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
 
 \subsection{DSSYNV2 was able to correctly amplify lig147 and methylated ligands}
 \label{ssec:amplig}
 
-% Delete this paragraph. This is more appropriate in the methods section and is repeated there.
-First, lig147 was amplified using a theromocycling protocol modified from that for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L). For all-C-methylated DNA, cytosines in the dNTP mix were replaced by 5-methylcytosines in the initial amplification step. For half-C-methylated DNA, half of the cytosines in the dNTP mix were replaced by 5-methylcytosines. CpG-methylation was carried out by adding M.SssI (CpG methyltransferase), S-adenosylmethionine, \ce{MgCl2}, and DTT to the input library, and incubating the mixture.
-
 % Repeats figure captions
-Gel electrophoresis of the products from all experimental groups yielded a strong band between 100 and 200 nucleotides (figure~\ref{fig:amplig}). Spectrophotometry showed that the DNA concentration after amplification lay within \SIrange{30}{40}{\nano\gram\per\micro\litre}, corresponding to the expected \SI{38}{\nano\gram\per\micro\litre}. These results suggest that the protocol successfully amplified lig147 and was also successful for the forms of methylation tested.
+
+Initial amplification was successful for all experimental groups. This was supported by gel electrophoresis (figure~\ref{fig:amplig}) and spectrophotometric measurements of DNA concentrations within \SIrange{30}{40}{\nano\gram\per\micro\litre}.
 
 \begin{figure}[htpb]
   \centering
@@ -95,19 +100,10 @@ Gel electrophoresis of the products from all experimental groups yielded a stron
   \label{fig:amplig}
 \end{figure}
 
-\subsection{Two related protocols were able to reconstitute nucleosomes}
+\subsection{Nucleosome reconstitution}
 \label{ssec:reconstnuc}
 
-% Delete or massively shorten this. Move details to methods section.
-The input libraries generated for each experimental group were each subjected to four cycles of EMSA SELEX. In these cycles, the DNA ligands were reconstituted with histone octamers with octamer:DNA ratios ranging from 1.48:1 to 0.09:1. The products were analysed using EMSA on 6\% DNA retardation gels to separate naked DNA from DNA bound as part of reconstituted nucleosomes. The DNA was then eluted and amplified for use as the input for the next EMSA SELEX cycle.
-
-Two related variants of the EMSA SELEX protocol were tested. They were loosely based on Dyer (2004), and differed in the composition of the dilution buffer. The dilution buffer for one protocol included protease inhibitor, while the other did not.
-
-EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA. It also yielded bands corresponding to reconstituted nucleosomes that are fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}).
-% Remove all references to the two variants of the reconstitution protocol.
-These observations applied to both variants of the EMSA SELEX. These observations confirmed that nucleosome reconstitution protocols based on Dyer (2004) were successful, even for methylated DNA.
-% This is discussion and should not be here.
-I adhered to the protocol without protease inhibitor to generate products for subsequent procedures because
+EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA. It also yielded bands corresponding to reconstituted nucleosomes that are fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}). These observations confirmed that the nucleosome reconstitution protocols based on Dyer (2004) were successful, including for methylated DNA.
 
 \begin{figure}[htpb]
   \centering
@@ -239,7 +235,7 @@ and \SI{0.9}{\milli\Molar} DTT. For CpG-methylation, \SI{7.05}{\micro\litre} of 
 \SI{4}{\micro\litre} of a solution of \SI{2}{\Molar} \ce{KCl}, \SI{2}{\milli\Molar} \ce{Mg^{2+}} dissolved in \SI{10}{\milli\litre} TE was dried to each well of a 4ti 384-well plate. Histone octamers were from \emph{Xenopus laevis}. First, the histone octamer concentration was adjusted to \SI{150}{\nano\gram\per\micro\litre} with 1:1 glycerol:refolding buffer (\SI{2}{\Molar} \ce{KCl}, \SI{10}{\milli\Molar} Tris-HCl pH 7.5, \SI{1}{\milli\Molar} Na-EDTA, \SI{5}{\milli\Molar} 2-mercaptoethanol). Then, the histone octamers were serially diluted two-fold to a dilution factor of 16x. To the salted wells of the 384-well plate, \SI{152}{\micro\gram} of the DNA ligand (\SI{4}{\micro\litre} for ‘plain’ ligands, half-C-methylated ligands, and all-C-methylated ligands; \SI{5.2}{\micro\litre} for CpG-methylated ligands) and \SI{1.5}{\micro\litre} of the various dilutions of the histone octamer were added. In a sixth well, refolding buffer was added instead.
 
 % Delete reference to two variants of nucleosome reconstitution
-Then, the nucleosomes were reconstituted. Two variants of the nucleosome reconstitution buffer were used for this protocol. One variant was TE buffer with \SI{2}{\milli\Molar} DTT. The other contained TE with \SI{1}{\milli\Molar}, \SI{2}{\milli\Molar} \ce{MgCl2}, and a 6-tab cocktail of protease inhibitor. First, the mixtures were incubated for 30 minutes. Second, \SI{10}{\micro\litre} of the nucleosome reconstitution buffer was added, and the mixture was incubated for 1 hour. Third, \SI{5}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour. Fourth, \SI{5}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour again. Fifth, \SI{70}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour. Finally, \SI{100}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour.
+Then, the nucleosomes were reconstituted. First, the mixtures were incubated for 30 minutes. Second, \SI{10}{\micro\litre} of the nucleosome reconstitution buffer was added, and the mixture was incubated for 1 hour. Third, \SI{5}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour. Fourth, \SI{5}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour again. Fifth, \SI{70}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour. Finally, \SI{100}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour.
 
 The reconstituted nucleosomes were then run on an EMSA gel. First, the TBE 6\% DNA retardation gel was pre-run at \SI{150}{\volt} with 0.2\% TBE buffer in an ice bath. Then, \SI{10}{\micro\litre} of the reconstituted nucleosome samples (\SI{10}{\micro\litre} sample + \SI{3}{\micro\litre} 5x TBE loading dye) were immediately loaded. The gel was then run at \SI{230}{\volt}, \SIrange{8}{15}{\milli\ampere} per gel for 35 minutes at \SI{4}{\celsius}. Gel bands corresponding to unbound DNA (first lane) and to reconstituted nucleosomes were sliced. The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight. Then, \SI{12.5}{\micro\litre} of this solution was added to \SI{12.5}{\micro\litre} of the corresponding amplification pre-mixes in 96-well plates. SELEX was then performed with a thermocycling protocol modified from that recommended for Phusion High-Fidelity DNA polymerase (ThermoFisher). Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
 
