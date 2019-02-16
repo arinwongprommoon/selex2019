@@ -1,0 +1,14 @@
+*.odt
+*.pyc
+*.aux
+*.log
+*.out
+*.pdf
+*.toc
+*.tex~
+*.bbl
+*.blg
+*.bib#
+*.bcf
+*.run.xml
+*.tex.bak
