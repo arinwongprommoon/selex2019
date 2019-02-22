@@ -86,25 +86,25 @@ With these properties, evolution has altered poly(dA:dT) tracts to fine-tune gen
 \cite{segal_genomic_2006} also show that there is low nucleosome occupancy at functional binding sites.  This is based on how binding sites for 37\% of transcription factors investigated have lower nucleosome occupancy than predicted.  It was also shown that there is low nucleosome occupancy at transcription start sites.  \cite{huff_dnmt1-independent_2014} show that nucleosomes are positioned downstream of transcription start sites in algae despite high GC content by using micrococcal nuclease digestion assays.
 
 
-DNA methylation also affects nucleosome positioning.
-Methylation in clusters disfavours nucleosome positioning \emph{in vivo}. This is because densely methylated DNA is rigid and does not favour the curvature needed to form nucleosomes.
-Several studies suggest that methylation preferentially occurs outside or at the edges of nucleosome cores, while one study shows that methylation is enriched in the nucleosome core. % citations needed
-Methylation of DNA in the algae \emph{Ostreococcus lucimarinus} and \emph{Micromonas pusilla} occurs periodically in the linker DNA between nucleosome, and is almost completely excluded from nucleosome cores.  This is based on micrococcal nuclease digestion (\cite{huff_dnmt1-independent_2014}).  For these organisms, up to half the cytosines in CpG islands within the regions of methylation are methylated.  The coccolithophore \emph{Emiliania huxleyi} has lower rates of CpG methylation, but exhibits CHG methylation at a periodicity similar to that of CpG methylation to compensate. This gives a rate of methylation close to that of other species.
+DNA methylation also affects nucleosome positioning.  Methylation in clusters disfavours nucleosome positioning \emph{in vivo}. This is because densely methylated DNA is rigid and does not favour the curvature needed to form nucleosomes.
+%Several studies suggest that methylation preferentially occurs outside or at the edges of nucleosome cores, while one study shows that methylation is enriched in the nucleosome core. % citations needed
+Methylation of DNA in the algae \emph{Ostreococcus lucimarinus} and \emph{Micromonas pusilla} occurs periodically in the linker DNA between nucleosome, and is almost completely excluded from nucleosome cores.  This is based on micrococcal nuclease digestion (\cite{huff_dnmt1-independent_2014}).  For these organisms, up to half the cytosines in CpG islands within the regions of methylation are methylated.  Additionally, dense methylation itself contributes directly to the positioning of nucleosomes.  This is supported by nucleosome mapping on fully methylated \emph{O. lucimarius} DNA: nucleosomes are preferentially positioned on sequences that are non methylated \emph{in vivo}.
 
-Additionally, dense methylation itself contributes directly to the positioning of nucleosomes.  This is supported by nucleosome mapping on fully methylated \emph{O. lucimarius} DNA: nucleosomes are preferentially positioned on sequences that are non methylated \emph{in vivo}.
+The rate of methylation rather than the context of methylation seems to be the main determining factor.  In support, the coccolithophore \emph{Emiliania huxleyi} exhibits CHG methylation at a periodicity similar to CpG methylation to comensate for its lower rates of CpG methylation as compared to \emph{O. lucimarinus} and \emph{M. pusilla}.  This gives a rate of methylation close to that of the other species.
 
-% Genome-wide mapping of nucleosome positioning and DNA methylation within individual DNA molecules (Kelly et al, 2012)
+Investigating DNA methylation and nucleosome positioning information on the same DNA molecule leads to the same conclusion.  NOMe-seq (nucleosome occupancy and methylome sequencing) is a method that obtains endogenous DNA methylation information from CpG sites and obtains nucleosome positioning information from GpC methyltransferase (M.CviPI) accessibility to GpC sites (\cite{kelly_genome-wide_2012}).  This method shows that there is a negative correlation between nucleosome occupancy and DNA methylation at CTCF regions, and that is anti-correlation does not exist at promoters.  Additionally, NOMe-seq shows that the relationship between nucleosome occupancy and DNA methylation depends on the genomic location.
 
-In sum, if you want nucleosomes to form around your DNA, you must make it able to curve around your DNA.  Certain dinucleotides help with this if they're positioned with a 10 bp periodicity.  In contrast, poly(dA:dT) tracts, poly(dC:dG) tracts, and CpG methylation makes DNA stiff and therefore nucleosomes don't form at these regions.  Because of this, organisms exploit these sequences to get their nucleosomes at places they should be e.g. away from transcription start sites.
 
-Importantly, these models of nucleosome positioning are based on studies that average across many genes.  The precise pattern at each gene may differ depending on the function of the gene, and patterns may also differ across cell types.
+DNA has to be able to curve around histone octamers so that nucleosomes can form.  Certain dinucleotides aid this curvature if they are positioned with a 10 bp periodicity.  In contrast, poly(dA:dT) tracts, poly(dC:dG) tracts, and CpG methylation makes DNA stiff and therefore nucleosomes tend not to form at these regions.  Because of this, organisms exploit these sequences to position their nucleosomes at desired locations -- for example, away from transcription start sites.  Many models of nucleosome positioning are based on studies that average across many genes.  The precise pattern at each gene may differ depending on the function of the gene, and patterns may also differ across cell types.
 
 %% Gene expression
-
+% (this section may appear when I reorganise the rest of the introduction)
 
 \subsection{}
 \label{ssec:emsaselex_intro_why}
 % - The purpose and novelty of this study, and briefly the experiment design
+
+% I guess the novelty here is SELEX? Like why the hell are we using SELEX to do this as opposed to the other methods people have been using? What kind of new conclusion or achievement are we getting from this, especially if study after study confirm existing `rules' about nucleosome positioning?
 
 % Design
 %  Nucleosome reconstitution: Dyer 2004
