@@ -78,8 +78,10 @@ The nucleotide sequence in DNA contributes to nucleosome positioning.  For a giv
 
 Nucleotide sequences affect flexibility of the DNA around histone octamers.  The dinucleotide sequences AT and TA confer high `bendability'.  Therefore, they are situated on the face of the helical repeat that directly interacts with the histone octamer, with a periodicity of approximately 10 bp.  Non-homopolymeric (G+C)-rich sequences also promote nucleosome formation.  In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) confer stiff structures that inhibit nucleosome formation.  These sequences are therefore enriched in linker DNA between nucelosomes.
 
-Segal \emph{et al.} (2006) % is there a way to do this without manually typing this?
-constructed a position-weight matrix to score any 147-bp nucleotide sequence for nucleosome preference.
+\cite{segal_genomic_2006}
+created a computational model of nucleosome-DNA interaction.  Their data was based on a genome-wide assay that identified DNA regions that were stably wrapped in nucleosomes.  From this, they constructed a position-weight matrix to score any 147-bp nucleotide sequence for the probability that it is associated with a nucleosome, employing dinucleotide probability distributions.  Their model predicts AA/TT/TA dinucleotides occuring in phase with each other with a frequency of approximately 10 bp.  This conforms to the idea that these dinucleotides confer high `bendability', and are therefore situated on the face of the helical repeat that directly interacts with the histone octamer.  GC dinucleotides also occur periodically, but out of phase with the aforementioned dinucleotides.  These observations applied to both yeast and chicken genomes.
+
+\cite{segal_genomic_2006} also show that there is low nucleosome occupancy at functional binding sites.  This is based on how binding sites for 37\% of transcription factors investigated have lower nucleosome occupancy than predicted.  It was also shown that there is low nucleosome occupancy at transcription start sites.
 
 Methylation also affects nucleosome positioning.
 % Dnmt1-indepedent CG methylation contributes to nucleosome positioning in diverse eukaryotes (Huff and Zilberman, 2014)
