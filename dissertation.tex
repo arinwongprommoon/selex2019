@@ -108,10 +108,10 @@ DNA has to be able to curve around histone octamers so that nucleosomes can form
 \label{ssec:emsaselex_intro_why}
 % - The purpose and novelty of this study, and briefly the experiment design
 
+I aimed to study the sequence specificity of the nucleosome on normal DNA and on DNA that is methylated on cytosines at differing levels.
 SELEX is a promising unbiased method to identify the DNA sequences preferred for nucleosome positioning.  Unlike genome-wide studies, which depend on sequences already existing in nature, SELEX uses random DNA sequences as input libraries.  `Rules' of nucleosome positioning deduced from studying living organisms may have poor power.  This is evidenced by how more than 95\% of bulk genomic DNA has a free energy for histone octamer binding that differs from that of random DNA by only \SI{0+-0.2}{\kilo\calorie\per\mole}, and SELEX has surpassed the power of rules deduced from natural systems (\cite{lowary_new_1998}).
 
-However SELEX employs PCR.  Using PCR makes amplified DNA biased towards sequences that are conducive towards PCR amplification, rather than accurately reflect the composition of the heterogenous sample that is amplified. %citation needed
-This introduces a problem with using SELEX to investigate which DNA sequences have a high affinity for the histone octamer.  With PCR, sequence biases do not clearly separate DNA sequences bound to nucleosomes from DNA sequences not bound to nucleosomes, as desired.  Instead, both DNA sequences bound to nucleosomes and DNA sequences not bound to nucleosomes have the same bias.  This bias is towards sequences conducive to amplification by PCR.  Constructing a nucleosome model of PCR bias could potentially lead users of nucleosome SELEX to cancel this bias. % slightly redundant, but easy to understand
+% any issues?
 
 In this project, I conducted four cycles of nucleosome SELEX using a random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA (\cite{dyer_reconstitution_2003}).  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of k-mer nucleotides using Fourier transform (\cite{lowary_new_1998}; \cite{zhu_interaction_2018}).  Using these data, I extended an existing nucleosome model of PCR bias to make it more explicit.
 
@@ -323,6 +323,14 @@ Repeating the Phusion amplification using qPCR yielded saturation curves (figure
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
 %% - The purpose of this study: provide experiment data, to build a model accounting for such bias, remove such bias in future genomic study
+
+SELEX employs PCR.  Using PCR makes amplified DNA biased towards sequences that are conducive towards PCR amplification, rather than accurately reflect the composition of the heterogenous sample that is amplified. %citation needed
+This especially applies when the signal enrichment in the sequencing library is weak.  This is the case for nucleosome-SELEX, where sequence affinities for the nucleosome is weak.
+
+With PCR, sequence biases do not clearly separate DNA sequences bound to nucleosomes from DNA sequences not bound to nucleosomes, as desired.  Instead, both DNA sequences bound to nucleosomes and DNA sequences not bound to nucleosomes have the same bias.  This bias is towards sequences conducive to amplification by PCR.
+
+Here I tested the sequence biases that could be introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR.  This led to constructing a model of PCR bias, which could help users of PCR and SELEX to remove biases to reveal true signals.
+
 
 \section{Materials and Methods}
 \label{sec:pcrbias_methods}
