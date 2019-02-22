@@ -24,6 +24,7 @@
 \usepackage{siunitx}
 \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
 \DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit\calorie{cal}
 \usepackage{booktabs}
 \usepackage{longtable}
 
@@ -85,6 +86,9 @@ With these properties, evolution has altered poly(dA:dT) tracts to fine-tune gen
 
 \cite{segal_genomic_2006} also show that there is low nucleosome occupancy at functional binding sites.  This is based on how binding sites for 37\% of transcription factors investigated have lower nucleosome occupancy than predicted.  It was also shown that there is low nucleosome occupancy at transcription start sites.  \cite{huff_dnmt1-independent_2014} show that nucleosomes are positioned downstream of transcription start sites in algae despite high GC content by using micrococcal nuclease digestion assays.
 
+Experiments with synthetic DNA have given rise to additional `rules' for nucleosome positioning.  The `pentameric TG' sequence -- [(A or T)3NN(G or C)3NN]n -- has a very high affinity for the histone octamer, consistent with the idea of AT-rich and GC-rich units confering flexibility of DNA.  `Phased TATA' sequences possessing multiple phased CTA trinucleotides also exhibit high affinity.  These rules were uncovered by SELEX (systematic evolution of ligands by exponential enrichment), in which an input library of random DNA molecules are subjected to rounds of molecular evolution to select for affinities for histone octamer (\cite{lowary_new_1998}).
+
+% Methylation
 
 DNA methylation also affects nucleosome positioning.  Methylation in clusters disfavours nucleosome positioning \emph{in vivo}. This is because densely methylated DNA is rigid and does not favour the curvature needed to form nucleosomes.
 %Several studies suggest that methylation preferentially occurs outside or at the edges of nucleosome cores, while one study shows that methylation is enriched in the nucleosome core. % citations needed
@@ -100,15 +104,16 @@ DNA has to be able to curve around histone octamers so that nucleosomes can form
 %% Gene expression
 % (this section may appear when I reorganise the rest of the introduction)
 
-\subsection{}
+\subsection{Purpose of study}
 \label{ssec:emsaselex_intro_why}
 % - The purpose and novelty of this study, and briefly the experiment design
 
-% I guess the novelty here is SELEX? Like why the hell are we using SELEX to do this as opposed to the other methods people have been using? What kind of new conclusion or achievement are we getting from this, especially if study after study confirm existing `rules' about nucleosome positioning?
+SELEX is a promising unbiased method to identify the DNA sequences preferred for nucleosome positioning.  Unlike genome-wide studies, which depend on sequences already existing in nature, SELEX uses random DNA sequences as input libraries.  `Rules' of nucleosome positioning deduced from studying living organisms may have poor power.  This is evidenced by how more than 95\% of bulk genomic DNA has a free energy for histone octamer binding that differs from that of random DNA by only 0 \pm 0.2 \SI{\kilo\calorie\per\mole}, and SELEX has surpassed the power of rules deduced from natural systems (\cite{lowary_new_1998}).
 
-% Design
-%  Nucleosome reconstitution: Dyer 2004
-%  SELEX and Fourier transform: Lowary and Widom, 1998
+However SELEX employs PCR.  Using PCR makes amplified DNA biased towards sequences that are conducive towards PCR amplification, rather than accurately reflect the composition of the heterogenous sample that is amplified. %citation needed
+This introduces a problem with using SELEX to investigate which DNA sequences have a high affinity for the histone octamer.  With PCR, sequence biases do not clearly separate DNA sequences bound to nucleosomes from DNA sequences not bound to nucleosomes, as desired.  Instead, both DNA sequences bound to nucleosomes and DNA sequences not bound to nucleosomes have the same bias.  This bias is towards sequences conducive to amplification by PCR.  Constructing a nucleosome model of PCR bias could potentially lead users of nucleosome SELEX to cancel this bias. % slightly redundant, but easy to understand
+
+In this project, I conducted four cycles of nucleosome SELEX using a random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA (\cite{dyer_reconstitution_2003}).  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of k-mer nucleotides using Fourier transform (\cite{lowary_new_1998}; \cite{zhu_interaction_2018}).  Using these data, I extended an existing nucleosome model of PCR bias to make it more explicit.
 
 \section{Materials and Methods}
 \label{sec:emsaselex_methods}
