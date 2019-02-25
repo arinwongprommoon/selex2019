@@ -118,11 +118,13 @@ In this project, I conducted four cycles of nucleosome SELEX using a random DNA 
 
 \section{Materials and Methods}
 \label{sec:emsaselex_methods}
-% - DNA ligand design and preparation of different types of ligands
 
-The sequence of the initial input library is 5$'$ GCTCTTCCGATCT nnnnnnnnnnnnnnnnnnnn AGATCGGAAGAGC 3$'$, where n denotes any nucleotide chosen at random, and was made to 200 \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA.
+\subsection{DNA ligand design and preparation}
+\label{ssec:emsaselex_methods_lig}
 
-PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530).  The sequence of the forward primer was 5$'$ CCCTACACGAC GCTCTTCC 3$'$, and the sequence of the reverse primer was 3$'$ GCCTTCTCG TGTGCAGAC 5$'$.  Thirteen cycles of PCR was followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the CTPs were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the CTPs were replaced with 5-methylcytosine.
+The sequence of the initial input library is 5$'$ GCTCTTCCGATCT nnnnnnnnnnnnnnnnnnnn AGATCGGAAGAGC 3$'$, where n denotes any nucleotide chosen at random. The input library DNA was made to 200 \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA.
+
+PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530).  The sequence of the forward primer was 5$'$ CCCTACACGAC GCTCTTCC 3$'$, and the sequence of the reverse primer was 3$'$ GCCTTCTCG TGTGCAGAC 5$'$.  Thirteen cycles of PCR with recommended temperatures were followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the dCTPs were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the dCTPs were replaced with 5-methylcytosine.
 
 % figure out if any of my papers mention a recipe for CpG methylation. If so, replace the following with a reference to that.
 In CpG-methylation, \SI{7.05}{\micro\litre} of the following mixture was added to \SI{25}{\micro\litre} of DNA:
@@ -137,23 +139,27 @@ In CpG-methylation, \SI{7.05}{\micro\litre} of the following mixture was added t
 
 The resulting mixture was incubated at \SI{37}{\celsius} for 3 hours, followed by \SI{65}{\celsius} for 20 minutes.
 
-% - SELEX procedure
+\subsection{SELEX}
+\label{ssec:emsaselex_methods_selex}
 
-% Nucleosome reconstitution
+Nucleosome reconstitution procedures were adapted from \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particles'), using \SI{2}{\Molar} \ce{KCl}.  Histone:DNA ratios were 1.48:1, 0.74:1, 0.37:1, 0.19:1, and 0.09:1. % is the last part necessary given that I'm likely going to put it in a figure?
 
-Nucleosome reconstitution procedures were adapted from \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particles'), using \SI{2}{\Molar} \ce{KCl}.  Histone:DNA ratios used were 1.48:1, 0.74:1, 0.37:1, 0.19:1, and 0.09:1. % is the last part necessary given that I'm likely going to put it in a figure?
+To verify results, reconstituted nucleosomes were analysed by EMSA by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  Gel bands corresponding to unbound DNA and to reconstituted nucleosomes were sliced.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight.
 
-To verify results, reconstituted nucleosomes were analysed by EMSA by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  Gel bands corresponding to unbound DNA (first lane) and to reconstituted nucleosomes were sliced.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight.
+Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
 
-Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530). The same primers were used as initial amplification of the input library.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
+\subsection{Sequencing}
+\label{ssec:emsaselex_methods_seq}
 
-% - Sequencing and preprocessing
+After SELEX, the eluted DNA was barcoded for sequencing. This was divided into two experimental sets: using DreamTaq and Phusion DNA polymerase (both ThermoFisher) for amplification.  Amplification was carried out using the procedures recommended for each enzyme for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.
 
-After all four SELEX cycles, the eluted DNA from EMSA was barcoded for sequencing. This was divided into two experimental sets: one using DreamTaq (ThermoFisher) and one using Phusion DNA polymerase (New England Biolabs). For each set, \SI{9}{\micro\litre} of the eluted DNA was added to \SI{9}{\micro\litre} of PCR mix as recommended by the vendor of each DNA polymerase. To this mixture, \SI{1.5}{\micro\litre} of barcoded PE primer obtained from IDT. Amplification was carried out using the thermocycling protocol recommended for the respective enzyme for 29 PCR cycles.
+Sequencing was by Illumina... % add detail
 
-The results of all 96 wells were pooled for each enzyme. DNA was then purified using 1.2x Ampure beads (Agen Court AMPure). First, 1.2x volume of the beads was added to the pooled DNA sample, and DNA adsorption was allowed to proceed for 5 minutes. Then the beads were precipitated using a magnetic plate. 70\% ethanol was added to wash twice, and the DNA was then eluted with TE buffer (\SI{10}{\milli\Molar} Tris, \SI{0.2}{\milli\Molar} mM EDTA, pH 8.1). The beads were collected by using the magnetic plate again, and the supernatant containing the DNA was pipetted out. It was then diluted to \SI{10}{\nano\Molar}.
+\subsection{Data analysis}
+\label{ssec:emsaselex_methods_anal}
 
 % - Data analysis
+Add content here.
 
 \section{Results}
 \label{sec:emsaselex_results}
