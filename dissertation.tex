@@ -114,7 +114,7 @@ SELEX is a promising unbiased method to identify the DNA sequences preferred for
 
 % any issues?
 
-In this project, I conducted four cycles of nucleosome SELEX using a random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA \citep{dyer_reconstitution_2003}.  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of k-mer nucleotides using Fourier transform \citep{lowary_new_1998, zhu_interaction_2018}.  Using these data, I extended an existing nucleosome model of PCR bias to make it more explicit.
+In this project, I conducted four cycles of nucleosome SELEX using a random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA \citep{dyer_reconstitution_2003} methylated at various levels.  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of k-mer nucleotides using Fourier transform \citep{lowary_new_1998, zhu_interaction_2018}.  Using these data, I extended an existing nucleosome model of PCR bias to make it more explicit.
 
 \section{Materials and Methods}
 \label{sec:emsaselex_methods}
@@ -166,15 +166,17 @@ Add content here.
 %% - Briefly introduce the experiment design (Fig. 1)
 
 % All-important 'figure 1'
+% replace with properly-drawn version later
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=\textwidth]{test}
+  \includegraphics[width=\textwidth]{selexoverview}
   \caption{Overview of SELEX procedure}
   \label{fig:selex}
 \end{figure}
 
-To study the effect of CpG and non-CpG methylation on the sequence specificity in the nucleosome, I carried out four cycles of EMSA SELEX (figure~\ref{fig:selex}), starting from a input library (lig147) with 101 random base pairs at the centre. DNA with sequences most conducive to nucleosome reconstitution proceeded to the next cycle. The experiment was divided into four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
+Using the lig147 input library \citep{zhu_interaction_2018}, four cycles of EMSA SELEX (figure~\ref{fig:selex}) were carried out.  The experiment had four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
 
+% use some other name for the protocol, but actually this ssec may disappear altogether.
 \subsection{DSSYNV2 was able to correctly amplify lig147 and methylated ligands}
 \label{ssec:amplig}
 
@@ -215,7 +217,7 @@ Initial amplification was successful for all experimental groups. This was suppo
 \subsection{Nucleosome reconstitution}
 \label{ssec:reconstnuc}
 
-EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA. It also yielded bands corresponding to reconstituted nucleosomes that are fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}). These observations confirmed that the nucleosome reconstitution protocols based on Dyer (2004) were successful, including for methylated DNA.
+EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA. It also yielded bands corresponding to reconstituted nucleosomes that are fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}).
 
 \begin{figure}[htpb]
   \centering
@@ -260,13 +262,11 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
 
 % I anticipate this to be A LOT shorter
 
-% No quantification of the concentrations of DNA needed here. Focus on sequencing.
-Following elution of the DNA from EMSA in the four SELEX cycles, IDT barcodes were added for Illumina sequencing. The DNA elution products from each cycle of EMSA SELEX were used as templates. I tested the use of DreamTaq polymerase and Phusion DNA polymerase (both ThermoFisher) as DNA polymerase enzymes for barcoding.
-
 % Debugging should probably be in a separate subsection in the results or discussion section
-Gel electrophoresis of the products amplified by DreamTaq using recommended protocols yielded bands corresponding to 147 base pairs, suggesting that the amplification succeeded (figure~\ref{fig:barcoding_a}). However, gel electrophoresis of the products amplified by Phusion using recommended protocols did not yield this band (figure~\ref{fig:barcoding_b}).
 
-Repeating the Phusion amplification using qPCR yielded saturation curves (figure~\ref{fig:qpcr}), suggesting that amplification indeed took place. As qPCR required a lower concentration of the template, it was hypothesised that Phusion initially failed because the ligand was too concentrated. Different DNA polymerases from different vendors are efficient with differing template concentrations – for example, DreamTaq requires ... while Phusion requires ... (citation needed). Therefore, I diluted the template DNA further by adding \SI{70}{\micro\litre} dilution buffer to each well. The resulting 8\% TBE gel yielded the band corresponding to 147 base pairs (figure~\ref{fig:barcoding_c}), confirming the hypothesis.
+After the DNA was eluted, barcodes were added using DreamTaq or Phusion (both ThermoFisher) as DNA polymerases.  Gel electrophoresis of the products amplified by DreamTaq yielded bands corresponding to 147 base pairs (figure~\ref{fig:barcoding_a}).  However, gel electrophoresis of the products amplified by Phusion using recommended protocols did not yield this band (figure~\ref{fig:barcoding_b}).
+
+Repeating the Phusion amplification using qPCR yielded saturation curves (figure~\ref{fig:qpcr}), suggesting that amplification indeed took place.  As qPCR required a lower concentration of the template, it was hypothesised that Phusion initially failed because the ligand was too concentrated.  Different DNA polymerases from different vendors are efficient with differing template concentrations – for example, DreamTaq requires ... while Phusion requires ... (citation needed).  Therefore, I diluted the template DNA further by adding \SI{70}{\micro\litre} dilution buffer to each well. The resulting 8\% TBE gel yielded the band corresponding to 147 base pairs (figure~\ref{fig:barcoding_c}), confirming the hypothesis.
 
 \begin{figure}[htpb]
   \centering
@@ -353,7 +353,29 @@ Here I tested the sequence biases that could be introduced by the choice of DNA 
 \label{sec:pcrbias_methods}
 %% - Most parts are the same as the project 1 [just add references to it??]
 
-The input library was lig147. Pre-mixes for PCR amplification were prepared according to manufacturers' specification for the following DNA polymerases: Phire Hot Start II DNA polymerase (ThermoFisher, F122S), Q5 Hot Start High-Fidelity DNA polymerase (New England BioLabs, M0493S), DreamTaq Hot Start DNA Polymerase (ThermoFisher, EP1701), Pfu Turbo DNA Polymerase (Agilent Technologies, 600250), and Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L). \SI{25}{\micro\litre} of each pre-mix was mixed with \SI{25}{\micro\litre} of the input library, and amplified by thermocycling according to the protocols specified by the manufacturers of each DNA polymerase.
+\subsection{DNA ligand design and preparation}
+\label{ssec:pcrbias_methods_lig}
+
+The same input library as \ref{ssec:emsaselex_methods_lig} was used, without methylation.
+
+\subsection{Biases from enzymes}
+\label{ssec:pcrbias_methods_enz}
+
+PCR amplification followed manufacturers' specification for the following DNA polymerases: Phire Hot Start II DNA polymerase (ThermoFisher, F122S), Q5 Hot Start High-Fidelity DNA polymerase (New England BioLabs, M0493S), DreamTaq Hot Start DNA Polymerase (ThermoFisher, EP1701), Pfu Turbo DNA Polymerase (Agilent Technologies, 600250), and Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  For each source, DNA was amplified by 4, 8, 12, 16, 20, 24, and 28 cycles.
+
+\subsection{Biases from PCR cycles}
+\label{ssec:pcrbias_methods_pcr}
+
+\subsection{Biases from purification}
+\label{ssec:pcrbias_methods_pur}
+
+\subsection{Biases from reagent vendors}
+\label{ssec:pcrbias_methods_reagent}
+
+\subsection{Sequencing}
+\label{ssec:pcrbias_methods_seq}
+
+The same procedures for sequencing as \ref{ssec:emsaselex_methods_seq} were used.
 
 %% - Data analysis
 
