@@ -361,13 +361,28 @@ The same input library as \ref{ssec:emsaselex_methods_lig} was used, without met
 \subsection{Biases from enzymes}
 \label{ssec:pcrbias_methods_enz}
 
-PCR amplification followed manufacturers' specification for the following DNA polymerases: Phire Hot Start II DNA polymerase (ThermoFisher, F122S), Q5 Hot Start High-Fidelity DNA polymerase (New England BioLabs, M0493S), DreamTaq Hot Start DNA Polymerase (ThermoFisher, EP1701), Pfu Turbo DNA Polymerase (Agilent Technologies, 600250), and Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  For each source, DNA was amplified by 4, 8, 12, 16, 20, 24, and 28 cycles.
+PCR amplification followed manufacturers' specification for the following DNA polymerases: Phire Hot Start II DNA polymerase (ThermoFisher, F122S), Q5 Hot Start High-Fidelity DNA polymerase (New England BioLabs, M0493S), DreamTaq Hot Start DNA Polymerase (ThermoFisher, EP1701), and Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).
+
+For each enzyme, the input library was diluted by factors and then amplified for numbers of cycles as specified:
+
+\begin{itemize}
+  \item Dilute by a factor of $2^{4}$, then amplify for 8 cycles
+  \item Dilute by a factor of $2^{8}$, then amplify for 12 cycles
+  \item Dilute by a factor of $2^{12}$, then amplify for 16 cycles
+  \item Dilute by a factor of $2^{16}$, then amplify for 20 cycles
+  \item Dilute by a factor of $2^{20}$, then amplify for 24 cycles
+
+To investigate bottleneck effects, the product from 24-cycle amplification was diluted by a factor of $2^{20}$.  From this, three samples were taken to be amplified using 24 cycles.
 
 \subsection{Biases from PCR cycles}
 \label{ssec:pcrbias_methods_pcr}
 
+The input library was diluted by a factor of $2^{20}$.  PCR amplification followed manufacturer's specification for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  DNA was amplified for 4, 8, 12, 16, 20, 24, and 28 cycles, then re-diluted so that theoretical concentrations matched DNA that was amplified for 4 cycles.
+
 \subsection{Biases from purification}
 \label{ssec:pcrbias_methods_pur}
+
+All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA w
 
 \subsection{Biases from reagent vendors}
 \label{ssec:pcrbias_methods_reagent}
