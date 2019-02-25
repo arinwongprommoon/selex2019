@@ -120,25 +120,32 @@ In this project, I conducted four cycles of nucleosome SELEX using a random DNA 
 \label{sec:emsaselex_methods}
 % - DNA ligand design and preparation of different types of ligands
 
-The initial DNA ligand is 147 base pairs. This consists of 101 base pairs of random nucleotide sequences flanked by fixed sequences on either side (5$'$ GCTCTTCCGATCT nnnnnnnnnnnnnnnnnnnn AGATCGGAAGAGC 3$'$). This initial DNA ligand was first dissolved in water to yield a \SI{100}{\micro\Molar} solution, then diluted 500-fold in TE buffer with \SI{0.2}{\milli\Molar} EDTA.
+The sequence of the initial input library is 5$'$ GCTCTTCCGATCT nnnnnnnnnnnnnnnnnnnn AGATCGGAAGAGC 3$'$, where n denotes any nucleotide chosen at random, and was made to 200 \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA.
 
-% Replace the entire damn thing with a table.
-Pre-mixes for PCR amplification were prepared. For `plain' ligands and CpG-methylation, the mix contained 2x Phusion High-Fidelity buffer (ThermoFisher), \SI{0.78}{\milli\Molar} dNTPs (prepared from a \SI{10}{\milli\Molar} dNTP mix), \SI{1.5}{\micro\Molar} forwards primer (5$'$ CCCTACACGAC GCTCTTCC 3$'$), \SI{1.5}{\micro\Molar} reverse primer (3$'$ GCCTTCTCG TGTGCAGAC 5$'$), \SI{4.0}{\micro\Molar} \ce{MgCl2}, and X M Phusion DNA polymerase (ThermoFisher). To create half-C-methylated ligands, the \SI{10}{\milli\Molar} dNTPs were replaced with a \SI{2.5}{\milli\Molar} dNTP mix consisting of dATP, dTTP, dGTP, dCTP, and 5-methyl dCTP in a 1:1:1:0.5:0.5 ratio. To create all-C-methylated ligands, the \SI{10}{\milli\Molar} dNTPs were replaced with a \SI{2.5}{\milli\Molar} mix consisting of dATP, dTTP, dGTP, and 5-methyl dCTP in a 1:1:1:1 ratio.
+PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530).  The sequence of the forward primer was 5$'$ CCCTACACGAC GCTCTTCC 3$'$, and the sequence of the reverse primer was 3$'$ GCCTTCTCG TGTGCAGAC 5$'$.  Thirteen cycles of PCR was followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the CTPs were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the CTPs were replaced with 5-methylcytosine.
+
+% figure out if any of my papers mention a recipe for CpG methylation. If so, replace the following with a reference to that.
+In CpG-methylation, \SI{7.05}{\micro\litre} of the following mixture was added to \SI{25}{\micro\litre} of DNA:
+
+\begin{itemize}
+\item 4 U of M.SssI enzyme,
+\item \SI{320}{\micro\Molar} S-adenosylmethionine,
+\item \SI{7.8}{\milli\Molar} \ce{MgCl2}, and
+\item \SI{0.9}{\milli\Molar} DTT.
+\end{itemize}
+\label{recipe:cpgmix}
+
+The resulting mixture was incubated at \SI{37}{\celsius} for 3 hours, followed by \SI{65}{\celsius} for 20 minutes.
 
 % - SELEX procedure
 
-For each round of SELEX, \SI{25}{\micro\litre} of the respective DNA ligand solution and \SI{25}{\micro\litre} of the corresponding amplification pre-mix were mixed wells in a 96-well deep-well plate. We used a thermocycling protocol modified from that recommended for Phusion High-Fidelity DNA polymerase (ThermoFisher). Thirteen cycles of PCR was followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.
+% Nucleosome reconstitution
 
-A pre-mix for CpG-methylation was prepared. This contains 4 U of M.SssI enzyme, \SI{320}{\micro\Molar} S-adenosylmethionine, \SI{7.8}{\milli\Molar} \ce{MgCl2},
-and \SI{0.9}{\milli\Molar} DTT. For CpG-methylation, \SI{7.05}{\micro\litre} of this pre-mix was added to \SI{25}{\micro\litre} of the `plain' ligand in 96-well plates, then the mixture was incubated at \SI{37}{\celsius} for 3 hours, followed by \SI{65}{\celsius} for 20 minutes.
+Nucleosome reconstitution procedures were adapted from \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particles'), using \SI{2}{\Molar} \ce{KCl}.  Histone:DNA ratios used were 1.48:1, 0.74:1, 0.37:1, 0.19:1, and 0.09:1. % is the last part necessary given that I'm likely going to put it in a figure?
 
-\SI{4}{\micro\litre} of a solution of \SI{2}{\Molar} \ce{KCl}, \SI{2}{\milli\Molar} \ce{Mg^{2+}} dissolved in \SI{10}{\milli\litre} TE was dried to each well of a 4ti 384-well plate. Histone octamers were from \emph{Xenopus laevis}. First, the histone octamer concentration was adjusted to \SI{150}{\nano\gram\per\micro\litre} with 1:1 glycerol:refolding buffer (\SI{2}{\Molar} \ce{KCl}, \SI{10}{\milli\Molar} Tris-HCl pH 7.5, \SI{1}{\milli\Molar} Na-EDTA, \SI{5}{\milli\Molar} 2-mercaptoethanol). Then, the histone octamers were serially diluted two-fold to a dilution factor of 16x. To the salted wells of the 384-well plate, \SI{152}{\micro\gram} of the DNA ligand (\SI{4}{\micro\litre} for ‘plain’ ligands, half-C-methylated ligands, and all-C-methylated ligands; \SI{5.2}{\micro\litre} for CpG-methylated ligands) and \SI{1.5}{\micro\litre} of the various dilutions of the histone octamer were added. In a sixth well, refolding buffer was added instead.
+To verify results, reconstituted nucleosomes were analysed by EMSA by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  Gel bands corresponding to unbound DNA (first lane) and to reconstituted nucleosomes were sliced.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight.
 
-Then, the nucleosomes were reconstituted. First, the mixtures were incubated for 30 minutes. Second, \SI{10}{\micro\litre} of the nucleosome reconstitution buffer was added, and the mixture was incubated for 1 hour. Third, \SI{5}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour. Fourth, \SI{5}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour again. Fifth, \SI{70}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour. Finally, \SI{100}{\micro\litre} buffer was added, and the mixture was incubated for 1 hour.
-
-The reconstituted nucleosomes were then run on an EMSA gel. First, the TBE 6\% DNA retardation gel was pre-run at \SI{150}{\volt} with 0.2\% TBE buffer in an ice bath. Then, \SI{10}{\micro\litre} of the reconstituted nucleosome samples (\SI{10}{\micro\litre} sample + \SI{3}{\micro\litre} 5x TBE loading dye) were immediately loaded. The gel was then run at \SI{230}{\volt}, \SIrange{8}{15}{\milli\ampere} per gel for 35 minutes at \SI{4}{\celsius}. Gel bands corresponding to unbound DNA (first lane) and to reconstituted nucleosomes were sliced. The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight. Then, \SI{12.5}{\micro\litre} of this solution was added to \SI{12.5}{\micro\litre} of the corresponding amplification pre-mixes in 96-well plates. SELEX was then performed with a thermocycling protocol modified from that recommended for Phusion High-Fidelity DNA polymerase (ThermoFisher). Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
-
-Afterwards, the product was CpG-methylated. The resulting ligands then functioned as the input for the next SELEX cycle. In this experiment, four cycles were conducted, and the elutions from the reconstituted nucleosomes were stored.
+Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530). The same primers were used as initial amplification of the input library.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
 
 % - Sequencing and preprocessing
 
@@ -316,10 +323,13 @@ Repeating the Phusion amplification using qPCR yielded saturation curves (figure
 \subsection{Origin of PCR bias}
 \label{ssec:pcrbias_intro_origin}
 %% - The origin of PCR bias
+% I think I need to find more papers on this
 
 \subsection{How PCR bias affects reliability of sequencing results}
 \label{ssec:pcrbias_intro_effects}
 %% - How PCR bias affects reliability of sequencing results
+% I think I need to find more papers on this
+% Olova et al. 2018 mentions DNA methylation, so it will be useful when I'm justifying why I'm adding methylated nucleotides in a step in this project
 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
