@@ -377,15 +377,19 @@ To investigate bottleneck effects, the product from 24-cycle amplification was d
 \subsection{Biases from PCR cycles}
 \label{ssec:pcrbias_methods_pcr}
 
-The input library was diluted by a factor of $2^{20}$.  PCR amplification followed manufacturer's specification for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  DNA was amplified for 4, 8, 12, 16, 20, 24, and 28 cycles, then re-diluted so that theoretical concentrations matched DNA that was amplified for 4 cycles.
+lig147 was diluted by a factor of $2^{20}$.  PCR amplification followed manufacturer's specification for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  DNA was amplified for 4, 8, 12, 16, 20, 24, and 28 cycles, then re-diluted so that theoretical concentrations matched DNA that was amplified for 4 cycles.
 
 \subsection{Biases from purification}
 \label{ssec:pcrbias_methods_pur}
 
-All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA w
+lig147 was purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols, but with a \SI{15}{\micro\litre} elution volume.  Purification was repeated for 1, 2, 4, and 8 times.
 
 \subsection{Biases from reagent vendors}
 \label{ssec:pcrbias_methods_reagent}
+
+lig147 was diluted by a factor of $2^{20}$.  It was then amplified for 24 cycles using manufacturer's specification for PCR amplification using Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L) and the reagents supplied by this vendor.
+
+Combinations of Phusion High-Fidelity DNA Polymerase and dNTPs were investigated.  The polymerases used were from ThermoFisher (F530L) and New England BioLabs (M0530L).  The dNTPs used were from ThermoFisher (R0192), Agilent Technologies (200415-51), Kapa Biosystems (KN1009), and dNTPs containing 5-methylcytosine in place of dCTP from Zymo Research (D1030).  Twenty-four cycles of PCR using the eight combinations of polymerases and dNTPs proceeded according to manufacturer's specification for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).
 
 \subsection{Sequencing}
 \label{ssec:pcrbias_methods_seq}
