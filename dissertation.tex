@@ -328,14 +328,26 @@ Repeating the Phusion amplification using qPCR yielded saturation curves (figure
 
 \subsection{Origin of PCR bias}
 \label{ssec:pcrbias_intro_origin}
-%% - The origin of PCR bias
-% I think I need to find more papers on this
+
+% Olova et al. 2018 mentions DNA methylation, so it will be useful when I'm justifying why I'm adding methylated nucleotides in a step in this project
+
+PCR is a known source of bias in massively parallel sequencing \citep{olova_comparison_2018}.  Among the processes in Illumina sequencing, PCR amplification during library preparation has been identified as the major source of bias.
+% The corresponding figure from Aird et al. would be useful here
+\citet{aird_analyzing_2011} measured frequencies of amplicons of varying GC content after each step in library preparation for Illumina sequencing, and found that DNA shearing, adapter ligation, gel size selection did not significantly introduce biases in response to GC content.  However, PCR depleted loci with GC content exceeding 65\% to the order of 1\% of the reference loci with intermediate GC content, and it also depleted loci with GC content lower than 12\% to the order of 10\% of the reference loci.  This pattern was observed even for 10 PCR cycles.
+
+The notion that PCR accounts for most of the bias in sequencing is strengthened by how amplification-free sequencing methods exhibited less bias than methods that rely on sequencing.  The amplification-free Pacific Biosciences sequencing introduced the least bias, followed by Illumina and Ion Torrent sequencing \citep{ross_characterizing_2013}. All methods exhibited biases for extremely low and extremely high GC content as described by \citet{aird_analyzing_2011}, but combining data from two sequencing technologies has been shown to potentially reduce bias.
+
+% Awkward position of this paragraph?
+\citet{aird_analyzing_2011} then found that this bias can be mitigated by slowing the temperature ramping speed of thermocyclers, extending denaturation steps, and adding \SI{2}{\Molar} betaine.
+
+Additionally, the choice of DNA polymerase enzyme has an effect.  Phusion DNA polymerase is a commonly used polymerase enzyme in research because it has higher processivity and fidelity as compared to most polymerases \citep{quail_optimal_2012}.  However, Phusion has a weak strand-displacement activity.  Trying to reduce PCR bias by added betaine and prolonging the denaturation step leads to a loss of high-AT sequences.
+
+\citet{aird_analyzing_2011} showed that replacing Phusion with AccuPrime Taq HiFi polymerase improved PCR bias.  Extension at \SI{60}{\celsius} using this enzyme retained more low-GC sequences, but also led to a decrease in yield of GC-rich reads.  \citet{quail_optimal_2012} showed that replacing Phusion with Kapa HiFi led to a more uniformm genome coverage.  However, this also led to a higher error rate, especially in TA-rich regions that Phusion often fails to amplify.
 
 \subsection{How PCR bias affects reliability of sequencing results}
 \label{ssec:pcrbias_intro_effects}
-%% - How PCR bias affects reliability of sequencing results
-% I think I need to find more papers on this
-% Olova et al. 2018 mentions DNA methylation, so it will be useful when I'm justifying why I'm adding methylated nucleotides in a step in this project
+
+Commonly-used model organisms have GC content within the range in which bias is least likely introduced.  \emph{E. coli} and humans have genomes that have moderate GC content, with \emph{E. coli} having a GC content of 51\%.  PCR bias is still significant for these model organisms as they have important sequences that may be affected by PCR bias.  This includes single-nucleotide polymorphisms (SNPs), and GC-rich sequences like transcription start sites and first exons in eukaryotes.  Additionally, humans exhibit `bad promoters'. % expand on the `bad promoters' data set from Ross et al.  Where did they get them, and what is their importance?
 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
@@ -371,7 +383,8 @@ For each enzyme, the input library was diluted by factors and then amplified for
   \item Dilute by a factor of $2^{12}$, then amplify for 16 cycles
   \item Dilute by a factor of $2^{16}$, then amplify for 20 cycles
   \item Dilute by a factor of $2^{20}$, then amplify for 24 cycles
-
+\end{itemize}
+    
 To investigate bottleneck effects, the product from 24-cycle amplification was diluted by a factor of $2^{20}$.  From this, three samples were taken to be amplified using 24 cycles.
 
 \subsection{Biases from PCR cycles}
