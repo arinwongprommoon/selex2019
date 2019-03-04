@@ -2,7 +2,8 @@
 from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy import fftpack
+#from scipy import fftpack
+from scipy.fftpack import rfft, irfft, fftfreq
 
 bases = ['A', 'C', 'G', 'T']
 
@@ -53,8 +54,10 @@ plt.show()
 # fig, ax = plt.subplots()
 # ax.plot(xf, np.abs(yf))
 
-Fs = 100.0
-y = all_freq['T']
+avg = sum(all_freq['A'])/len(all_freq['A'])
+
+Fs = 94.0
+y = [x - avg for x in all_freq['A']]
 n = len(y)
 k = np.arange(n)
 T = n/Fs
@@ -66,4 +69,18 @@ Y = np.fft.fft(y)/n
 
 plt.plot(frq, abs(Y), 'r')
 
+plt.show()
+
+time = np.linspace(0,1,94)
+signal = all_freq['A']
+avg = sum(signal)/len(signal)
+signal = [x - avg for x in signal]
+W = fftfreq(len(signal), d=time[1]-time[0])
+f_signal = rfft(signal)
+
+plt.subplot(121)
+plt.plot(time, signal)
+plt.subplot(122)
+plt.plot(W,f_signal)
+plt.xlim(0,50)
 plt.show()
