@@ -1,15 +1,20 @@
 EMSA SELEX introduction
 
-- Why are we doing non-discriminative methylation at cytosines? Are there any
-  papers about this? Or is it kind of a control?
+- Existing studies suggest that CpG methylation affect nucleosome positioning.
+  Why are we adding methylated cytosines at random (in addition to CpG
+  methylation)? I refer to the half-methyl-C and all-methyl-C groups. Are there
+  papers about this? Or is it sort of a control?
   
-- Why are we using SELEX to find out 'rules' for nucleosome binding? Haven't
-  other methods uncovered rules? The 1998 paper argues that those rules aren't
-  particularly strong, but it's... 1998. Have there been more up-to-date
-  findings in the last 21 years?
+- It appears that other studies have uncovered 'rules' with regards to the base
+  sequences that promote nucleosome binding. These were found by various
+  methods. Lowary and Widom (1998) argue that such rules aren't strong, but
+  this is quite an old study. 
   
+  What advantages does SELEX offer over these other studies? Would this include
+  an unbiased assessment of DNA-histone binding in vitro (as opposed to
+  investigating existing sequences in living organisms)
   
 PCR bias introduction
 
-- Papers about biases introducted by rounds of PCR, by enzymes, by purification
-  ...
+- Is there existing evidence that purification (e.g. by Ampure beads) introduces
+  biases?
