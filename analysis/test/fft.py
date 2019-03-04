@@ -8,8 +8,9 @@ from scipy.fftpack import rfft, irfft, fftfreq
 bases = ['A', 'C', 'G', 'T']
 
 myfile = "94N_bound_cyc4.txt"
+readlength = 94
 
-all_freq = {'A':[0]*95, 'C':[0]*95, 'G':[0]*95, 'T':[0]*95}
+all_freq = {'A':[0]*readlength, 'C':[0]*readlength, 'G':[0]*readlength, 'T':[0]*readlength}
 
 ## Counts the number of reads
 #reads = 0
@@ -41,26 +42,23 @@ all_freq = {'A': [319807, 329786, 316508, 315534, 302994, 291726, 292130, 275203
 
 
 # Plots frequencies
-x = np.arange(0,94,1)
+x = np.arange(0,readlength,1)
 fig, ax = plt.subplots()
 for base in bases:
     ax.plot(x, all_freq[base], label=base)
 legend = ax.legend()
 plt.show()
 
-avg = sum(all_freq['A'])/len(all_freq['A'])
-
-Fs = 94.0
-y = [x - avg for x in all_freq['A']]
-n = len(y)
-k = np.arange(n)
-T = n/Fs
-frq = k/T
-#frq = frq[range(n/2)]
-
-Y = np.fft.fft(y)/n
-#Y = Y[range(n/2)]
-
-plt.plot(frq, abs(Y), 'r')
-
-plt.show()
+for base in bases:
+    avg = sum(all_freq[base])/len(all_freq[base])
+    Fs = float(readlength)
+    y = [x - avg for x in all_freq[base]]
+    n = len(y)
+    k = np.arange(n)
+    T = n/Fs
+    frq = k/T
+    #frq = frq[range(n/2)]
+    Y = np.fft.fft(y)/n
+    #Y = Y[range(n/2)]
+    plt.plot(frq, abs(Y), 'r')
+    plt.show()
