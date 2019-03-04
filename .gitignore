@@ -12,3 +12,4 @@
 *.bcf
 *.run.xml
 *.tex.bak
+*.py~

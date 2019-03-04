@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+from collections import Counter
+
+bases = ['A', 'C', 'G', 'T']
+
+myfile = "94N_unbound_cyc4.txt"
+
+all_freq = {'A':[0]*95, 'C':[0]*95, 'G':[0]*95, 'T':[0]*95}
+
+# Counts the number of reads
+reads = 0
+with open(myfile) as infile:
+    for line in infile:
+        reads += 1
+
+# Figures out how common each base is at each position of the sequence
+with open(myfile) as infile:
+    for line in infile:
+        seq = list(line) # Converts string to list so that I can manipulate it easily
+        freq = {} # Like all_freq, but just for this read
+        for base in bases:
+            freq[base] = [1 if ii == base else 0 for ii in seq]
+        # Adds frequencies to all_freq
+        for key in all_freq:
+            all_freq[key] = [x + y for x, y in zip(all_freq[key], freq[key])]
+        print(100*(read/reads)) # progress bar of what % of reads we've gone through so far
+        read += 1
+
+print(all_freq)
+
