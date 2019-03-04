@@ -41,18 +41,12 @@ all_freq = {'A': [319807, 329786, 316508, 315534, 302994, 291726, 292130, 275203
 
 
 # Plots frequencies
-plt.plot(all_freq['A'])
-plt.plot(all_freq['C'])
-plt.plot(all_freq['G'])
-plt.plot(all_freq['T'])
-
+x = np.arange(0,94,1)
+fig, ax = plt.subplots()
+for base in bases:
+    ax.plot(x, all_freq[base], label=base)
+legend = ax.legend()
 plt.show()
-
-# y = all_freq['A']
-# yf = fftpack.fft(y)
-# xf = np.linspace(0.0, 1.0, 100)
-# fig, ax = plt.subplots()
-# ax.plot(xf, np.abs(yf))
 
 avg = sum(all_freq['A'])/len(all_freq['A'])
 
@@ -69,18 +63,4 @@ Y = np.fft.fft(y)/n
 
 plt.plot(frq, abs(Y), 'r')
 
-plt.show()
-
-time = np.linspace(0,1,94)
-signal = all_freq['A']
-avg = sum(signal)/len(signal)
-signal = [x - avg for x in signal]
-W = fftfreq(len(signal), d=time[1]-time[0])
-f_signal = rfft(signal)
-
-plt.subplot(121)
-plt.plot(time, signal)
-plt.subplot(122)
-plt.plot(W,f_signal)
-plt.xlim(0,50)
 plt.show()
