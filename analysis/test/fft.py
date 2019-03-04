@@ -2,7 +2,6 @@
 from collections import Counter
 import matplotlib.pyplot as plt
 import numpy as np
-#from scipy import fftpack
 from scipy.fftpack import rfft, irfft, fftfreq
 
 bases = ['A', 'C', 'G', 'T']
@@ -48,10 +47,12 @@ for base in bases:
 legend = ax.legend()
 plt.show()
 
+# Plots FFT spectra
 jj = 0
 fig, ax = plt.subplots(2,2)
 ax = ax.flatten()
 for base in bases:
+    # This is the actual computation
     avg = sum(all_freq[base])/len(all_freq[base])
     Fs = float(readlength)
     y = [x - avg for x in all_freq[base]]
@@ -62,6 +63,7 @@ for base in bases:
     frq = frq[list(range(n//2))]
     Y = np.fft.fft(y)/n
     Y = Y[list(range(n//2))]
+    # end of computation
     ax[jj].plot(frq, abs(Y), label=base)
     legend = ax[jj].legend()
     jj += 1
