@@ -327,12 +327,9 @@ Commonly-used model organisms have GC content within the range in which bias is 
 \label{ssec:pcrbias_intro_why}
 %% - The purpose of this study: provide experiment data, to build a model accounting for such bias, remove such bias in future genomic study
 
-SELEX employs PCR.  Using PCR makes amplified DNA biased towards sequences that are conducive towards PCR amplification, rather than accurately reflect the composition of the heterogenous sample that is amplified. %citation needed
-This especially applies when the signal enrichment in the sequencing library is weak.  This is the case for nucleosome-SELEX, where sequence affinities for the nucleosome is weak.
+Nucleosome-SELEX employs PCR.  Therefore, sequence biases do not clearly separate DNA sequences bound to nucleosomes from DNA sequences not bound to nucleosomes, as desired.  Instead, both DNA sequences bound to nucleosomes and DNA sequences not bound to nucleosomes have the same bias.  This bias is towards sequences conducive to amplification by PCR.  As sequence affinities for the nucleosome is weak, the signal enrichment in the sequencing library is weak, contributing to the difficulty of separating true signals from biases introduced by PCR.
 
-With PCR, sequence biases do not clearly separate DNA sequences bound to nucleosomes from DNA sequences not bound to nucleosomes, as desired.  Instead, both DNA sequences bound to nucleosomes and DNA sequences not bound to nucleosomes have the same bias.  This bias is towards sequences conducive to amplification by PCR.
-
-Here I tested the sequence biases that could be introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR.  This led to constructing a model of PCR bias, which could help users of PCR and SELEX to remove biases to reveal true signals.
+Here I tested the sequence biases that could be introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR. The experimental data led to constructing a model to account for PCR bias from these sources.  With this model, such PCR biases can be removed in genomic studies to reveal true signals.
 
 
 \section{Materials and Methods}
