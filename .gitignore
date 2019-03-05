@@ -13,3 +13,5 @@
 *.run.xml
 *.tex.bak
 *.py~
+
+analysis/test/*.txt
