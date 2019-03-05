@@ -5,6 +5,10 @@ EMSA SELEX introduction
   methylation)? I refer to the half-methyl-C and all-methyl-C groups. Are there
   papers about this? Or is it sort of a control?
   
+    Non-CpG methylation can be functional in stem cells and neural cells
+    (e.g. https://www.nature.com/articles/nn.3607). Our experiment data will
+    be useful for understanding the nucleosome positioning there.
+  
 - It appears that other studies have uncovered 'rules' with regards to the base
   sequences that promote nucleosome binding. These were found by various
   methods. Lowary and Widom (1998) argue that such rules aren't strong, but
@@ -14,7 +18,19 @@ EMSA SELEX introduction
   an unbiased assessment of DNA-histone binding in vitro (as opposed to
   investigating existing sequences in living organisms)
   
+    In the Lowary and Widom (1998) paper, they are carrying out almost the
+    same SELEX experiment as us, but just limited by the sequencing
+    capacity at that time. Compared to their work, our SELEX library is
+    sequenced to a higher depth, allowing us to identify signals with
+    higher information content. The main advantage of using SELEX over
+    MNase-seq is that the random DNA library is much much more complexed
+    than the genomic sequences, and is with a much much more homogeneous
+    background sequence distribution.
+  
 PCR bias introduction
 
 - Is there existing evidence that purification (e.g. by Ampure beads) introduces
   biases?
+  
+    In my previous SELEX batches, it seems that purification by Ampure
+    beads biases C/G nucleotides.
