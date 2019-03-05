@@ -11,7 +11,12 @@
 *.bib#
 *.bcf
 *.run.xml
+
 *.tex.bak
 *.py~
 
-analysis/test/*.txt
+analysis/test/94N*.txt
+
+
+
+
