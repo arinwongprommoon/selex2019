@@ -91,6 +91,9 @@ Experiments with synthetic DNA have given rise to additional `rules' for nucleos
 
 % Methylation
 
+% this could be moved to the gene expression section below??
+Cytosine methylation is the predominant chemical modification of eukaryotic DNA and plays roles in gene regulation and physiology.  CpG methylation widely modulates gene expression, and non-CpG methylation regulates development of stem cells and neurons \citep{guo_distribution_2014}.
+
 DNA methylation also affects nucleosome positioning.  Methylation in clusters disfavours nucleosome positioning \emph{in vivo}. This is because densely methylated DNA is rigid and does not favour the curvature needed to form nucleosomes.
 %Several studies suggest that methylation preferentially occurs outside or at the edges of nucleosome cores, while one study shows that methylation is enriched in the nucleosome core. % citations needed
 Methylation of DNA in the algae \emph{Ostreococcus lucimarinus} and \emph{Micromonas pusilla} occurs periodically in the linker DNA between nucleosome, and is almost completely excluded from nucleosome cores.  This is based on micrococcal nuclease digestion \citep{huff_dnmt1-independent_2014}.  For these organisms, up to half the cytosines in CpG islands within the regions of methylation are methylated.  Additionally, dense methylation itself contributes directly to the positioning of nucleosomes.  This is supported by nucleosome mapping on fully methylated \emph{O. lucimarius} DNA: nucleosomes are preferentially positioned on sequences that are non methylated \emph{in vivo}.
@@ -114,7 +117,7 @@ SELEX is a promising unbiased method to identify the DNA sequences preferred for
 
 % any issues?
 
-In this project, I conducted four cycles of nucleosome SELEX using a random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA \citep{dyer_reconstitution_2003} methylated at various levels.  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of k-mer nucleotides using Fourier transform \citep{lowary_new_1998, zhu_interaction_2018}.  Using these data, I extended an existing nucleosome model of PCR bias to make it more explicit.
+In this project, I conducted four cycles of nucleosome SELEX using a random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA \citep{dyer_reconstitution_2003} methylated at various levels.  This included CpG methylation, methylation at all cytosines, and methylation at half the cytosines.  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of k-mer nucleotides using Fourier transform \citep{lowary_new_1998, zhu_interaction_2018}.  Using these data, I extended an existing nucleosome model of PCR bias to make it more explicit.
 
 \section{Materials and Methods}
 \label{sec:emsaselex_methods}
