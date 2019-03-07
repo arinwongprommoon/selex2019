@@ -6,7 +6,7 @@ from scipy.fftpack import rfft, irfft, fftfreq
 
 bases = ['A', 'C', 'G', 'T']
 
-myfile = "94N_bound_cyc4.txt"
+myfile = "94N_unbound_cyc4.txt"
 readlength = 94
 
 all_freq = {'A':[0]*readlength, 'C':[0]*readlength, 'G':[0]*readlength, 'T':[0]*readlength}
