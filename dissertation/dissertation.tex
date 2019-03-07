@@ -112,7 +112,7 @@ Eluted DNA was amplified using procedures adapted from manufacturer's recommende
 \subsection{Sequencing}
 \label{ssec:emsaselex_methods_seq}
 
-After SELEX, the eluted DNA was barcoded for sequencing. This was divided into two experimental sets: using DreamTaq and Phusion DNA polymerase (both ThermoFisher) for amplification.  Amplification was carried out using the procedures recommended for each enzyme for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.
+After SELEX, the eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.
 
 Sequencing was by Illumina HiSeq 4000.
 % add detail about processing here
@@ -226,61 +226,60 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
 
 % Debugging should probably be in a separate subsection in the results or discussion section
 
-After the DNA was eluted, barcodes were added using DreamTaq or Phusion (both ThermoFisher) as DNA polymerases.  Gel electrophoresis of the products amplified by DreamTaq yielded bands corresponding to 147 base pairs (figure~\ref{fig:barcoding_a}).  However, gel electrophoresis of the products amplified by Phusion using recommended protocols did not yield this band (figure~\ref{fig:barcoding_b}).
+%% After the DNA was eluted, barcodes were added using DreamTaq or Phusion (both ThermoFisher) as DNA polymerases.  Gel electrophoresis of the products amplified by DreamTaq yielded bands corresponding to 147 base pairs (figure~\ref{fig:barcoding_a}).  However, gel electrophoresis of the products amplified by Phusion using recommended protocols did not yield this band (figure~\ref{fig:barcoding_b}).
 
-Repeating the Phusion amplification using qPCR yielded saturation curves (figure~\ref{fig:qpcr}), suggesting that amplification indeed took place.  As qPCR required a lower concentration of the template, it was hypothesised that Phusion initially failed because the ligand was too concentrated.  Different DNA polymerases from different vendors are efficient with differing template concentrations – for example, DreamTaq requires ... while Phusion requires ... (citation needed).  Therefore, I diluted the template DNA further by adding \SI{70}{\micro\litre} dilution buffer to each well. The resulting 8\% TBE gel yielded the band corresponding to 147 base pairs (figure~\ref{fig:barcoding_c}), confirming the hypothesis.
+%% Repeating the Phusion amplification using qPCR yielded saturation curves (figure~\ref{fig:qpcr}), suggesting that amplification indeed took place.  As qPCR required a lower concentration of the template, it was hypothesised that Phusion initially failed because the ligand was too concentrated.  Different DNA polymerases from different vendors are efficient with differing template concentrations – for example, DreamTaq requires ... while Phusion requires ... (citation needed).  Therefore, I diluted the template DNA further by adding \SI{70}{\micro\litre} dilution buffer to each well. The resulting 8\% TBE gel yielded the band corresponding to 147 base pairs (figure~\ref{fig:barcoding_c}), confirming the hypothesis.
 
-\begin{figure}[htpb]
-  \centering
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{dreamtaq}
-    \caption{A}
-    \label{fig:barcoding_a}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{phusion_old_a}
-    \caption{B}
-    \label{fig:barcoding_b}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{phusion_new_a}
-    \caption{C}
-    \label{fig:barcoding_c}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{qpcrgel}
-    \caption{D}
-    \label{fig:barcoding_d}
-  \end{subfigure}
-  \caption{A - DreamTaq gel, B - old Phusion gels for rows A and B, C - new Phusion gels for rows A and B, D - qPCR gel}
-  \label{fig:barcoding}
-\end{figure}
+%% \begin{figure}[htpb]
+%%   \centering
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{dreamtaq}
+%%     \caption{A}
+%%     \label{fig:barcoding_a}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{phusion_old_a}
+%%     \caption{B}
+%%     \label{fig:barcoding_b}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{phusion_new_a}
+%%     \caption{C}
+%%     \label{fig:barcoding_c}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{qpcrgel}
+%%     \caption{D}
+%%     \label{fig:barcoding_d}
+%%   \end{subfigure}
+%%   \caption{A - DreamTaq gel, B - old Phusion gels for rows A and B, C - new Phusion gels for rows A and B, D - qPCR gel}
+%%   \label{fig:barcoding}
+%% \end{figure}
 
-\begin{figure}[htpb]
-  \centering
-  \begin{subfigure}[htpb]{0.3\textwidth}
-    \includegraphics[scale=0.1]{qPCR_B}
-    \caption{A}
-    \label{fig:qpcr_a}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.3\textwidth}
-    \includegraphics[scale=0.1]{qPCR_D}
-    \caption{B}
-    \label{fig:qpcr_b}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.3\textwidth}
-    \includegraphics[scale=0.1]{qPCR_F}
-    \caption{C}
-    \label{fig:qpcr_c}
-  \end{subfigure}
-  \caption{A - row B, B - row D, C - row H}
-  \label{fig:qpcr}
-\end{figure}
-
+%% \begin{figure}[htpb]
+%%   \centering
+%%   \begin{subfigure}[htpb]{0.3\textwidth}
+%%     \includegraphics[scale=0.1]{qPCR_B}
+%%     \caption{A}
+%%     \label{fig:qpcr_a}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.3\textwidth}
+%%     \includegraphics[scale=0.1]{qPCR_D}
+%%     \caption{B}
+%%     \label{fig:qpcr_b}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.3\textwidth}
+%%     \includegraphics[scale=0.1]{qPCR_F}
+%%     \caption{C}
+%%     \label{fig:qpcr_c}
+%%   \end{subfigure}
+%%   \caption{A - row B, B - row D, C - row H}
+%%   \label{fig:qpcr}
+%% \end{figure}
 
 \chapter{PCR Bias}
 \label{ch:pcrbias}
