@@ -98,20 +98,7 @@ In this project, I aimed to study the sequence specificity of the nucleosome on 
 
 The sequence of the initial input library is 5$'$ GCTCTTCCGATCT nnnnnnnnnnnnnnnnnnnn AGATCGGAAGAGC 3$'$, where n denotes any nucleotide chosen at random. The input library DNA was made to 200 \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA.
 
-PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530).  The sequence of the forward primer was 5$'$ CCCTACACGAC GCTCTTCC 3$'$, and the sequence of the reverse primer was 3$'$ GCCTTCTCG TGTGCAGAC 5$'$.  Thirteen cycles of PCR with recommended temperatures were followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the dCTPs were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the dCTPs were replaced with 5-methylcytosine.
-
-% figure out if any of my papers mention a recipe for CpG methylation. If so, replace the following with a reference to that.
-In CpG-methylation, \SI{7.05}{\micro\litre} of the following mixture was added to \SI{25}{\micro\litre} of DNA:
-
-\begin{itemize}
-\item 4 U of M.SssI enzyme,
-\item \SI{320}{\micro\Molar} S-adenosylmethionine,
-\item \SI{7.8}{\milli\Molar} \ce{MgCl2}, and
-\item \SI{0.9}{\milli\Molar} DTT.
-\end{itemize}
-\label{recipe:cpgmix}
-
-The resulting mixture was incubated at \SI{37}{\celsius} for 3 hours, followed by \SI{65}{\celsius} for 20 minutes.
+PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, cat no F530).  The sequence of the forward primer was 5$'$ CCCTACACGAC GCTCTTCC 3$'$, and the sequence of the reverse primer was 3$'$ GCCTTCTCG TGTGCAGAC 5$'$.  Thirteen cycles of PCR with recommended temperatures were followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the dCTPs were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the dCTPs were replaced with 5-methylcytosine.   For CpG-methylation, methyltransferase (M.SssI) was added to DNA in conjunction with S-adenosylmethionine and \ce{MgCl2}, then incubated according to manufacturer's protocols.
 
 \subsection{SELEX}
 \label{ssec:emsaselex_methods_selex}
@@ -127,13 +114,14 @@ Eluted DNA was amplified using procedures adapted from manufacturer's recommende
 
 After SELEX, the eluted DNA was barcoded for sequencing. This was divided into two experimental sets: using DreamTaq and Phusion DNA polymerase (both ThermoFisher) for amplification.  Amplification was carried out using the procedures recommended for each enzyme for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.
 
-Sequencing was by Illumina... % add detail
+Sequencing was by Illumina HiSeq 4000.
+% add detail about processing here
 
 \subsection{Data analysis}
 \label{ssec:emsaselex_methods_anal}
 
 % - Data analysis
-Add content here.
+(Add content here)
 
 \section{Results}
 \label{sec:emsaselex_results}
@@ -151,42 +139,42 @@ Add content here.
 Using the lig147 input library \citep{zhu_interaction_2018}, four cycles of EMSA SELEX (figure~\ref{fig:selex}) were carried out.  The experiment had four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
 
 % use some other name for the protocol, but actually this ssec may disappear altogether.
-\subsection{DSSYNV2 was able to correctly amplify lig147 and methylated ligands}
-\label{ssec:amplig}
+%% \subsection{DSSYNV2 was able to correctly amplify lig147 and methylated ligands}
+%% \label{ssec:amplig}
 
-% Repeats figure captions
+%% % Repeats figure captions
 
-Initial amplification was successful for all experimental groups. This was supported by gel electrophoresis (figure~\ref{fig:amplig}) and spectrophotometric measurements of DNA concentrations within \SIrange{30}{40}{\nano\gram\per\micro\litre}.
+%% Initial amplification was successful for all experimental groups. This was supported by gel electrophoresis (figure~\ref{fig:amplig}) and spectrophotometric measurements of DNA concentrations within \SIrange{30}{40}{\nano\gram\per\micro\litre}.
 
-\begin{figure}[htpb]
-  \centering
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{amplig_a}
-    \caption{A}
-    \label{fig:amplig_a}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{amplig_b}
-    \caption{B}
-    \label{fig:amplig_b}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{amplig_c}
-    \caption{C}
-    \label{fig:amplig_c}
-  \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{test}
-    \caption{D}
-    \label{fig:amplig_d}
-  \end{subfigure}
-  \caption{Gel electrophoresis in 8\% TBE gels for (A) amplified lig147 (B) half-C-methylated (C) all-C-methylated, and (D) CpG-methylated DNA. All lanes exhibited a strong band between 100 and 200 nucleotides. Slower-migrating fainter bands corresponded to single-stranded DNA as was expected.}
-  \label{fig:amplig}
-\end{figure}
+%% \begin{figure}[htpb]
+%%   \centering
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{amplig_a}
+%%     \caption{A}
+%%     \label{fig:amplig_a}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{amplig_b}
+%%     \caption{B}
+%%     \label{fig:amplig_b}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{amplig_c}
+%%     \caption{C}
+%%     \label{fig:amplig_c}
+%%   \end{subfigure}
+%%   \begin{subfigure}[htpb]{0.4\textwidth}
+%%     \centering
+%%     \includegraphics[width=\textwidth]{test}
+%%     \caption{D}
+%%     \label{fig:amplig_d}
+%%   \end{subfigure}
+%%   \caption{Gel electrophoresis in 8\% TBE gels for (A) amplified lig147 (B) half-C-methylated (C) all-C-methylated, and (D) CpG-methylated DNA. All lanes exhibited a strong band between 100 and 200 nucleotides. Slower-migrating fainter bands corresponded to single-stranded DNA as was expected.}
+%%   \label{fig:amplig}
+%% \end{figure}
 
 \subsection{Nucleosome reconstitution}
 \label{ssec:reconstnuc}
@@ -316,7 +304,7 @@ Additionally, the choice of DNA polymerase enzyme has an effect.  Phusion DNA po
 \subsection{How PCR bias affects reliability of sequencing results}
 \label{ssec:pcrbias_intro_effects}
 
-Commonly-used model organisms have GC content within the range in which bias is least likely introduced.  \emph{E. coli} and humans have genomes that have moderate GC content, with \emph{E. coli} having a GC content of 51\%.  PCR bias is still significant for these model organisms as they have important sequences that may be affected by PCR bias.  This includes single-nucleotide polymorphisms (SNPs), and GC-rich sequences like transcription start sites and first exons in eukaryotes.  Additionally, humans exhibit `bad promoters'. % expand on the `bad promoters' data set from Ross et al.  Where did they get them, and what is their importance?
+Commonly-used model organisms have GC content within the range in which bias is least likely introduced.  \emph{E. coli} and humans have genomes that have moderate GC content, with \emph{E. coli} having a GC content of 51\%.  PCR bias is still significant for these model organisms as they have important sequences that may be affected by PCR bias.  This includes single-nucleotide polymorphisms (SNPs), and GC-rich sequences like transcription start sites and first exons in eukaryotes.  %Additionally, humans exhibit `bad promoters'. % expand on the `bad promoters' data set from Ross et al.  Where did they get them, and what is their importance?
 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}

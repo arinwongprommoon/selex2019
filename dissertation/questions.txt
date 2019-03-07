@@ -34,3 +34,18 @@ PCR bias introduction
   
     In my previous SELEX batches, it seems that purification by Ampure
     beads biases C/G nucleotides.
+
+METHODS
+
+- Any details about sequencing? E.g. steps in processing. Will this be
+  'interesting?'
+
+notes
+
+- any details about sequencing?
+- i will add detail about methods for data analysis later
+- i will replace figure 1 with a properly computer-drawn version later -- would
+  a figure that looks like this look good?
+- the blue dna is a placeholder image
+- i'm yet to decide how much of the debugging i will include, but likely i'll
+  cut out most of it
