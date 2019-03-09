@@ -109,17 +109,15 @@ Eluted DNA was amplified using procedures adapted from manufacturer's recommende
 \subsection{Sequencing}
 \label{ssec:emsaselex_methods_seq}
 
-After SELEX, the eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x Ampure beads (Agen Court AMPure) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.
-
-Sequencing was by Illumina HiSeq 4000.
+After SELEX, the eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x AMPure beads (Beckman Coulter) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.  Illumina HiSeq 4000 was then used for sequencing, following standard protocols, with >60 bp paired-end settings.  Raw sequences are demultiplexed, then the R1 and R2 reads of paired-end sequencing were merged according to \citet{zhu_interaction_2018}.
 
 \subsection{Data analysis}
 \label{ssec:emsaselex_methods_anal}
 
+Fast Fourier transformation (FFT) was performed using the position along the sequence read as the time domain and the frequency of mononucleotides or dinucleotides at a specific position within the sequence as the frequency domain, following \citet{zhu_interaction_2018}.  From this, power spectra for mononucleotides and dinucleotides were obtained.  The phase of FFT was also examined at 0.102 per base pair.
 
-
-% - Data analysis
-(Add content here)
+% This can easily be trivial information and will likely be deleted.
+For each library, the frequency of all possible 9-mers of nucleotide sequences were counted.  x-y scatter plots were generated to compare the counts between libraries, and the Pearson correlation coefficient was calculated for each scatter plot.
 
 \section{Results}
 \label{sec:emsaselex_results}
@@ -315,7 +313,6 @@ Here I tested the sequence biases that could be introduced by the choice of DNA 
 
 \section{Materials and Methods}
 \label{sec:pcrbias_methods}
-%% - Most parts are the same as the project 1 [just add references to it??]
 
 \subsection{DNA ligand design and preparation}
 \label{ssec:pcrbias_methods_lig}
@@ -361,7 +358,12 @@ Combinations of Phusion High-Fidelity DNA Polymerase and dNTPs were investigated
 
 The same procedures for sequencing as \ref{ssec:emsaselex_methods_seq} were used.
 
-%% - Data analysis
+\subsection{Data analysis}
+\label{ssec:pcrbias_methods_anal}
+
+The same methods for fast Fourier transform and k-mer plot generation as \ref{ssec:emsaselex_methods_anal} were used.
+% I can see this moved to results very easily
+To investigate the effect of different vendors, a linear regression model was constructed.  The model used the frequencies of each nucleotide in the amplified library as the response variable.  The input variables were the enzyme vendor and dNTP vendor.
 
 \section{Results}
 \label{sec:pcrbias_results}
