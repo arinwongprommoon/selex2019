@@ -74,7 +74,7 @@ Experiments with synthetic DNA have given rise to additional `rules' for nucleos
 
 In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) confer stiff structures that inhibit nucleosome formation.  These sequences are therefore enriched in linker DNA between nucelosomes.  Poly(dA:dT) sequences are enriched in promoters, in particular that of \emph{Saccharomyces cerevisiae} \citep{struhl_determinants_2013}.  Depletion of nucleosomes at promoters on artificial chromosomes based on \emph{S. cerevisiae} genomic regions was shown to be dependent on the number and length of poly(dA:dT) sequences \citep{hughes_functional_2012}.
 
-Methylation in clusters disfavours nucleosome positioning \emph{in vivo}. This is because densely methylated DNA is rigid and does not favour the curvature needed to form nucleosomes \citep{huff_dnmt1-independent_2014}.  Additionally, dense methylation itself contributes directly to the positioning of nucleosomes.
+Methylation in clusters disfavours nucleosome positioning \emph{in vivo}. This is because densely methylated DNA is rigid and does not favour the curvature needed to form nucleosomes \citep{huff_dnmt1-independent_2014}.  Specifically, multiple tracts of methylated CpG sequences islands makes DNA have lower rise and twist along with higher roll values, thus making the DNA stiffer \citep{rao_systematic_2018, perez_impact_2012}.  Additionally, dense methylation itself contributes directly to the positioning of nucleosomes.
 The rate of methylation rather than the context of methylation seems to be the main determining factor.
 
 Investigating DNA methylation and nucleosome positioning information on the same DNA molecule leads to the same conclusion.  NOMe-seq (nucleosome occupancy and methylome sequencing) is a method that obtains endogenous DNA methylation information from CpG sites and obtains nucleosome positioning information from GpC methyltransferase accessibility to GpC sites \citep{kelly_genome-wide_2012}.  This method shows that there is a negative correlation between nucleosome occupancy and DNA methylation at CTCF regions, and that is anti-correlation does not exist at promoters.  Additionally, NOMe-seq shows that the relationship between nucleosome occupancy and DNA methylation depends on the genomic location.
@@ -310,6 +310,8 @@ Commonly-used model organisms have GC content within the range in which bias is 
 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
+
+% Add a paragraph to address unknowns/research questions
 
 Nucleosome-SELEX employs PCR.  Therefore, sequence biases do not clearly separate DNA sequences bound to nucleosomes from DNA sequences not bound to nucleosomes, as desired.  Instead, both DNA sequences bound to nucleosomes and DNA sequences not bound to nucleosomes have the same bias.  This bias is towards sequences conducive to amplification by PCR.  As sequence affinities for the nucleosome is weak, the signal enrichment in the sequencing library is weak, contributing to the difficulty of separating true signals from biases introduced by PCR.
 
