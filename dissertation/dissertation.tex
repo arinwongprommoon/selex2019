@@ -121,9 +121,7 @@ For each library, the frequency of all possible 9-mers of nucleotide sequences w
 
 \section{Results}
 \label{sec:emsaselex_results}
-%% - Briefly introduce the experiment design (Fig. 1)
 
-% All-important 'figure 1'
 % replace with properly-drawn version later
 \begin{figure}[htpb]
   \centering
@@ -133,44 +131,6 @@ For each library, the frequency of all possible 9-mers of nucleotide sequences w
 \end{figure}
 
 Using the lig147 input library \citep{zhu_interaction_2018}, four cycles of EMSA SELEX (figure~\ref{fig:selex}) were carried out.  The experiment had four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
-
-% use some other name for the protocol, but actually this ssec may disappear altogether.
-%% \subsection{DSSYNV2 was able to correctly amplify lig147 and methylated ligands}
-%% \label{ssec:amplig}
-
-%% % Repeats figure captions
-
-%% Initial amplification was successful for all experimental groups. This was supported by gel electrophoresis (figure~\ref{fig:amplig}) and spectrophotometric measurements of DNA concentrations within \SIrange{30}{40}{\nano\gram\per\micro\litre}.
-
-%% \begin{figure}[htpb]
-%%   \centering
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{amplig_a}
-%%     \caption{A}
-%%     \label{fig:amplig_a}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{amplig_b}
-%%     \caption{B}
-%%     \label{fig:amplig_b}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{amplig_c}
-%%     \caption{C}
-%%     \label{fig:amplig_c}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{test}
-%%     \caption{D}
-%%     \label{fig:amplig_d}
-%%   \end{subfigure}
-%%   \caption{Gel electrophoresis in 8\% TBE gels for (A) amplified lig147 (B) half-C-methylated (C) all-C-methylated, and (D) CpG-methylated DNA. All lanes exhibited a strong band between 100 and 200 nucleotides. Slower-migrating fainter bands corresponded to single-stranded DNA as was expected.}
-%%   \label{fig:amplig}
-%% \end{figure}
 
 \subsection{Nucleosome reconstitution}
 \label{ssec:reconstnuc}
@@ -206,6 +166,14 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
   \caption{First cycle gel electrophoresis for EMSA in 6\% DNA retardation gels for (A) non-methylated DNA, (B) half-C-methylated (C) all-C-methylated, and (D) CpG-methylated DNA. Lanes for all images (left to right): (1) 1.48:1 histone octamer:DNA, (2) 0.74:1 histone octamer:DNA, (3) 0.37:1 histone octamer:DNA, (4) 0.19:1 histone octamer:DNA, (5) 0.09:1 histone octamer:DNA, and (6) DNA without histone octamer added.  These results are representative for all cycles of EMSA SELEX.}
   \label{fig:reconstnuc}
 \end{figure}
+
+DNA ligands that are not bound to nucleosomes and ligands that are bound to nucleosomes were eluted and then sequenced.  From the obtained sequences, the frequency of all mononucleotide and dinucleotide sequences at each position along the reads were calculated.  All DNA libraries bound to nucleosomes clearly showed a periodicity in mononucleotide and dinucleotide frequencies, except for the plain DNA libraries.  In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectrum showed that the periodicity was at 0.102 per base pair.  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % quantification of strength?
+CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.
+
+\subsection{Sequence preferences of nucleosome}
+\label{ssec:nuseqpref}
+
+The phase and the amplitude resulting from the fast Fourier transforms were then characterised.
 
 %% - The sequence preferences of nucleosome 
 %% - Disfavored sequences of nucleosome
