@@ -167,17 +167,39 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
   \label{fig:reconstnuc}
 \end{figure}
 
-DNA ligands that are not bound to nucleosomes and ligands that are bound to nucleosomes were eluted and then sequenced.  From the obtained sequences, the frequency of all mononucleotide and dinucleotide sequences at each position along the reads were calculated.  All DNA libraries bound to nucleosomes clearly showed a periodicity in mononucleotide and dinucleotide frequencies, except for the plain DNA libraries.  In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectrum showed that the periodicity was at 0.102 per base pair.  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % quantification of strength?
-CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.
+% add figures and references to relevant figures.  These include the PHP figures and my own figures (my figures deal with plain DNA and are honestly clearer)
+DNA ligands that are not bound to nucleosomes and ligands that are bound to nucleosomes were eluted and then sequenced.
+
+From the obtained sequences, the frequency of all mononucleotide and dinucleotide sequences at each position along the reads were calculated.  All DNA libraries bound to nucleosomes clearly showed a clear periodicity in mononucleotide and dinucleotide frequencies, but the periodicity in the plain DNA libraries was less clear.
+An additional library of plain DNA bound to nucleosomes prepared with additional rounds of AMPure bead purification to enrich the signals was analysed.  Characterisation of frequencies of mononucleotides at each position along the reads for this library yielded clear periodicities, which were confirmed by fast Fourier transform.  However, this library exhibited biases towards G and T nucleotides.
+
+In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectra showed that the periodicity was near 10 bp.  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % QUESTION: quantification of strength/height of peak?
+CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Among the histone octamer-to-DNA concentrations tested in nucleosome reconstitution, the 1:0.74 ratio gave rise to the strongest signals, and the signal intensity decreased as the proportion of DNA increased.  Libraries corresponding to this octamer:DNA ratio was used for all subsequent analyses.
 
 \subsection{Sequence preferences of nucleosome}
 \label{ssec:nuseqpref}
-
-The phase and the amplitude resulting from the fast Fourier transforms were then characterised.
-
+% ORIGINAL PLAN:
 %% - The sequence preferences of nucleosome 
 %% - Disfavored sequences of nucleosome
 %% - Methylation effects on nucleosome’s sequence preference
+
+The phase and the amplitude resulting from the fast Fourier transforms were then characterised, based on a frequency of 10.2 bp.
+
+% I am not describing features in the plain DNA library here.  I don't think it's terribly interesting, and the figure shows them anyway.
+
+When the cytosines were methylated, the amplitude for dinucleotides beginning with C increased, and their phases became more aligned. % topic sentence
+Specifically, in the plain DNA library, the CA, CC, CG, and CT sequences were spread out over phases of \ang{80} to \ang{260}.  In the half-C-methylated and all-C-methylated libraries for the same octamer:DNA ratio, these sequences were spead out over phases of \ang{70} to \ang{140}.  These dinucleotides became more aligned to TC.  The phases of the reverse complements of these dinucleotides -- namely GA, GC, and GG -- also became more aligned when the cytosines are methylated.   Using the AA sequence as a reference, the amplitudes for CT and CA were greater in the all-C-methylated library than in the half-C-methylated library, but the amplitude for CG slightly reduced.
+% QUESTION: is there a better way to describe the `spread' of the CX sequences to replace eyeballing and saying `yeah, it looks like they're less spread alright'.
+
+These effects were less pronounced for CpG methylation. % topic sentence
+Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Similar to the other experimental groups, the amplitude of CG exhibited a slight decrease.  However, the CA, CC, CG, and CT sequences were still spread over a wide range of phases, covering \ang{80} to \ang{160}.
+
+% Mention scatter plots, and describe axes and colours in the figure legends (admittedly the choice of colours is crap, but what can I do?  I don't have the scripts to generate the plots again)
+% Write `no plain DNA plot because the signal was too weak' somewhere in the figure legends
+% QUESTION: how the fuck did fangjie and jussi see that the smear of colours indicated enrichments in A and T?
+For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
+
+With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups, the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated.  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries. % interpretation in discussion
 
 \section{Discussion}
 \label{sec:emsaselex_discussion}
@@ -273,7 +295,7 @@ Commonly-used model organisms have GC content within the range in which bias is 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
 
-% evidence? is this actually true? ask fangjie
+% QUESTION: evidence? is this actually true? ask fangjie
 Although it is well-characterised that PCR introduces sequence biases, it is unknown which process within procedures that employ PCR amplification contributes the most to this bias, and to which degree.  Specifically, the biases introduced from the number of PCR cycles and from purification have not been characterised.  Such characterisation would be beneficial in developing a model to quantify PCR bias.  With such a model, these PCR biases can be removed in genomic studies to reveal true signals introduced by the factors tested in the relevant experiments.  PCR bias is especially relevant for nucleosome EMSA-SELEX employed in this project.  Sequence affinities for the nucleosome is weak, making the signal enrichment in the sequencing library weak, and makes it difficult to separate true signals introduced by nucleosome binding from biases introduced by PCR.  Both sequences bound to nucleosomes and sequences that are not exhibit the same PCR-introduced bias, rather than have biases that separate these two groups.
 
 Here I assesed the sequence biases that could be introduced to the initial input library for nucleosome EMSA-SELEX.  I tested sequence biases introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR.  From the resulting sequencing data, I assessed the distribution of k-mer nucleotides.  The experimental data led to constructing a model to account for PCR bias from these sources.
@@ -334,11 +356,35 @@ To investigate the effect of different vendors, a linear regression model was co
 
 \section{Results}
 \label{sec:pcrbias_results}
+
+For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
+
+% ORIGINAL
 %% - Different oligonucleotide bias of different PCR enzymes
 %% - The variance caused by bottleneck effect 
 %% - Dependency of bias on PCR template concentration
 %% - Bias caused by reagents from different company
 %% - Bias from PCR Purification
+
+\subsection{Biases from enzymes}
+\label{ssec:pcrbias_result_enz}
+
+Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  The initial input library was lig147.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR. % weak signals from 0 cycles, so there weren't used (I think)
+All enzymes exhibit biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
+
+\subsection{Biases from PCR cycles}
+\label{ssec:pcrbias_result_pcr}
+
+\subsection{Biases from purification}
+\label{ssec:pcrbias_result_pur}
+
+Eight rounds of purification of the lig147 input library by AMPure beads did not introduce measurable nucleotide biases.
+
+\subsection{Biases from reagent vendors}
+\label{ssec:pcrbias_result_reagent}
+
+Different combinations of vendors for dNTPs and Phusion High-Fidelity DNA polymerases for PCR were investigated.  The fractions of each nucleotide after 24 rounds of amplification were calculated for each combination.  These fractions were then used to construct a linear model % add reference to equation
+to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides. % add reference to table and verification of model by scatter plot
 
 \section{Discussion}
 \label{sec:pcrbias_discussion}
