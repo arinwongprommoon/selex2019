@@ -26,6 +26,27 @@ EMSA SELEX introduction
     MNase-seq is that the random DNA library is much much more complexed
     than the genomic sequences, and is with a much much more homogeneous
     background sequence distribution.
+
+EMSA SELEX results
+
+- I'd like to quantify the strength/height of the peaks in the power spectra, so
+  that the information looks more reliable.  Would this be worth doing, and if
+  so, where do I obtain the relevant numbers?
+
+- Is there a good way to describe the 'spread' of phases of the CX sequences?
+  Describing which angles the 'spread' covers does not seem like a good way to
+  quantify it.  Would a better descriptor be calculating the mean and standard
+  deviation of the phases among the four dinucleotides?
+
+  In any case I will have to take measurements of the phases from the image.
+  Where do I obtain the relevant numbers?
+
+- How do the k-mer plots suggest enrichment in A/T?  I find it difficult to see
+  from the colours.
+
+- There was a new set of k-mer plots we showed Jussi in our meeting on Friday
+  8th March.  Which are these?  I remember there is one set of plots that you
+  told me I should not include.  Which set is this?
   
 PCR bias introduction
 
@@ -35,17 +56,11 @@ PCR bias introduction
     In my previous SELEX batches, it seems that purification by Ampure
     beads biases C/G nucleotides.
 
+- Do we know exactly which process within PCR introduces the most bias? (I'm in
+  the process of writing a paragraph to address unknowns, and I don't want to
+  write something factually incorrect)
+
 METHODS
 
 - Any details about sequencing? E.g. steps in processing. Will this be
   'interesting?'
-
-notes
-
-- any details about sequencing?
-- i will add detail about methods for data analysis later
-- i will replace figure 1 with a properly computer-drawn version later -- would
-  a figure that looks like this look good?
-- the blue dna is a placeholder image
-- i'm yet to decide how much of the debugging i will include, but likely i'll
-  cut out most of it
