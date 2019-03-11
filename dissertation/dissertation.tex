@@ -170,11 +170,38 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
 % add figures and references to relevant figures.  These include the PHP figures and my own figures (my figures deal with plain DNA and are honestly clearer)
 DNA ligands that are not bound to nucleosomes and ligands that are bound to nucleosomes were eluted and then sequenced.
 
+\begin{figure}[htpb]
+  \centering
+  \begin{subfigure}[htpb]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{enriched-counts}
+    \caption{A}
+    \label{fig:enriched_counts}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{enriched-power}
+    \caption{B}
+    \label{fig:enriched_power}
+  \end{subfigure}
+  \caption{Analysis of library of plain DNA bound to nucleosomes enriched for signal. (A) shows the nucleotide counts as a function of position along the reads, and (B) shows the fast Fourier transform power spectra for the four nucleotides.}
+  \label{fig:enriched}
+\end{figure}
+
 From the obtained sequences, the frequency of all mononucleotide and dinucleotide sequences at each position along the reads were calculated.  All DNA libraries bound to nucleosomes clearly showed a clear periodicity in mononucleotide and dinucleotide frequencies, but the periodicity in the plain DNA libraries was less clear.
 An additional library of plain DNA bound to nucleosomes prepared with additional rounds of AMPure bead purification to enrich the signals was analysed.  Characterisation of frequencies of mononucleotides at each position along the reads for this library yielded clear periodicities, which were confirmed by fast Fourier transform.  However, this library exhibited biases towards G and T nucleotides.
 
+% kind of a placeholder at the moment...
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\textwidth]{emsacycle4all}
+  \caption{Power spectra derived from the frequencies of all mononucleotide and dinucleotides}
+  \label{fig:powerspectra}
+\end{figure}
+
 In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectra showed that the periodicity was near 10 bp.  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % QUESTION: quantification of strength/height of peak?
 CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Among the histone octamer-to-DNA concentrations tested in nucleosome reconstitution, the 1:0.74 ratio gave rise to the strongest signals, and the signal intensity decreased as the proportion of DNA increased.  Libraries corresponding to this octamer:DNA ratio was used for all subsequent analyses.
+
 
 \subsection{Sequence preferences of nucleosome}
 \label{ssec:nuseqpref}
