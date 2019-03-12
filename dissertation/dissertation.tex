@@ -240,21 +240,90 @@ CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed
 
 The phase and the amplitude resulting from the fast Fourier transforms were then characterised, based on a frequency of 10.2 bp.
 
+\begin{figure}[htpb]
+  \centering
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{emsa_e8_radial}
+    \caption{A}
+    \label{fig:radial_mc_plain}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{emsa_f8_radial}
+    \caption{B}
+    \label{fig:radial_mc_halfmc}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{emsa_g8_radial}
+    \caption{C}
+    \label{fig:radial_mc_allmc}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{emsa_h8_radial}
+    \caption{D}
+    \label{fig:radial_mc_cpg}
+  \end{subfigure}
+  \caption{Effects of cytosine methylation: radial plots showing amplitude and phase}
+  \label{fig:radial_mc}
+\end{figure}
+
 % I am not describing features in the plain DNA library here.  I don't think it's terribly interesting, and the figure shows them anyway.
 
-When the cytosines were methylated, the amplitude for dinucleotides beginning with C increased, and their phases became more aligned. % topic sentence
-Specifically, in the plain DNA library, the CA, CC, CG, and CT sequences were spread out over phases of \ang{80} to \ang{260}.  In the half-C-methylated and all-C-methylated libraries for the same octamer:DNA ratio, these sequences were spead out over phases of \ang{70} to \ang{140}.  These dinucleotides became more aligned to TC.  The phases of the reverse complements of these dinucleotides -- namely GA, GC, and GG -- also became more aligned when the cytosines are methylated.   Using the AA sequence as a reference, the amplitudes for CT and CA were greater in the all-C-methylated library than in the half-C-methylated library, but the amplitude for CG slightly reduced.
+When the cytosines were methylated, the amplitude for dinucleotides beginning with C increased, and their phases became more aligned (figure~\ref{fig:radial_mc}). % topic sentence
+Specifically, in the plain DNA library, the CA, CC, CG, and CT sequences were spread out over phases of \ang{80} to \ang{260} (figure~\ref{fig:radial_mc_plain}).  In the half-C-methylated and all-C-methylated libraries for the same octamer:DNA ratio, these sequences were spead out over phases of \ang{70} to \ang{140} (figures~\ref{fig:radial_mc_halfmc} and~\ref{fig:radial_mc_allmc}).  These dinucleotides became more aligned to TC.  The phases of the reverse complements of these dinucleotides -- namely GA, GC, and GG -- also became more aligned when the cytosines are methylated.   Using the AA sequence as a reference, the amplitudes for CT and CA were greater in the all-C-methylated library than in the half-C-methylated library, but the amplitude for CG slightly reduced.
 % QUESTION: is there a better way to describe the `spread' of the CX sequences to replace eyeballing and saying `yeah, it looks like they're less spread alright'.
 
-These effects were less pronounced for CpG methylation. % topic sentence
+These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_mc_cpg}). % topic sentence
 Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Similar to the other experimental groups, the amplitude of CG exhibited a slight decrease.  However, the CA, CC, CG, and CT sequences were still spread over a wide range of phases, covering \ang{80} to \ang{160}.
 
-% Mention scatter plots, and describe axes and colours in the figure legends (admittedly the choice of colours is crap, but what can I do?  I don't have the scripts to generate the plots again)
-% Write `no plain DNA plot because the signal was too weak' somewhere in the figure legends
-% QUESTION: how the fuck did fangjie and jussi see that the smear of colours indicated enrichments in A and T?
+\begin{figure}[htpb]
+  \centering
+  \begin{subfigure}[htpb]{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{kmer_CpGubXCpGb}
+    \caption{CpG methylated}
+    \label{fig:kmer_bound_cpg}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{kmer_halfubXhalfb}
+    \caption{Half-C-methylated}
+    \label{fig:kmer_bound_half}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{kmer_allubXallb}
+    \caption{All-C-methylated}
+    \label{fig:kmer_bound_all}
+  \end{subfigure}
+  \caption{9-mer count scatter plots showing the effect of nucleosome reconstitution on each experimental group.  Horizonal axes correspond to DNA bound in nucleosomes, while vertical axes correspond to unbound DNA.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.  Data for plain DNA not shown as signal was too weak.}
+  \label{fig:kmer_bound}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \begin{subfigure}[htpb]{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{kmer_plainbXallb}
+    \caption{Bound DNA}
+    \label{fig:kmer_bias_bound}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{kmer_plainubXallub}
+    \caption{Unbound DNA}
+    \label{fig:kmer_bias_unbound}
+  \end{subfigure}
+  \caption{9-mer count scatter plots showing sequence biases.  Horizonal axes correspond to the all-C-methylated libraries, while vertical axes correspond to the plain DNA libraries.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \label{fig:kmer_bias}
+\end{figure}
+
 For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
 
-With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups, the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated.  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries. % interpretation in discussion
+With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). % interpretation in discussion
 
 \section{Discussion}
 \label{sec:emsaselex_discussion}
@@ -424,16 +493,58 @@ For each library, the frequency of each possible continuous 9-mer of nucleotides
 \subsection{Biases from enzymes}
 \label{ssec:pcrbias_result_enz}
 
-Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  The initial input library was lig147.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR. % weak signals from 0 cycles, so there weren't used (I think)
+\begin{figure}[htpb]
+  \centering
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{kmer_dreamtaq}
+    \caption{DreamTaq}
+    \label{fig:kmer_enz_dreamtaq}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{kmer_phire}
+    \caption{Phire}
+    \label{fig:kmer_enz_phire}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{kmer_q5}
+    \caption{Q5}
+    \label{fig:kmer_enz_q5}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{kmer_phusion}
+    \caption{Phusion}
+    \label{fig:kmer_enz_phusion}
+  \end{subfigure}
+  \caption{9-mer count scatter plots showing the effect of polymerase enzyme.  Horizonal axes correspond to libraries after 24 cycles of PCR, while vertical axes correspond to libraries after 8 cycles of PCR.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \label{fig:kmer_enz}
+\end{figure}
+
+Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  The initial input library was lig147.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}). % weak signals from 0 cycles, so there weren't used (I think)
 All enzymes exhibit biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
+% It seems that the plots don't work nicely.  I think it's most appropriate to move this to the discussion.  In the meantime, I might as well describe stuff here before I move them to the appropriate section.
 \subsection{Biases from PCR cycles}
 \label{ssec:pcrbias_result_pcr}
+
+%% if decide to add figures, do it here
+
+% Libraries resulting from using Phusion to amplify the lig147 input library over 8, 12, 16, 20, and 24 PCR cycles were analysed.  For each number of cycles, the correspond library was compared to the input library.  The results were very variable.  A possible explanation would be the instability of the adaptor addition step to prepare the ligands for sequencing: the adaptor addition step involves many cycles of PCR.  Additionally, the results also suggest that there is a lack of complexity of the library.  This lack of complexity increases the chance that sequences hybridise among each other, applying a selection bias on the library, and making the sequence biases more severe as a result.  To rectify these issues, a better input library should be constructed, with better filtering to remove sequences that have a tendency of causing primer dimers.
 
 \subsection{Biases from purification}
 \label{ssec:pcrbias_result_pur}
 
-Eight rounds of purification of the lig147 input library by AMPure beads did not introduce measurable nucleotide biases.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{kmer_ampure}
+  \caption{9-mer count scatter plot showing the effect of AMPure bead purification.  The horizontal axis corresponds to the library after eight rounds of purification, while the vertical axis corresponds to the library after one round of purification.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \label{fig:kmer_pur}
+\end{figure}
+
+Eight rounds of purification of the lig147 input library by AMPure beads did not introduce measurable nucleotide biases (figure~\ref{fig:kmer_pur}).  However, results from four rounds of purification (data not shown) seemed to suggest biases, but this bias is likely from the adaptor addition process. % QUESTION: how did we come to this conclusion?
 
 \subsection{Biases from reagent vendors}
 \label{ssec:pcrbias_result_reagent}
