@@ -33,6 +33,15 @@
 \usepackage{booktabs}
 % \usepackage{longtable}
 \usepackage{pgfplotstable}
+%\pgfkeys{/pgf/number format/.cd, sci, sci zerofill, precision=2}
+% \pgfplotstableset{
+%   columns = {vendor, A, C, G, T},
+%   columns/vendor/.style={string type},
+%   columns/A/.style={sci, sci zerofill},
+%   columns/C/.style={sci, sci zerofill},
+%   columns/G/.style={sci, sci zerofill},
+%   columns/T/.style={sci, sci zerofill}
+%   }
 
 \title{Quantifying the bias in SELEX procedure}
 \author{Candidate number XXXXX}
@@ -592,13 +601,33 @@ Eight rounds of purification of the lig147 input library by AMPure beads did not
 
 \begin{table}[htpb]
   \centering
-  %\begin{tabular}{}
-  \pgfplotstabletypeset[col sep = comma, string type]{linearmodel.csv}  
+  \begin{tabular}{r}
+     \\
+    Phusion NEB\\
+    dNTP Kapa\\
+    dNTP Agilent\\
+    dNTP ZymoMeC\\
+  \end{tabular}%
+  \pgfplotstabletypeset[
+  col sep = comma,
+  % display columns/0/.style={column name={}},
+  % display columns/1/.style={column name={}},
+  % display columns/2/.style={column name={}},
+  % display columns/3/.style={column name={}},
+  % display columns/4/.style={column name={}},
+  % /pgf/number format/precision=2,
+  % create on use/newcol/.style={
+  %   create col/set list={Phusion NEB,dNTP Kapa,dNTP Agilent,dNTP ZymoMeC}
+  % },
+  % columns=/newcol/.style={string type},
+  % columns={newcol,0,1}
+  ]{linearmodel.csv}  
   %\end{tabular}
   \caption{Coefficients for the linear model to describe the contributions of dNTP and Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions}
   \label{tab:linearmodel_coeffs}
 \end{table}
 
+% analyse the data and add how well the correlation is
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=\textwidth]{linearmodel_plot}
