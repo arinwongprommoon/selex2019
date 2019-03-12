@@ -1,8 +1,17 @@
 \documentclass[parskip=full, numbers=noenddot]{scrreprt}
 
+% language
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
+\usepackage{url}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
+\DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit\calorie{cal}
+
+% citations
 \usepackage[
   natbib=true,
   backend=biber,
@@ -13,21 +22,17 @@
   style=alphabetic,
   citestyle=authoryear]{biblatex}
 \addbibresource{dissertation.bib}
+\usepackage{varioref}
 
+% floats
 \usepackage{graphicx}
   \graphicspath{ {./graphics/} }
 \usepackage{subcaption}
-\usepackage{url}
-\usepackage{varioref}
 \usepackage{tabularx}
   \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\usepackage[version=4]{mhchem}
-\usepackage{siunitx}
-\DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
-\DeclareSIUnit\Molar{\textsc{m}}
-\DeclareSIUnit\calorie{cal}
 \usepackage{booktabs}
-\usepackage{longtable}
+% \usepackage{longtable}
+\usepackage{pgfplotstable}
 
 \title{Quantifying the bias in SELEX procedure}
 \author{Candidate number XXXXX}
@@ -549,8 +554,60 @@ Eight rounds of purification of the lig147 input library by AMPure beads did not
 \subsection{Biases from reagent vendors}
 \label{ssec:pcrbias_result_reagent}
 
-Different combinations of vendors for dNTPs and Phusion High-Fidelity DNA polymerases for PCR were investigated.  The fractions of each nucleotide after 24 rounds of amplification were calculated for each combination.  These fractions were then used to construct a linear model % add reference to equation
-to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides. % add reference to table and verification of model by scatter plot
+% I'm seriously considering changing these plots to dot plots and the vertical axes to be uniform around 0.20 to 0.30.  I have the data, not the code...
+\begin{figure}[htpb]
+  \centering
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{linearmodel_a}
+    \caption{adenine (A)}
+    \label{fig:linearmodel_a}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{linearmodel_c}
+    \caption{cytosine (C)}
+    \label{fig:linearmodel_c}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{linearmodel_g}
+    \caption{guanine (G)}
+    \label{fig:linearmodel_g}
+  \end{subfigure}
+  \begin{subfigure}[htpb]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.4\textwidth]{linearmodel_t}
+    \caption{thymine (T)}
+    \label{fig:linearmodel_t}
+  \end{subfigure}
+  \caption{Fraction of each nucleotide after 24 cycles of amplification by each combination of dNTP and Phusion High-Fidelity DNA polymerase vendors.}
+  \label{fig:linearmodel_nt}
+\end{figure}
+
+\begin{equation}
+  \label{eqn:linearmodel}
+  \textrm{fraction of nucleotide} \sim\ a (\textrm{enzyme vendor}) + b (\textrm{dNTP vendor}) + c
+\end{equation}
+
+\begin{table}[htpb]
+  \centering
+  %\begin{tabular}{}
+  \pgfplotstabletypeset[col sep = comma, string type]{linearmodel.csv}  
+  %\end{tabular}
+  \caption{Coefficients for the linear model to describe the contributions of dNTP and Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions}
+  \label{tab:linearmodel_coeffs}
+\end{table}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\textwidth]{linearmodel_plot}
+  \caption{Verification of linear model. R = 0.9XX}
+  \label{fig:linearmodel_ver}
+\end{figure}
+
+Different combinations of vendors for dNTPs and Phusion High-Fidelity DNA polymerases for PCR were investigated.  The fractions of each nucleotide after 24 rounds of amplification were calculated for each combination (figure~\ref{fig:linearmodel_nt}).  These fractions were then used to construct a linear model (equation~\ref{eqn:linearmodel}).
+to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides. The model was then verified with experimental data (figure~\ref{fig:linearmodel_ver}).
 
 \section{Discussion}
 \label{sec:pcrbias_discussion}
