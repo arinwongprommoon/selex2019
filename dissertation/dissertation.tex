@@ -130,16 +130,16 @@ For each library, the frequency of all possible 9-mers of nucleotide sequences w
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=\textwidth]{selexoverview}
-  \caption{Overview of SELEX procedure}
+  \caption{Overview of nucleosome EMSA-SELEX procedure}
   \label{fig:selex}
 \end{figure}
 
-Using the lig147 input library \citep{zhu_interaction_2018}, four cycles of EMSA SELEX (figure~\ref{fig:selex}) were carried out.  The experiment had four groups: plain DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
+Four cycles of nucleosome EMSA SELEX (figure~\ref{fig:selex}) were carried out.  147-bp oligonucleotides with a 101-bp central random sequence -- termed lig147 \citep{zhu_interaction_2018} -- constituted the initial input library.  The experiment had four groups: plain (non-methylated) DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
 
 \subsection{Nucleosome reconstitution}
 \label{ssec:reconstnuc}
 
-EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA. It also yielded bands corresponding to reconstituted nucleosomes that are fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}).
+EMSA in all cycles yielded one strong band between 100 and 200 bp. It also yielded bands corresponding to reconstituted nucleosomes that became fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}).  DNA ligands that were not bound to nucleosomes and ligands that were bound to nucleosomes were eluted and then sequenced.
 
 % add ticks for weights on gels
 % put the ratios onto the images instead of in the caption
@@ -148,7 +148,7 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=\textwidth]{reconstnuc_a}
-    \caption{Plain (non-methylated) DNA}
+    \caption{Plain DNA}
     \label{fig:reconstnuc_a}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
@@ -169,11 +169,11 @@ EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA
     \caption{CpG-methylated DNA}
     \label{fig:reconstnuc_d}
   \end{subfigure}
-  \caption{First cycle gel electrophoresis for EMSA in 6\% DNA retardation gels for the four experimental groups.  Lanes for all images correspond to these histone:octamer ratios (left to right): (1) 1.48:1, (2) 0.74:1, (3) 0.37:1, (4) 0.19:1, (5) 0.09:1, and (6) DNA without histone octamer added.  These results are representative for all cycles of EMSA SELEX.}
+  \caption{First-cycle EMSA in 6\% DNA retardation gels for the four experimental groups.  Lanes for all images correspond to these histone:octamer ratios (left to right): (1) 1.48:1, (2) 0.74:1, (3) 0.37:1, (4) 0.19:1, (5) 0.09:1, and (6) DNA without histone octamer added.  These results are representative for all cycles.}
   \label{fig:reconstnuc}
 \end{figure}
 
-DNA ligands that are not bound to nucleosomes and ligands that are bound to nucleosomes were eluted and then sequenced.
+The frequency of all mononucleotide and dinucleotide sequences at each position along the reads were calculated (figure~\ref{fig:freqplots}).  The data from the fourth cycle of EMSA-SELEX were used in all subsequent analyses because they exhibited the strongest signals.  All DNA libraries bound to nucleosomes showed a clear periodicity in mononucleotide and dinucleotide frequencies, but the periodicity in the plain DNA libraries was less clear.
 
 \begin{figure}[htpb]
   \centering
@@ -205,6 +205,8 @@ DNA ligands that are not bound to nucleosomes and ligands that are bound to nucl
   \label{fig:freqplots}
 \end{figure}
 
+An additional library of plain DNA bound to nucleosomes prepared with additional rounds of AMPure bead purification to enrich the signals was analysed.  Characterisation of frequencies of mononucleotides at each position along the reads for this library yielded clear periodicities (figure~\ref{fig:enriched_counts}), which were confirmed to be approximately 10 bp by fast Fourier transform (figure~\ref{fig:enriched_power}).  However, this library exhibited biases towards G and T nucleotides.
+
 \begin{figure}[htpb]
   \centering
   \begin{subfigure}[htpb]{\textwidth}
@@ -219,12 +221,12 @@ DNA ligands that are not bound to nucleosomes and ligands that are bound to nucl
     \caption{}
     \label{fig:enriched_power}
   \end{subfigure}
-  \caption{Analysis of library of plain DNA bound to nucleosomes enriched for signal. (a) shows the nucleotide counts as a function of position along the reads, and (b) shows the fast Fourier transform power spectra for the four nucleotides.}
+  \caption{Analysis of a library of plain DNA bound to nucleosomes enriched for signal. (a) shows the nucleotide counts as a function of position along the reads, and (b) shows the fast Fourier transform power spectra for the four nucleotides.}
   \label{fig:enriched}
 \end{figure}
 
-From the obtained sequences, the frequency of all mononucleotide and dinucleotide sequences at each position along the reads were calculated (figure~\ref{fig:freqplots}).  The data from the fourth cycle of EMSA-SELEX were used in all subsequent analyses because they exhibited the strongest signals.  All DNA libraries bound to nucleosomes showed a clear periodicity in mononucleotide and dinucleotide frequencies, but the periodicity in the plain DNA libraries was less clear.
-An additional library of plain DNA bound to nucleosomes prepared with additional rounds of AMPure bead purification to enrich the signals was analysed (figure~\ref{fig:enriched}).  Characterisation of frequencies of mononucleotides at each position along the reads for this library yielded clear periodicities, which were confirmed by fast Fourier transform.  However, this library exhibited biases towards G and T nucleotides.
+In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectra showed that the periodicity was near 10 bp (figure~\ref{fig:powerspectra}).  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % QUESTION: quantification of strength/height of peak?
+CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Among the octamer-to-DNA concentrations tested, the 1:0.74 ratio gave rise to the strongest signals, and the signal intensity decreased as the proportion of DNA increased (data not shown).  Libraries corresponding to this octamer:DNA ratio were therefore used for all subsequent analyses.
 
 % kind of a placeholder at the moment...
 \begin{figure}[htpb]
@@ -234,17 +236,20 @@ An additional library of plain DNA bound to nucleosomes prepared with additional
   \label{fig:powerspectra}
 \end{figure}
 
-In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectra showed that the periodicity was near 10 bp (figure~\ref{fig:powerspectra}).  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % QUESTION: quantification of strength/height of peak?
-CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Among the histone octamer-to-DNA concentrations tested in nucleosome reconstitution, the 1:0.74 ratio gave rise to the strongest signals, and the signal intensity decreased as the proportion of DNA increased.  Libraries corresponding to this octamer:DNA ratio was used for all subsequent analyses.
-
-\subsection{Sequence preferences of nucleosome}
-\label{ssec:nuseqpref}
+\subsection{Sequence preferences from fast Fourier transform analysis}
+\label{ssec:nuseqpref_fft}
 % ORIGINAL PLAN:
 %% - The sequence preferences of nucleosome 
 %% - Disfavored sequences of nucleosome
 %% - Methylation effects on nucleosome’s sequence preference
 
-The phase and the amplitude resulting from the fast Fourier transforms were then characterised, based on a frequency of 10.2 bp.
+The phases and the amplitudes resulting from the fast Fourier transforms were then characterised, based on a frequency of 10.2 bp (figure~\ref{fig:radial_mc}).
+
+When the cytosines were methylated, the amplitude for dinucleotides beginning with C increased, and their phases became more aligned.  Specifically, in the plain DNA library, the CA, CC, CG, and CT sequences were spread out over phases of \ang{80} to \ang{260} (figure~\ref{fig:radial_mc_plain}).  In the half-C-methylated and all-C-methylated libraries for the same octamer:DNA ratio, these sequences were spead out over phases of \ang{70} to \ang{140} (figures~\ref{fig:radial_mc_halfmc} and~\ref{fig:radial_mc_allmc}).  These dinucleotides became more aligned to TC.  The phases of the reverse complements of these dinucleotides -- namely GA, GC, and GG -- also became more aligned when the cytosines are methylated.   Using the AA sequence as a reference, the amplitudes for CT and CA were greater in the all-C-methylated library than in the half-C-methylated library, but the amplitude for CG slightly reduced.
+% QUESTION: is there a better way to describe the `spread' of the CX sequences to replace eyeballing and saying `yeah, it looks like they're less spread alright'.
+
+These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_mc_cpg}). % topic sentence
+Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Similar to the other experimental groups, the amplitude of CG exhibited a slight decrease.  However, the CA, CC, CG, and CT sequences were still spread over a wide range of phases, covering \ang{80} to \ang{160}.
 
 \begin{figure}[htpb]
   \centering
@@ -276,14 +281,8 @@ The phase and the amplitude resulting from the fast Fourier transforms were then
   \label{fig:radial_mc}
 \end{figure}
 
-% I am not describing features in the plain DNA library here.  I don't think it's terribly interesting, and the figure shows them anyway.
-
-When the cytosines were methylated, the amplitude for dinucleotides beginning with C increased, and their phases became more aligned (figure~\ref{fig:radial_mc}). % topic sentence
-Specifically, in the plain DNA library, the CA, CC, CG, and CT sequences were spread out over phases of \ang{80} to \ang{260} (figure~\ref{fig:radial_mc_plain}).  In the half-C-methylated and all-C-methylated libraries for the same octamer:DNA ratio, these sequences were spead out over phases of \ang{70} to \ang{140} (figures~\ref{fig:radial_mc_halfmc} and~\ref{fig:radial_mc_allmc}).  These dinucleotides became more aligned to TC.  The phases of the reverse complements of these dinucleotides -- namely GA, GC, and GG -- also became more aligned when the cytosines are methylated.   Using the AA sequence as a reference, the amplitudes for CT and CA were greater in the all-C-methylated library than in the half-C-methylated library, but the amplitude for CG slightly reduced.
-% QUESTION: is there a better way to describe the `spread' of the CX sequences to replace eyeballing and saying `yeah, it looks like they're less spread alright'.
-
-These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_mc_cpg}). % topic sentence
-Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Similar to the other experimental groups, the amplitude of CG exhibited a slight decrease.  However, the CA, CC, CG, and CT sequences were still spread over a wide range of phases, covering \ang{80} to \ang{160}.
+% could discuss why some things are enriched and some are depleted, but the effect size isn't great as they're all around 1 (which is sort of expected as histone octamers only bind loosely to DNA).  Theoretically to evaluate how significant the deviations from 1 are we would have to make at least three replicates, but we didn't (they're bloody expensive too) -- can also put this in the discussion
+Certain dinucleotides containing cytosines were enriched when the cytosines were methylated, especially in CpG methylation (figure~\ref{fig:c2nt}).  In particular CC, CG, and GC were enriched in the CpG methylated group.  In constrast, CC was depleted in the all-C-methylated group.  However, in all samples, deviations from a 1:1 ratio were small.
 
 % Use R to replace this with a dot plot later
 \begin{figure}[htpb]
@@ -293,8 +292,10 @@ Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Si
   \label{fig:c2nt}
 \end{figure}
 
-% could discuss why some things are enriched and some are depleted, but the effect size isn't great as they're all around 1 (which is sort of expected as histone octamers only bind loosely to DNA).  Theoretically to evaluate how significant the deviations from 1 are we would have to make at least three replicates, but we didn't (they're bloody expensive too) -- can also put this in the discussion
-Certain dinucleotides containing cytosines were enriched when the cytosines were methylated, especially in CpG methylation (figure~\ref{fig:c2nt}).  In particular CC, CG, and GC are enriched in the CpG methylated group.  In constrast, CC seems to be depleted in the all-C-methylated group.  However, in all samples the deviations from a 1:1 ratio were small.
+\subsection{Sequence preferences from sequence \emph{k}-mer counts}
+\label{ssec:nuseqpref_kmer}
+
+For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.  With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). % interpretation in discussion
 
 \begin{figure}[htpb]
   \centering
@@ -316,7 +317,7 @@ Certain dinucleotides containing cytosines were enriched when the cytosines were
     \caption{All-C-methylated}
     \label{fig:kmer_bound_all}
   \end{subfigure}
-  \caption{9-mer count scatter plots showing the effect of nucleosome reconstitution on each experimental group.  Horizonal axes correspond to DNA bound in nucleosomes, while vertical axes correspond to unbound DNA.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.  Data for plain DNA not shown as signal was too weak.}
+  \caption{9-mer count scatter plots showing the effect of nucleosome reconstitution on each experimental group.  Horizontal axes correspond to DNA bound in nucleosomes, while vertical axes correspond to unbound DNA.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.  Data for plain DNA not shown as signal was too weak.}
   \label{fig:kmer_bound}
 \end{figure}
 
@@ -334,13 +335,11 @@ Certain dinucleotides containing cytosines were enriched when the cytosines were
     \caption{Unbound DNA}
     \label{fig:kmer_bias_unbound}
   \end{subfigure}
-  \caption{9-mer count scatter plots showing sequence biases.  Horizonal axes correspond to the all-C-methylated libraries, while vertical axes correspond to the plain DNA libraries.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \caption{9-mer count scatter plots showing sequence biases.  Horizontal axes correspond to the all-C-methylated libraries, while vertical axes correspond to the plain DNA libraries.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
   \label{fig:kmer_bias}
 \end{figure}
 
-For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
-
-With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). % interpretation in discussion
+The frequency of continuous stretches of adenines (A-stretches) were also counted in each library (figure~\ref{fig:astretch}).  Methylation was associated with A-stretches being less represented in the libraries containing DNA bound to nucleosomes.  Compared to plain DNA, the half-C-methylated and all-C-methylated groups exhibited greater depletions in A-stretches.  This effect was more pronounced in the CpG methylated group.
 
 % make this look more glamorous later by changing around the R code.  it's already informative
 \begin{figure}[htpb]
@@ -349,10 +348,6 @@ With the half-C-methylated, all-C-methylated, and CpG-methylated experimental gr
   \caption{Enrichment of continuous stretches of adenines for each experimental group.  The number of occurences of each k-mer of adenine stretches in each library was calculated (e.g. `5' corresponds to `AAAAA').  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.}
   \label{fig:astretch}
 \end{figure}
-
-Finally, the frequency of continuous stretches of adenines (A-stretches) were counted in each library (figure~\ref{fig:astretch}).
-
-Methylation was associated with A-stretches being less represented in the libraries containing DNA bound to nucleosomes.  Compared to plain DNA, the half-C-methylated and all-C-methylated groups exhibited greater depletions in A-stretches.  This effect was more pronounced in the CpG methylated group.
 
 \section{Discussion}
 \label{sec:emsaselex_discussion}
@@ -510,7 +505,7 @@ To investigate the effect of different vendors, a linear regression model was co
 \section{Results}
 \label{sec:pcrbias_results}
 
-For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
+The initial input library lig147 was amplified and processed, with conditions varied to test biases introduced by polymerase enzymes, DNA purification, and reagent vendors.  After the PCR products were sequenced, the frequencies of each possible continuous 9-mer of nucleotides was counted.
 
 % ORIGINAL
 %% - Different oligonucleotide bias of different PCR enzymes
@@ -548,12 +543,11 @@ For each library, the frequency of each possible continuous 9-mer of nucleotides
     \caption{Phusion}
     \label{fig:kmer_enz_phusion}
   \end{subfigure}
-  \caption{9-mer count scatter plots showing the effect of polymerase enzyme.  Horizonal axes correspond to libraries after 24 cycles of PCR, while vertical axes correspond to libraries after 8 cycles of PCR.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \caption{9-mer count scatter plots showing the effect of polymerase enzyme.  Horizontal axes correspond to libraries after 24 cycles of PCR, while vertical axes correspond to libraries after 8 cycles of PCR.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
   \label{fig:kmer_enz}
 \end{figure}
 
-Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  The initial input library was lig147.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}). % weak signals from 0 cycles, so there weren't used (I think)
-All enzymes exhibit biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
+Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  All enzymes exhibited biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
 % It seems that the plots don't work nicely.  I think it's most appropriate to move this to the discussion.  In the meantime, I might as well describe stuff here before I move them to the appropriate section.
 \subsection{Biases from PCR cycles}
@@ -638,8 +632,7 @@ Eight rounds of purification of the lig147 input library by AMPure beads did not
   \label{fig:linearmodel_ver}
 \end{figure}
 
-Different combinations of vendors for dNTPs and Phusion High-Fidelity DNA polymerases for PCR were investigated.  The fractions of each nucleotide after 24 rounds of amplification were calculated for each combination (figure~\ref{fig:linearmodel_nt}).  These fractions were then used to construct a linear model (equation~\ref{eqn:linearmodel}).
-to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides. The model was then verified with experimental data (figure~\ref{fig:linearmodel_ver}).
+Different combinations of vendors for dNTPs and Phusion High-Fidelity DNA polymerases for PCR were investigated.  The fractions of each nucleotide after 24 rounds of amplification were calculated for each combination (figure~\ref{fig:linearmodel_nt}).  These fractions were then used to construct a linear model (equation~\ref{eqn:linearmodel}) to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides. The model was then verified with experimental data (figure~\ref{fig:linearmodel_ver}).
 
 \section{Discussion}
 \label{sec:pcrbias_discussion}
