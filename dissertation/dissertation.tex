@@ -351,6 +351,23 @@ The frequency of continuous stretches of adenines (A-stretches) were also counte
 
 \section{Discussion}
 \label{sec:emsaselex_discussion}
+
+%%% GUIDELINES FROM DEPARTMENT
+% brief recapitulation of major conclusions and evidence that supports them
+% discuss how results relate to previously published work, and to the ideas and models currently favoured in the field
+% suggestions as to how experiments might be improved and refined
+% explain what further work you would have done if you had had more time
+
+% is this first point absolutely necessary?
+From nucleosome EMSA-SELEX, nucleosome binding introduces an approximately 10-bp periodicity in mononucleotide and dinucleotide frequencies, confirming previous studies that suggest a $\sim$10-bp helical repeat and positioning of bendable dinucleotides at the same periodicity \citep{struhl_determinants_2013}.  The absence of nucleosome binding is associated with a depletion of this periodic signal.  Furthermore, phases and amplitudes of the relevant dinucleotides supported previous findings that indicate the TA dinucleotide occurs at this periodicity and out of phase with GC.  This was supported by the relatively high amplitudes of these nucleotides.  However, in the plain DNA group (figure~\ref{fig:radial_mc_plain}) TA (\ang{20}) did not seem to occur completely out of phase with GC (\ang{150}), but this is likely because the periodicity in this group was not as strong as the groups with methylated DNA (figure~\ref{fig:freqplots_e8}).  % Analysing the plain DNA library enriched for signal could confirm TA and GC periodicities.
+% link this to physiological relevance of these preferences
+
+When cytosines were methylated, the amplitudes of CC, GG, and GC dinucleotides increased, and the phases of CC, CT, TC, and CA along with that of their reverse complements lined up more.  The effect is strongest for the all-C-methylated group, followed by the half-C-methylated and CpG methylated groups.  Methylation of cytosines makes DNA more rigid \citep{rao_systematic_2018, perez_impact_2012}, so a possible explanation of this observation is that rigid sequences are more strongly associated with the phase corresponding to linker DNA as more cytosines are methylated.  Another explanation for the phase changes is that methylated cytosines are structurally similar to thymines and therefore behaves more like thymines on account of the base becoming more bulky.  This explains TC and CC having similar phases, but does not explain why TT does not share this similarity.  It should also be noted that the amplitude of CG exhibited a small decrease in the all-C-methylated and CpG methylated groups, the two groups in which all CG sequences are methylated at the cytosine.  % QUESTION: why?? what is the significance of this??
+% link this to physiological relevance of methylation
+
+From the \emph{k}-mer plots, libraries from unbound DNA were enriched in A and T compared to bound DNA, but this effect was less pronounced when all cytosines were methylated.  Investigating sequence enrichments in the all-C-methylated group relative to the plain DNA group revealed that the same bias towards A and T was present in both unbound and bound DNA, pointing the reason for this bias towards PCR.  This conclusion is supported by how most DNA polymerases have difficulty incorporating methylated cytosines in PCR (Yin, personal communication). % replace with a better citation if I can find one; QUESTION: evidence that DNA polymerases don't like to incorporate methylated cytosines in PCR
+Development of a model to quantify the biases introduced by methylated cytosines in the PCR reaction mixture would aid in determining whether cytosine methylation leads to enrichment of particular nucleotides in nucleosome reconstitution.  The linear model developed to explain the contribution of enzyme and dNTP sources to PCR bias (table~\ref{tab:linearmodel_coeffs}) suggested that among the dNTP sources tested, dNTPs from Zymo Research with methylated cytosines introduced the greatest bias in PCR.  However, this bias is small, with the greatest absolute value among the coefficients at 9.4\%, and within the range of that of dNTPs from Agilent Technologies that did not contain methylated cytosines.  Extending the PCR bias experiments to cover more cycles of PCR could confirm whether methylated cytosines are the main contributor to the bias in the \emph{k}-mer plots as barcoding involves more than 24 cycles of PCR, the number of cycles investigated in the PCR bias experiments.
+
 %% - The underlying mechanism leading to nucleosome’s sequence preference
 %% - Physiological meaning of such preference
 %% - Physiological relevance of the methylation effect
