@@ -358,79 +358,20 @@ The frequency of continuous stretches of adenines (A-stretches) were also counte
 % suggestions as to how experiments might be improved and refined
 % explain what further work you would have done if you had had more time
 
+%% - The underlying mechanism leading to nucleosome’s sequence preference
+%% - Physiological meaning of such preference
+
 % is this first point absolutely necessary?
 From nucleosome EMSA-SELEX, nucleosome binding introduces an approximately 10-bp periodicity in mononucleotide and dinucleotide frequencies, confirming previous studies that suggest a $\sim$10-bp helical repeat and positioning of bendable dinucleotides at the same periodicity \citep{struhl_determinants_2013}.  The absence of nucleosome binding is associated with a depletion of this periodic signal.  Furthermore, phases and amplitudes of the relevant dinucleotides supported previous findings that indicate the TA dinucleotide occurs at this periodicity and out of phase with GC.  This was supported by the relatively high amplitudes of these nucleotides.  However, in the plain DNA group (figure~\ref{fig:radial_mc_plain}) TA (\ang{20}) did not seem to occur completely out of phase with GC (\ang{150}), but this is likely because the periodicity in this group was not as strong as the groups with methylated DNA (figure~\ref{fig:freqplots_e8}).  % Analysing the plain DNA library enriched for signal could confirm TA and GC periodicities.
 % link this to physiological relevance of these preferences
+
+%% - Physiological relevance of the methylation effect
 
 When cytosines were methylated, the amplitudes of CC, GG, and GC dinucleotides increased, and the phases of CC, CT, TC, and CA along with that of their reverse complements lined up more.  The effect is strongest for the all-C-methylated group, followed by the half-C-methylated and CpG methylated groups.  Methylation of cytosines makes DNA more rigid \citep{rao_systematic_2018, perez_impact_2012}, so a possible explanation of this observation is that rigid sequences are more strongly associated with the phase corresponding to linker DNA as more cytosines are methylated.  Another explanation for the phase changes is that methylated cytosines are structurally similar to thymines and therefore behaves more like thymines on account of the base becoming more bulky.  This explains TC and CC having similar phases, but does not explain why TT does not share this similarity.  It should also be noted that the amplitude of CG exhibited a small decrease in the all-C-methylated and CpG methylated groups, the two groups in which all CG sequences are methylated at the cytosine.  % QUESTION: why?? what is the significance of this??
 % link this to physiological relevance of methylation
 
 From the \emph{k}-mer plots, libraries from unbound DNA were enriched in A and T compared to bound DNA, but this effect was less pronounced when all cytosines were methylated.  Investigating sequence enrichments in the all-C-methylated group relative to the plain DNA group revealed that the same bias towards A and T was present in both unbound and bound DNA, pointing the reason for this bias towards PCR.  This conclusion is supported by how most DNA polymerases have difficulty incorporating methylated cytosines in PCR (Yin, personal communication). % replace with a better citation if I can find one; QUESTION: evidence that DNA polymerases don't like to incorporate methylated cytosines in PCR
 Development of a model to quantify the biases introduced by methylated cytosines in the PCR reaction mixture would aid in determining whether cytosine methylation leads to enrichment of particular nucleotides in nucleosome reconstitution.  The linear model developed to explain the contribution of enzyme and dNTP sources to PCR bias (table~\ref{tab:linearmodel_coeffs}) suggested that among the dNTP sources tested, dNTPs from Zymo Research with methylated cytosines introduced the greatest bias in PCR.  However, this bias is small, with the greatest absolute value among the coefficients at 9.4\%, and within the range of that of dNTPs from Agilent Technologies that did not contain methylated cytosines.  Extending the PCR bias experiments to cover more cycles of PCR could confirm whether methylated cytosines are the main contributor to the bias in the \emph{k}-mer plots as barcoding involves more than 24 cycles of PCR, the number of cycles investigated in the PCR bias experiments.
-
-%% - The underlying mechanism leading to nucleosome’s sequence preference
-%% - Physiological meaning of such preference
-%% - Physiological relevance of the methylation effect
-%% - A few discussions about Troubleshooting
-
-% I anticipate this to be A LOT shorter
-
-% Debugging should probably be in a separate subsection in the results or discussion section
-
-%% After the DNA was eluted, barcodes were added using DreamTaq or Phusion (both ThermoFisher) as DNA polymerases.  Gel electrophoresis of the products amplified by DreamTaq yielded bands corresponding to 147 base pairs (figure~\ref{fig:barcoding_a}).  However, gel electrophoresis of the products amplified by Phusion using recommended protocols did not yield this band (figure~\ref{fig:barcoding_b}).
-
-%% Repeating the Phusion amplification using qPCR yielded saturation curves (figure~\ref{fig:qpcr}), suggesting that amplification indeed took place.  As qPCR required a lower concentration of the template, it was hypothesised that Phusion initially failed because the ligand was too concentrated.  Different DNA polymerases from different vendors are efficient with differing template concentrations – for example, DreamTaq requires ... while Phusion requires ... (citation needed).  Therefore, I diluted the template DNA further by adding \SI{70}{\micro\litre} dilution buffer to each well. The resulting 8\% TBE gel yielded the band corresponding to 147 base pairs (figure~\ref{fig:barcoding_c}), confirming the hypothesis.
-
-%% \begin{figure}[htpb]
-%%   \centering
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{dreamtaq}
-%%     \caption{A}
-%%     \label{fig:barcoding_a}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{phusion_old_a}
-%%     \caption{B}
-%%     \label{fig:barcoding_b}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{phusion_new_a}
-%%     \caption{C}
-%%     \label{fig:barcoding_c}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.4\textwidth}
-%%     \centering
-%%     \includegraphics[width=\textwidth]{qpcrgel}
-%%     \caption{D}
-%%     \label{fig:barcoding_d}
-%%   \end{subfigure}
-%%   \caption{A - DreamTaq gel, B - old Phusion gels for rows A and B, C - new Phusion gels for rows A and B, D - qPCR gel}
-%%   \label{fig:barcoding}
-%% \end{figure}
-
-%% \begin{figure}[htpb]
-%%   \centering
-%%   \begin{subfigure}[htpb]{0.3\textwidth}
-%%     \includegraphics[scale=0.1]{qPCR_B}
-%%     \caption{A}
-%%     \label{fig:qpcr_a}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.3\textwidth}
-%%     \includegraphics[scale=0.1]{qPCR_D}
-%%     \caption{B}
-%%     \label{fig:qpcr_b}
-%%   \end{subfigure}
-%%   \begin{subfigure}[htpb]{0.3\textwidth}
-%%     \includegraphics[scale=0.1]{qPCR_F}
-%%     \caption{C}
-%%     \label{fig:qpcr_c}
-%%   \end{subfigure}
-%%   \caption{A - row B, B - row D, C - row H}
-%%   \label{fig:qpcr}
-%% \end{figure}
 
 \chapter{PCR Bias}
 \label{ch:pcrbias}
@@ -460,7 +401,6 @@ Commonly-used model organisms have GC content within the range in which bias is 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
 
-% QUESTION: evidence? is this actually true? ask fangjie
 Although it is well-characterised that PCR introduces sequence biases, it is unknown which process within procedures that employ PCR amplification contributes the most to this bias, and to which degree.  Specifically, the biases introduced from the number of PCR cycles and from purification have not been characterised.  Such characterisation would be beneficial in developing a model to quantify PCR bias.  With such a model, these PCR biases can be removed in genomic studies to reveal true signals introduced by the factors tested in the relevant experiments.  PCR bias is especially relevant for nucleosome EMSA-SELEX employed in this project.  Sequence affinities for the nucleosome is weak, making the signal enrichment in the sequencing library weak, and makes it difficult to separate true signals introduced by nucleosome binding from biases introduced by PCR.  Both sequences bound to nucleosomes and sequences that are not exhibit the same PCR-introduced bias, rather than have biases that separate these two groups.
 
 Here I assesed the sequence biases that could be introduced to the initial input library for nucleosome EMSA-SELEX.  I tested sequence biases introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR.  From the resulting sequencing data, I assessed the distribution of k-mer nucleotides.  The experimental data led to constructing a model to account for PCR bias from these sources.
@@ -566,14 +506,6 @@ The initial input library lig147 was amplified and processed, with conditions va
 
 Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  All enzymes exhibited biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
-% It seems that the plots don't work nicely.  I think it's most appropriate to move this to the discussion.  In the meantime, I might as well describe stuff here before I move them to the appropriate section.
-\subsection{Biases from PCR cycles}
-\label{ssec:pcrbias_result_pcr}
-
-%% if decide to add figures, do it here
-
-% Libraries resulting from using Phusion to amplify the lig147 input library over 8, 12, 16, 20, and 24 PCR cycles were analysed.  For each number of cycles, the correspond library was compared to the input library.  The results were very variable.  A possible explanation would be the instability of the adaptor addition step to prepare the ligands for sequencing: the adaptor addition step involves many cycles of PCR.  Additionally, the results also suggest that there is a lack of complexity of the library.  This lack of complexity increases the chance that sequences hybridise among each other, applying a selection bias on the library, and making the sequence biases more severe as a result.  To rectify these issues, a better input library should be constructed, with better filtering to remove sequences that have a tendency of causing primer dimers.
-
 \subsection{Biases from purification}
 \label{ssec:pcrbias_result_pur}
 
@@ -656,6 +588,21 @@ Different combinations of vendors for dNTPs and Phusion High-Fidelity DNA polyme
 %% - Relevance of such bias to previous sequencing data
 %% - Hints to data analysis in the future 
 %% - A few discussions about Troubleshooting
+%%% BOTTLENECK EFFECT?? QUESTION: why aren't we looking at it now?
+
+% this draft is currently pretty shit.
+
+Similar to the biases seen in nucleosome EMSA SELEX, the \emph{k}-mer plots indicate that all enzymes tested showed biases toward A and T.  An explanation for the common bias exhibited is that the initial library had been biased towards G and T due to the synthesis process of the oligonucleotides.  This was supported by the relatively high counts in G and T in libraries resulting from amplification using all combinations of DNA polymerase and dNTP vendors (figure~\ref{fig:linearmodel_nt}).  Furthermore, the library of plain DNA bound to nucleosomes prepared with additional rounds of AMPure bead purification also exhibited biases towards G and T.  The question of how much A/T bias explains the variances observed in the \emph{k}-mer plots remains to be solved.
+
+In contrast, the biases introduced by AMPure bead purification and reagent vendors were comparatively minimal.
+
+In addition to the experiments described, libraries resulting from using Phusion to amplify the lig147 input library over 8, 12, 16, 20, and 24 PCR cycles were analysed.  For each number of cycles, the corresponding library was compared to the input library.  The results were very variable.  % elaborate
+A possible explanation would be the instability of the adaptor addition step to prepare the ligands for sequencing: the adaptor addition step involves many cycles of PCR.  Additionally, the results also suggest that there is a lack of complexity of the library.  This lack of complexity increases the chance that sequences hybridise among each other, applying a selection bias on the library, and making the sequence biases more severe as a result.
+
+To rectify these issues, a better input library should be constructed, with better filtering to remove sequences that have a tendency of causing primer dimers.  Changing the input library would also correct the G/T biases seen in the \emph{k}-mer plots as discussed earlier.  This would lead to a better understanding of the biases introduced by nucleosome reconstitution and the use of different DNA polymerase enzymes.
+
+% admittedly this is kind of bullshit
+In conclusion, the biases exhibited suggest that PCR accounts for most of the bias in nucleosome EMSA selex, but it is still unknown exactly how much.  This bias is at the order of the biases introduced by the affinity of the histone octamer towards DNA sequences.  Therefore further study would be useful in developing a method to normalise the biases introduced by PCR in order to uncover the biases introduced by the affinity of the histone octamer towards DNA sequences.
 
 \chapter{Acknowledgements}
 \label{ch:ack}
