@@ -104,11 +104,7 @@ PCR amplification was adapted from manufacturer's recommended protocols for Phus
 \subsection{SELEX}
 \label{ssec:emsaselex_methods_selex}
 
-Nucleosome reconstitution procedures were adapted from \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particles'), using \SI{2}{\Molar} \ce{KCl}.  Histone:DNA ratios were 1.48:1, 0.74:1, 0.37:1, 0.19:1, and 0.09:1. % is the last part necessary given that I'm likely going to put it in a figure?
-
-To verify results, reconstituted nucleosomes were analysed by EMSA by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  Gel bands corresponding to unbound DNA and to reconstituted nucleosomes were sliced.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight.
-
-Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
+Nucleosome reconstitution procedures were adapted from \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particles'), using \SI{2}{\Molar} \ce{KCl}.  To verify results, reconstituted nucleosomes were analysed by EMSA by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  Gel bands corresponding to unbound DNA and to reconstituted nucleosomes were sliced.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight.  Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature was followed by ten cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.
 
 \subsection{Sequencing}
 \label{ssec:emsaselex_methods_seq}
@@ -119,9 +115,6 @@ After SELEX, the eluted DNA was barcoded for sequencing.  Amplification was carr
 \label{ssec:emsaselex_methods_anal}
 
 Fast Fourier transformation (FFT) was performed using the position along the sequence read as the time domain and the frequency of mononucleotides or dinucleotides at a specific position within the sequence as the frequency domain, following \citet{zhu_interaction_2018}.  From this, power spectra for mononucleotides and dinucleotides were obtained.  The phase of FFT was also examined at 0.102 per base pair.
-
-% This can easily be trivial information and will likely be deleted.
-For each library, the frequency of all possible 9-mers of nucleotide sequences were counted.  x-y scatter plots were generated to compare the counts between libraries, and the Pearson correlation coefficient was calculated for each scatter plot.
 
 \section{Results}
 \label{sec:emsaselex_results}
@@ -295,7 +288,7 @@ Certain dinucleotides containing cytosines were enriched when the cytosines were
 \subsection{Sequence preferences from sequence \emph{k}-mer counts}
 \label{ssec:nuseqpref_kmer}
 
-For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.  With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). % interpretation in discussion
+For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.  With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). 
 
 \begin{figure}[htpb]
   \centering
@@ -385,9 +378,6 @@ Development of a model to quantify the biases introduced by methylated cytosines
 PCR is a known source of bias in massively parallel sequencing \citep{olova_comparison_2018}.  Among the processes in Illumina sequencing, PCR amplification during library preparation has been identified as the major source of bias.
 % The corresponding figure from Aird et al. would be useful here
 \citet{aird_analyzing_2011} measured frequencies of amplicons of varying GC content after each step in library preparation for Illumina sequencing, and found that DNA shearing, adapter ligation, gel size selection did not significantly introduce biases in response to GC content.  However, PCR depleted loci with GC content exceeding 65\% to the order of 1\% of the reference loci with intermediate GC content, and it also depleted loci with GC content lower than 12\% to the order of 10\% of the reference loci.  This pattern was observed even for 10 PCR cycles.
-
-% == Not relevant to project ==
-%Furthermore, amplification-free sequencing methods exhibited less bias than methods that rely on sequencing.  The amplification-free Pacific Biosciences sequencing introduced the least bias, followed by Illumina and Ion Torrent sequencing \citep{ross_characterizing_2013}. All methods exhibited biases for extremely low and extremely high GC content as described by \citet{aird_analyzing_2011}, but combining data from two sequencing technologies has been shown to potentially reduce bias.  However, amplification-free sequencing requires higher amounts of input DNA and more complicated experimental operations compared to sequencing methods that require amplification.
 
 There are methods to mitigate this bias.  \citet{aird_analyzing_2011} found that this bias can be reduced by slowing the temperature ramping speed of thermocyclers, extending denaturation steps, and adding \SI{2}{\Molar} betaine.
 

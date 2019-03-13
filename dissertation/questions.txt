@@ -64,3 +64,74 @@ METHODS
 
 - Any details about sequencing? E.g. steps in processing. Will this be
   'interesting?'
+
+
+
+TO DO
+
+- Make figures great again
+
+  - All-important figure 1: draw in computer and replace some text (as I noted
+    down)
+
+  - Gel images: add ticks for weights; put ratios onto images in addition to
+    caption
+
+  - Blow up size of text on Python plots
+
+  - Cut out a good chunk of the EMSA-SELEX PHP plots
+
+  - Replace Fangjie's line plot with a dot plot
+
+  - Make A-stretch plot more glamorous
+
+  - Convert plots for individual nucleotides in linear model to dot plots, and
+    make the vertical axis surround 0.25
+
+- Introduction
+
+  - Cut parts to fit actual results, especially the bits that lead into the
+    results section
+
+- Results
+
+  - Add number for height of peak at 10 bp in power spectra
+
+  - Add numbers to describe 'spread' of CX sequences in radial plots
+
+- Discussion
+
+  - EMSA SELEX: discuss why things are enriched in Fangjie's line plot and talk
+    about evaluating how siginificant the deviations are from 1
+
+  - EMSA SELEX: talk about A-stretches -- this is a perfect thing to link to both
+    previous research and physiological relevance
+
+  - General: last sentence/paragraphs should be 'general' --> recapitulate
+    biological questions
+
+
+MORE QUESTIONS/ISSUES (2019-03-13)
+ 
+- What is the significance of the amplitude of CG exhibiting a small decrease in
+  the all-C-methylated and CpG methylated groups, the two groups in which all CG
+  sequences are methylated at the cytosine?
+
+- Is there any evidence (e.g. a published paper rather than Yimeng's experience)
+  that supports how most DNA polymerases have difficulty incorporating methylated
+  cytosines in PCR?
+
+- Why aren't we looking at the variance caused by bottleneck effect any more?
+
+- From the k-mer plot regarding AMPure beads, how did you conclude that the bias
+  from four rounds of purification is likely from the adaptor addition process?
+
+- Regarding the linear model, what are the values of the constant 'c' for each
+  nucleotide?  The absolute values of the 'a' and 'b' coefficients are very
+  small.  Would this mean that points will lie on a straight line anyway?  I have
+  slight doubts about the validity of using this plot to 'validate' the model.
+
+- Should I include the results from investigating the biases introduced by cycles
+  of PCR in the conclusion?  If so, what features of the k-mer plots should I
+  pick (i.e. how would I describe how variable the results were)?  I think
+  including this supports my assertion for the need of a better input library.
