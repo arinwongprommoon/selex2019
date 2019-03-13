@@ -141,33 +141,35 @@ Using the lig147 input library \citep{zhu_interaction_2018}, four cycles of EMSA
 
 EMSA in all cycles yielded strong bands corresponding to naked 147-base pair DNA. It also yielded bands corresponding to reconstituted nucleosomes that are fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}).
 
+% add ticks for weights on gels
+% put the ratios onto the images instead of in the caption
 \begin{figure}[htpb]
   \centering
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=\textwidth]{reconstnuc_a}
-    \caption{A}
+    \caption{Plain (non-methylated) DNA}
     \label{fig:reconstnuc_a}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=\textwidth]{reconstnuc_b}
-    \caption{B}
+    \caption{Half-C-methylated DNA}
     \label{fig:reconstnuc_b}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=\textwidth]{reconstnuc_c}
-    \caption{C}
+    \caption{All-C-methylated DNA}
     \label{fig:reconstnuc_c}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=\textwidth]{reconstnuc_d}
-    \caption{D}
+    \caption{CpG-methylated DNA}
     \label{fig:reconstnuc_d}
   \end{subfigure}
-  \caption{First cycle gel electrophoresis for EMSA in 6\% DNA retardation gels for (A) non-methylated DNA, (B) half-C-methylated (C) all-C-methylated, and (D) CpG-methylated DNA. Lanes for all images (left to right): (1) 1.48:1 histone octamer:DNA, (2) 0.74:1 histone octamer:DNA, (3) 0.37:1 histone octamer:DNA, (4) 0.19:1 histone octamer:DNA, (5) 0.09:1 histone octamer:DNA, and (6) DNA without histone octamer added.  These results are representative for all cycles of EMSA SELEX.}
+  \caption{First cycle gel electrophoresis for EMSA in 6\% DNA retardation gels for the four experimental groups.  Lanes for all images correspond to these histone:octamer ratios (left to right): (1) 1.48:1, (2) 0.74:1, (3) 0.37:1, (4) 0.19:1, (5) 0.09:1, and (6) DNA without histone octamer added.  These results are representative for all cycles of EMSA SELEX.}
   \label{fig:reconstnuc}
 \end{figure}
 
@@ -178,28 +180,28 @@ DNA ligands that are not bound to nucleosomes and ligands that are bound to nucl
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{test}
-    \caption{A}
+    \caption{Plain DNA}
     \label{fig:freqplots_e8}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{test}
-    \caption{B}
+    \caption{Half-C-methylated}
     \label{fig:freqplots_f8}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{test}
-    \caption{C}
+    \caption{All-C-methylated}
     \label{fig:freqplots_g8}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{test}
-    \caption{D}
+    \caption{CpG methylated}
     \label{fig:freqplots_h8}
   \end{subfigure}
-  \caption{Frequency plots}
+  \caption{Frequencies of each mononucleotide and dinucleotide along the sequencing reads from libraries corresponding to 1:0.74 octamer:DNA ratios for the fourth cycle of EMSA-SELEX}
   \label{fig:freqplots}
 \end{figure}
 
@@ -208,13 +210,13 @@ DNA ligands that are not bound to nucleosomes and ligands that are bound to nucl
   \begin{subfigure}[htpb]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{enriched-counts}
-    \caption{A}
+    \caption{}
     \label{fig:enriched_counts}
   \end{subfigure}
   \begin{subfigure}[htpb]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{enriched-power}
-    \caption{B}
+    \caption{}
     \label{fig:enriched_power}
   \end{subfigure}
   \caption{Analysis of library of plain DNA bound to nucleosomes enriched for signal. (A) shows the nucleotide counts as a function of position along the reads, and (B) shows the fast Fourier transform power spectra for the four nucleotides.}
@@ -249,28 +251,28 @@ The phase and the amplitude resulting from the fast Fourier transforms were then
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{emsa_e8_radial}
-    \caption{A}
+    \caption{Plain DNA}
     \label{fig:radial_mc_plain}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{emsa_f8_radial}
-    \caption{B}
+    \caption{Half-C-methylated}
     \label{fig:radial_mc_halfmc}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{emsa_g8_radial}
-    \caption{C}
+    \caption{All-C-methylated}
     \label{fig:radial_mc_allmc}
   \end{subfigure}
   \begin{subfigure}[htpb]{0.4\textwidth}
     \centering
     \includegraphics[width=0.4\textwidth]{emsa_h8_radial}
-    \caption{D}
+    \caption{CpG methylated}
     \label{fig:radial_mc_cpg}
   \end{subfigure}
-  \caption{Effects of cytosine methylation: radial plots showing amplitude and phase}
+  \caption{Effects of cytosine methylation: radial plots showing amplitudes and phases for each dinucleotide}
   \label{fig:radial_mc}
 \end{figure}
 
