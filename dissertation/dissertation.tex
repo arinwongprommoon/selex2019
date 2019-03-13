@@ -113,7 +113,7 @@ Eluted DNA was amplified using procedures adapted from manufacturer's recommende
 \subsection{Sequencing}
 \label{ssec:emsaselex_methods_seq}
 
-After SELEX, the eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x AMPure beads (Beckman Coulter) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.  Illumina HiSeq 4000 was then used for sequencing, following standard protocols, with >60 bp paired-end settings.  Raw sequences are demultiplexed, then the R1 and R2 reads of paired-end sequencing were merged according to \citet{zhu_interaction_2018}.
+After SELEX, the eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x AMPure beads (Beckman Coulter) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.  Illumina HiSeq 4000 was then used for sequencing, following standard protocols, with $>$ 60 bp paired-end settings.  Raw sequences are demultiplexed, then the R1 and R2 reads of paired-end sequencing were merged according to \citet{zhu_interaction_2018}.
 
 \subsection{Data analysis}
 \label{ssec:emsaselex_methods_anal}
@@ -177,27 +177,27 @@ DNA ligands that are not bound to nucleosomes and ligands that are bound to nucl
 
 \begin{figure}[htpb]
   \centering
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{test}
+    \includegraphics[width=0.5\textwidth]{emsa_e8_counts}
     \caption{Plain DNA}
     \label{fig:freqplots_e8}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{test}
+    \includegraphics[width=0.5\textwidth]{emsa_f8_counts}
     \caption{Half-C-methylated}
     \label{fig:freqplots_f8}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{test}
+    \includegraphics[width=0.5\textwidth]{emsa_g8_counts}
     \caption{All-C-methylated}
     \label{fig:freqplots_g8}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{test}
+    \includegraphics[width=0.5\textwidth]{emsa_h8_counts}
     \caption{CpG methylated}
     \label{fig:freqplots_h8}
   \end{subfigure}
@@ -219,7 +219,7 @@ DNA ligands that are not bound to nucleosomes and ligands that are bound to nucl
     \caption{}
     \label{fig:enriched_power}
   \end{subfigure}
-  \caption{Analysis of library of plain DNA bound to nucleosomes enriched for signal. (A) shows the nucleotide counts as a function of position along the reads, and (B) shows the fast Fourier transform power spectra for the four nucleotides.}
+  \caption{Analysis of library of plain DNA bound to nucleosomes enriched for signal. (a) shows the nucleotide counts as a function of position along the reads, and (b) shows the fast Fourier transform power spectra for the four nucleotides.}
   \label{fig:enriched}
 \end{figure}
 
@@ -248,27 +248,27 @@ The phase and the amplitude resulting from the fast Fourier transforms were then
 
 \begin{figure}[htpb]
   \centering
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{emsa_e8_radial}
+    \includegraphics[width=0.5\textwidth]{emsa_e8_radial}
     \caption{Plain DNA}
     \label{fig:radial_mc_plain}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{emsa_f8_radial}
+    \includegraphics[width=0.5\textwidth]{emsa_f8_radial}
     \caption{Half-C-methylated}
     \label{fig:radial_mc_halfmc}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{emsa_g8_radial}
+    \includegraphics[width=0.5\textwidth]{emsa_g8_radial}
     \caption{All-C-methylated}
     \label{fig:radial_mc_allmc}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{emsa_h8_radial}
+    \includegraphics[width=0.5\textwidth]{emsa_h8_radial}
     \caption{CpG methylated}
     \label{fig:radial_mc_cpg}
   \end{subfigure}
@@ -524,27 +524,27 @@ For each library, the frequency of each possible continuous 9-mer of nucleotides
 
 \begin{figure}[htpb]
   \centering
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{kmer_dreamtaq}
+    \includegraphics[width=0.5\textwidth]{kmer_dreamtaq}
     \caption{DreamTaq}
     \label{fig:kmer_enz_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{kmer_phire}
+    \includegraphics[width=0.5\textwidth]{kmer_phire}
     \caption{Phire}
     \label{fig:kmer_enz_phire}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{kmer_q5}
+    \includegraphics[width=0.5\textwidth]{kmer_q5}
     \caption{Q5}
     \label{fig:kmer_enz_q5}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{kmer_phusion}
+    \includegraphics[width=0.5\textwidth]{kmer_phusion}
     \caption{Phusion}
     \label{fig:kmer_enz_phusion}
   \end{subfigure}
@@ -581,27 +581,27 @@ Eight rounds of purification of the lig147 input library by AMPure beads did not
 % I'm seriously considering changing these plots to dot plots and the vertical axes to be uniform around 0.20 to 0.30.  I have the data, not the code...
 \begin{figure}[htpb]
   \centering
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{linearmodel_a}
+    \includegraphics[width=0.5\textwidth]{linearmodel_a}
     \caption{adenine (A)}
     \label{fig:linearmodel_a}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{linearmodel_c}
+    \includegraphics[width=0.5\textwidth]{linearmodel_c}
     \caption{cytosine (C)}
     \label{fig:linearmodel_c}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{linearmodel_g}
+    \includegraphics[width=0.5\textwidth]{linearmodel_g}
     \caption{guanine (G)}
     \label{fig:linearmodel_g}
   \end{subfigure}
-  \begin{subfigure}[htpb]{0.4\textwidth}
+  \begin{subfigure}[htpb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.4\textwidth]{linearmodel_t}
+    \includegraphics[width=0.5\textwidth]{linearmodel_t}
     \caption{thymine (T)}
     \label{fig:linearmodel_t}
   \end{subfigure}
