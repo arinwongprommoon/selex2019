@@ -283,6 +283,17 @@ Specifically, in the plain DNA library, the CA, CC, CG, and CT sequences were sp
 These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_mc_cpg}). % topic sentence
 Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Similar to the other experimental groups, the amplitude of CG exhibited a slight decrease.  However, the CA, CC, CG, and CT sequences were still spread over a wide range of phases, covering \ang{80} to \ang{160}.
 
+% Use R to replace this with a dot plot later
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\textwidth]{c2nt}
+  \caption{Enrichment of dinucleotides in the 0.74:1 octamer:DNA ratio libraries for each experimental group.  The number of occurences of each dinucleotide in each library was calculated.  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.} 
+  \label{fig:c2nt}
+\end{figure}
+
+% could discuss why some things are enriched and some are depleted, but the effect size isn't great as they're all around 1 (which is sort of expected as histone octamers only bind loosely to DNA).  Theoretically to evaluate how significant the deviations from 1 are we would have to make at least three replicates, but we didn't (they're bloody expensive too) -- can also put this in the discussion
+Certain dinucleotides containing cytosines were enriched when the cytosines were methylated, especially in CpG methylation (figure~\ref{fig:c2nt}).  In particular CC, CG, and GC are enriched in the CpG methylated group.  In constrast, CC seems to be depleted in the all-C-methylated group.  However, in all samples the deviations from a 1:1 ratio were small.
+
 \begin{figure}[htpb]
   \centering
   \begin{subfigure}[htpb]{0.7\textwidth}
@@ -328,6 +339,18 @@ Using the AA sequence as a reference, the amplitudes of CC and CT increased.  Si
 For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
 
 With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). % interpretation in discussion
+
+% make this look more glamorous later by changing around the R code.  it's already informative
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\textwidth]{astretch}
+  \caption{Enrichment of continuous stretches of adenines for each experimental group.  The number of occurences of each k-mer of adenine stretches in each library was calculated (e.g. `5' corresponds to `AAAAA').  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.}
+  \label{fig:astretch}
+\end{figure}
+
+Finally, the frequency of continuous stretches of adenines (A-stretches) were counted in each library (figure~\ref{fig:astretch}).
+
+Methylation was associated with A-stretches being less represented in the libraries containing DNA bound to nucleosomes.  Compared to plain DNA, the half-C-methylated and all-C-methylated groups exhibited greater depletions in A-stretches.  This effect was more pronounced in the CpG methylated group.
 
 \section{Discussion}
 \label{sec:emsaselex_discussion}
