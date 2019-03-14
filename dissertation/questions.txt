@@ -110,7 +110,7 @@ TO DO
       weak signals.
 
   - General: last sentence/paragraphs should be 'general' --> recapitulate
-    biological questions
+    biological questions --> DONE WITH THIS
 
 
 MORE QUESTIONS/ISSUES (2019-03-13)
