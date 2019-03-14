@@ -12,6 +12,7 @@
 \DeclareSIUnit\calorie{cal}
 
 \usepackage{mathptmx} % change font to times
+\usepackage[margin=1.0in]{geometry}
 
 % citations
 \usepackage[
@@ -41,7 +42,7 @@
 
 \begin{document}
 
-\maketitle
+%\maketitle
 % Will deal with the intricacies of the cover pages at the very end.
 
 %\tableofcontents
@@ -52,13 +53,13 @@
 \section{Introduction}
 \label{sec:emsaselex_intro}
 
-The dinucleotide sequences AA, AT, and TA confer high flexbility to DNA.  Therefore, they are situated on the face of the helical repeat that directly interacts with the histone octamer, with a periodicity of approximately 10 bp \citep{struhl_determinants_2013}.  GC dinucleotides also occur periodically, but out of phase with the aforementioned dinucleotides.  These preferences were confirmed by a yeast-based genome-wide assay, which identified DNA regions stably wrapped in nucleosomes, and the associated dinucleotide probability distributions contributed to a computational model that confirmed these preferences \citep{segal_genomic_2006}.  In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) confer stiff structures that inhibit nucleosome formation.  These sequences are enriched in linker DNA between nucelosomes.  Additonally, DNA methylation disfavours nucleosome positioning \emph{in vivo}, as it increases the rigidity of DNA \citep{huff_dnmt1-independent_2014}.
+The dinucleotide sequences AA, AT, and TA confer high flexbility to DNA.  Therefore, they are situated on the face of the helical repeat that directly interacts with the histone octamer, with a periodicity of approximately 10 bp \citep{struhl_determinants_2013}.  GC dinucleotides also occur periodically, but out of phase with the aforementioned dinucleotides.  In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) confer stiff structures that inhibit nucleosome formation.  These sequences are enriched in linker DNA between nucelosomes.  Additonally, DNA methylation disfavours nucleosome positioning \emph{in vivo}, as it increases the rigidity of DNA \citep{huff_dnmt1-independent_2014}.
 
 To date, clean \emph{in vitro} sequence preference data for CpG methylation is not available.  This is in contrast to sequence preference data derived from MNase-seq on existing genomes in previous studies \citep{struhl_determinants_2013, segal_genomic_2006, huff_dnmt1-independent_2014}.  Furthermore, there has been no exploration into the effects of CH methylation (non-CpG methylation) on sequence preferences of nucleosomes.  Although CpG methylation is the predominant chemical modification of eukaryotic DNA, playing roles in gene regulation and physiology, CH methylation regulates development of stem cells and neurons \citep{guo_distribution_2014}.
 
 SELEX is a promising method to identify the DNA sequences preferred for nucleosome positioning.  Unlike MNase-seq, SELEX employs a random DNA library, which has a higher complexity than genomic sequences and a more homogenous background sequence distribution.  \citet{lowary_new_1998} employed SELEX in uncovering sequence-based rules for nucleosome positioning, but analysis was limited by the technology at the time.  This project extended on their study by employing sequencing to a higher depth, allowing identification of signals with higher information content.
 
-In this project, I aimed to study the sequence specificity of the nucleosome on methylated and non-methylated DNA.  I conducted four cycles of nucleosome SELEX using random DNA as the initial input library.  In each cycle, I reconstituted nucleosomes from \emph{Xenopus laevis} histone octamer and 147-bp DNA \citep{dyer_reconstitution_2003} methylated at various levels.  This included CpG methylation, methylation at all cytosines, and methylation at half the cytosines.  I extracted the DNA bound to nucleosomes at each cycle for sequencing, then assessed the distribution of mononucleotides and dinucleotides using Fourier transform \citep{lowary_new_1998, zhu_interaction_2018}.  Subsequently, I investigated the effect of histone octamer binding on the enrichment of mononucleotides in the sequencing libraries by producing 9-mer plots.
+In this project, I aimed to study the sequence specificity of the nucleosome on methylated and non-methylated DNA.
 
 \section{Results}
 \label{sec:emsaselex_results}
@@ -291,15 +292,9 @@ The frequency of continuous stretches of adenines (A-stretches) were also counte
 \section{Introduction}
 \label{sec:pcrbias_intro}
 
-PCR is a known source of bias in massively parallel sequencing \citep{olova_comparison_2018}.  Among the processes in Illumina sequencing, PCR amplification during library preparation has been identified as the major source of bias.
-% The corresponding figure from Aird et al. would be useful here
-\citet{aird_analyzing_2011} measured frequencies of amplicons of varying GC content after each step in library preparation for Illumina sequencing, and found that DNA shearing, adapter ligation, gel size selection did not significantly introduce biases in response to GC content.  However, PCR depleted loci with GC content exceeding 65\% to the order of 1\% of the reference loci with intermediate GC content, and it also depleted loci with GC content lower than 12\% to the order of 10\% of the reference loci.  This pattern was observed even for 10 PCR cycles.
+PCR is a known source of bias in massively parallel sequencing \citep{olova_comparison_2018}.  Among the processes in Illumina sequencing, PCR amplification during library preparation has been identified as the major source of bias.  It is unknown which process within procedures that employ PCR amplification contributes the most to this bias, and to which degree.  Such characterisation would be beneficial in developing a model to quantify PCR bias.  With such a model, these PCR biases can be removed in genomic studies to reveal true signals introduced by the factors tested in the relevant experiments.  PCR bias is especially relevant for nucleosome EMSA-SELEX employed in this project.  Sequence affinities for the nucleosome is weak, making the signal enrichment in the sequencing library weak, and makes it difficult to separate true signals introduced by nucleosome binding from biases introduced by PCR.
 
-There are methods to mitigate this bias.  The choice of DNA polymerase enzyme has an effect.  Phusion DNA polymerase is commonly used because it has higher processivity and fidelity than most polymerases \citep{quail_optimal_2012}. Trying to reduce PCR bias by adding betaine and prolonging the denaturation step leads to a loss of high-AT sequences.  \citet{aird_analyzing_2011} also showed that replacing Phusion with AccuPrime Taq HiFi polymerase improved PCR bias.  Extension at \SI{60}{\celsius} using this enzyme retained more low-GC sequences, but also led to a decrease in yield of GC-rich reads.  \citet{quail_optimal_2012} showed that replacing Phusion with Kapa HiFi led to a more uniformm genome coverage.  However, this also led to a higher error rate, especially in TA-rich regions that Phusion often fails to amplify.
-
-Although it is well-characterised that PCR introduces sequence biases, it is unknown which process within procedures that employ PCR amplification contributes the most to this bias, and to which degree.  Specifically, the biases introduced from the number of PCR cycles and from purification have not been characterised.  Such characterisation would be beneficial in developing a model to quantify PCR bias.  With such a model, these PCR biases can be removed in genomic studies to reveal true signals introduced by the factors tested in the relevant experiments.  PCR bias is especially relevant for nucleosome EMSA-SELEX employed in this project.  Sequence affinities for the nucleosome is weak, making the signal enrichment in the sequencing library weak, and makes it difficult to separate true signals introduced by nucleosome binding from biases introduced by PCR.  Both sequences bound to nucleosomes and sequences that are not exhibit the same PCR-introduced bias, rather than have biases that separate these two groups.
-
-Here I assesed the sequence biases that could be introduced to the initial input library for nucleosome EMSA-SELEX.  I tested sequence biases introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR.  From the resulting sequencing data, I assessed the distribution of k-mer nucleotides.
+Here I assesed the sequence biases that could be introduced to the initial input library for nucleosome EMSA-SELEX.  I tested sequence biases introduced by the choice of DNA polymerase, choice of reagents, cycles of PCR, and purification of DNA after PCR.
 
 \section{Results}
 \label{sec:pcrbias_results}
@@ -424,7 +419,7 @@ The model was then verified with experimental data (figure~\ref{fig:linearmodel_
 % analyse the data and add how well the correlation is
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.4\textwidth]{linearmodel_plot}
+  \includegraphics[width=0.25\textwidth]{linearmodel_plot}
   \caption{Verification of linear model. R = 0.9980243}
   \label{fig:linearmodel_ver}
 \end{figure}
