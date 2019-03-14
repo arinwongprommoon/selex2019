@@ -105,6 +105,10 @@ TO DO
     previous research and physiological relevance --> WAIT ACTUALLY IT DOESN'T
     LOOK LIKE IT MAKES SENSE
 
+    - Try computing the A-stretch lengths using the 94N-bound and 94N-unbound
+      datasets to confirm my assertions that the aberrant results are due to
+      weak signals.
+
   - General: last sentence/paragraphs should be 'general' --> recapitulate
     biological questions
 
