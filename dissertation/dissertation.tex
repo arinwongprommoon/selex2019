@@ -52,11 +52,7 @@
 \section{Introduction}
 \label{sec:emsaselex_intro}
 
-The dinucleotide sequences AA, AT, and TA confer high flexbility to DNA.  Therefore, they are situated on the face of the helical repeat that directly interacts with the histone octamer, with a periodicity of approximately 10 bp \citep{struhl_determinants_2013}.  GC dinucleotides also occur periodically, but out of phase with the aforementioned dinucleotides.  These preferences were confirmed by a yeast-based genome-wide assay, which identified DNA regions stably wrapped in nucleosomes, and the associated dinucleotide probability distributions contributed to a computational model that confirmed these preferences \citep{segal_genomic_2006}.
-
-In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) confer stiff structures that inhibit nucleosome formation.  These sequences are enriched in linker DNA between nucelosomes.  Poly(dA:dT) sequences are enriched in promoters, in particular that of \emph{Saccharomyces cerevisiae} \citep{struhl_determinants_2013}.  Depletion of nucleosomes at promoters on artificial chromosomes based on \emph{S. cerevisiae} genomic regions was shown to be dependent on the number and length of poly(dA:dT) sequences \citep{hughes_functional_2012}.
-
-Additonally, DNA methylation disfavours nucleosome positioning \emph{in vivo}, as it increases the rigidity of DNA \citep{huff_dnmt1-independent_2014}.  Specifically, multiple tracts of methylated CpG sequences islands makes DNA have lower rise and twist along with higher roll values, thus making the DNA stiffer \citep{rao_systematic_2018, perez_impact_2012}.  However, the negative correlation between nucleosome occupancy and DNA methylation varies according to the genomic location.  For example, this negative correlation holds for CTCF regions, but not at promoters \citep{kelly_genome-wide_2012}.
+The dinucleotide sequences AA, AT, and TA confer high flexbility to DNA.  Therefore, they are situated on the face of the helical repeat that directly interacts with the histone octamer, with a periodicity of approximately 10 bp \citep{struhl_determinants_2013}.  GC dinucleotides also occur periodically, but out of phase with the aforementioned dinucleotides.  These preferences were confirmed by a yeast-based genome-wide assay, which identified DNA regions stably wrapped in nucleosomes, and the associated dinucleotide probability distributions contributed to a computational model that confirmed these preferences \citep{segal_genomic_2006}.  In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) confer stiff structures that inhibit nucleosome formation.  These sequences are enriched in linker DNA between nucelosomes.  Additonally, DNA methylation disfavours nucleosome positioning \emph{in vivo}, as it increases the rigidity of DNA \citep{huff_dnmt1-independent_2014}.
 
 To date, clean \emph{in vitro} sequence preference data for CpG methylation is not available.  This is in contrast to sequence preference data derived from MNase-seq on existing genomes in previous studies \citep{struhl_determinants_2013, segal_genomic_2006, huff_dnmt1-independent_2014}.  Furthermore, there has been no exploration into the effects of CH methylation (non-CpG methylation) on sequence preferences of nucleosomes.  Although CpG methylation is the predominant chemical modification of eukaryotic DNA, playing roles in gene regulation and physiology, CH methylation regulates development of stem cells and neurons \citep{guo_distribution_2014}.
 
@@ -289,38 +285,6 @@ The frequency of continuous stretches of adenines (A-stretches) were also counte
   \label{fig:astretch}
 \end{figure}
 
-\section{Discussion}
-\label{sec:emsaselex_discussion}
-
-%%% GUIDELINES FROM DEPARTMENT
-% brief recapitulation of major conclusions and evidence that supports them
-% discuss how results relate to previously published work, and to the ideas and models currently favoured in the field
-% suggestions as to how experiments might be improved and refined
-% explain what further work you would have done if you had had more time
-
-\subsection{Mechanisms leading to nucleosome sequence preferences}
-\label{ssec:emsaselex_discussion_seqpref}
-
-In nucleosome EMSA-SELEX, nucleosome binding introduced an approximately 10-bp periodicity in mononucleotide and dinucleotide frequencies.  The absence of nucleosome binding was associated with a depletion of this periodic signal.  These observations confirmed studies that suggest a $\sim$10-bp helical repeat and that dinucleotides tthat confer flexibility are positioned at the same periodicity \citep{struhl_determinants_2013}.  Furthermore, phases and amplitudes of the dinucleotides supported findings that indicate that TA occurs out of phase with GC.  In plain DNA (figure~\ref{fig:radial_mc_plain}) TA (\ang{20}) did not occur completely out of phase with GC (\ang{150}), but this is likely because the periodicity in this group was not as strong as the others (figure~\ref{fig:freqplots_e8}).
-
-Stretches of adenines between five and nine nucleotides were depleted in libraries of DNA bound to nucleosomes, as indicated by normalised count ratios below 1.0 (figure~\ref{fig:astretch}).  This agrees with studies that reveal that poly(dA) tracts disfavour nucleosome positioning because they are stiff \citep{struhl_determinants_2013}.  Trends suggested that A-stretches were more depleted in methylated DNA than in plain DNA, and that A-stretches were more enriched if they were longer.  As the signals from plain DNA were weak, these conclusions may not be drawn.  Previous experiments with plain DNA libraries enriched for signal suggested that A-stretches were depleted as their length increases, concordant with previous theories regarding poly(dA) tracts.
-
-In sum, the analyses in this project confirmed that nucleosome EMSA SELEX with current deep sequencing methods revealed the same conclusions as previous MNase-based assays.  % something about physiological relevance to 'broaden' the end of this section??
-
-\subsection{Effect of methylation on nucleosome sequence preferences}
-\label{ssec:emsaselex_discussion_methyl}
-
-%% - Physiological relevance of the methylation effect
-
-When cytosines were methylated, the amplitudes of CC, GG, and GC dinucleotides increased, and the phases of CC, CT, TC, and CA along with that of their reverse complements lined up more.  Methylation of cytosines makes DNA more rigid \citep{rao_systematic_2018, perez_impact_2012}, so a possible explanation is that rigid sequences are more strongly associated with the phase angles corresponding to linker DNA as more cytosines are methylated.  Another explanation is that methylated cytosines are structurally similar to thymines -- bulkier -- and therefore behaves more like thymines.  This explains TC and CC having similar phases, but does not explain why TT does not share this similarity.  Structural studies may be able to elucidate the structural basis of the observations.
-
-Additionally, cytosine methylation was observed to be associated with enrichment of certain dinucleotides containing cytosines (figure~\ref{fig:c2nt}), but the effect size is small.  These small deviations from 1:1 ratios can be attributed to the low affinity of histone octamers to DNA, at least relative to transcription factors \citep{struhl_determinants_2013}. % probably find better citation to support this assertion, admittedly the sentence i was thinking of is not that strong
-However, additional biological replicates must be done in order to evaluate the significance of the deviations from 1:1 ratios for each dinucleotide exhibited by each experimental group.
-
-Thus these results provide preliminary insights into \emph{in vitro} sequence preference data for nucleosomes binding to CpG-methylated and CH-methylated DNA.  Further study could lead to better insights on how organisms use both forms of methylation to regulate developmental and physiological processes.  Such regulation may take advantage of how nucleosome positioning inhibits transcription.
-
-From the \emph{k}-mer plots, libraries from unbound DNA were enriched in A and T compared to bound DNA, but this effect was less pronounced when all cytosines were methylated.  Investigating sequence enrichments in the all-C-methylated group relative to the plain DNA group revealed that the same bias was present in both unbound and bound DNA, suggesting that PCR accounted for this bias.  Quantifying the sequence biases introduced by PCR would then allow removal of this bias to reveal the biases introduced by nucleosome sequence preferences.
-
 \chapter{PCR Bias}
 \label{ch:pcrbias}
 
@@ -354,27 +318,27 @@ The initial input library lig147 was amplified and processed, with conditions va
 
 Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  All enzymes exhibited biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
-\begin{figure}[htb]
+\begin{figure}[h]
   \centering
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[h]{0.45\textwidth}
     \centering
     \includegraphics[width=0.45\textwidth]{kmer_dreamtaq}
     \caption{DreamTaq}
     \label{fig:kmer_enz_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[h]{0.45\textwidth}
     \centering
     \includegraphics[width=0.45\textwidth]{kmer_phire}
     \caption{Phire}
     \label{fig:kmer_enz_phire}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[h]{0.45\textwidth}
     \centering
     \includegraphics[width=0.45\textwidth]{kmer_q5}
     \caption{Q5}
     \label{fig:kmer_enz_q5}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[h]{0.45\textwidth}
     \centering
     \includegraphics[width=0.45\textwidth]{kmer_phusion}
     \caption{Phusion}
@@ -461,20 +425,9 @@ The model was then verified with experimental data (figure~\ref{fig:linearmodel_
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.4\textwidth]{linearmodel_plot}
-  \caption{Verification of linear model. R = 0.9XX}
+  \caption{Verification of linear model. R = 0.9980243}
   \label{fig:linearmodel_ver}
 \end{figure}
-
-\section{Discussion}
-\label{sec:pcrbias_discussion}
-%% - Relevance of such bias to previous sequencing data
-%% - Hints to data analysis in the future 
-%% - A few discussions about Troubleshooting
-%%% BOTTLENECK EFFECT?? QUESTION: why aren't we looking at it now?
-
-As biases introduced by AMPure bead purification and reagent vendors were minimal, PCR bias is likely due to the reactions themselves.  All DNA polymerase enzymes tested showed biases towards A and T, similar to that seen in nucleosome EMSA SELEX.  However, the question of how much contribution A/T bias explains the variances observed in the \emph{k}-mer plots remains to be solved.  The initial lig147 input library has been shown to be biased towards G and T, likely because of the synthesis process, but this does not completely explain the variances.  To improve on these experiments, a better input library should be constructed.  This would lead to a better understanding of the biases introduced by nucleosome reconstitution and the use of different DNA polymerase enzymes.
-
-An input library with improved filtering to remove sequences that have a tendency to form primer dimers can be used to investigate the effect of increased cycles of PCR on PCR bias.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.
 
 %\printbibliography
 
