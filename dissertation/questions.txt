@@ -101,11 +101,9 @@ TO DO
 
 - Discussion
 
-  - EMSA SELEX: discuss why things are enriched in Fangjie's line plot and talk
-    about evaluating how siginificant the deviations are from 1
-
   - EMSA SELEX: talk about A-stretches -- this is a perfect thing to link to both
-    previous research and physiological relevance
+    previous research and physiological relevance --> WAIT ACTUALLY IT DOESN'T
+    LOOK LIKE IT MAKES SENSE
 
   - General: last sentence/paragraphs should be 'general' --> recapitulate
     biological questions
@@ -115,23 +113,28 @@ MORE QUESTIONS/ISSUES (2019-03-13)
  
 - What is the significance of the amplitude of CG exhibiting a small decrease in
   the all-C-methylated and CpG methylated groups, the two groups in which all CG
-  sequences are methylated at the cytosine?
+  sequences are methylated at the cytosine? --> THE DECREASE PROBABLY ISN'T REAL,
+  QUANTIFY ON DATA TO MAKE SURE
 
 - Is there any evidence (e.g. a published paper rather than Yimeng's experience)
   that supports how most DNA polymerases have difficulty incorporating methylated
-  cytosines in PCR?
+  cytosines in PCR? --> NO
 
 - Why aren't we looking at the variance caused by bottleneck effect any more?
+  --> PLOTS PENDING
 
 - From the k-mer plot regarding AMPure beads, how did you conclude that the bias
   from four rounds of purification is likely from the adaptor addition process?
+  --> JUST SPECULATION, IGNORE THIS
 
 - Regarding the linear model, what are the values of the constant 'c' for each
   nucleotide?  The absolute values of the 'a' and 'b' coefficients are very
   small.  Would this mean that points will lie on a straight line anyway?  I have
   slight doubts about the validity of using this plot to 'validate' the model.
+  --> R VALUE PENDING
 
 - Should I include the results from investigating the biases introduced by cycles
-  of PCR in the conclusion?  If so, what features of the k-mer plots should I
+  of PCR in the discussion?  If so, what features of the k-mer plots should I
   pick (i.e. how would I describe how variable the results were)?  I think
   including this supports my assertion for the need of a better input library.
+  --> NO IT WOULD JUST CONFUSE PEOPLE
