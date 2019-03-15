@@ -98,8 +98,6 @@ TO DO
 
 - Results
 
-  - Add number for height of peak at 10 bp in power spectra
-
   - Add numbers to describe 'spread' of CX sequences in radial plots
 
 - Discussion
@@ -123,12 +121,21 @@ MORE QUESTIONS/ISSUES (2019-03-13)
   sequences are methylated at the cytosine? --> THE DECREASE PROBABLY ISN'T REAL,
   QUANTIFY ON DATA TO MAKE SURE ***
 
+  DONE:
+  plain 0.4392
+  halfmc 0.2435
+  allmc 0.2563
+  cpg 0.2621
+
+  so the decrease is definitely not real. The decrease from plain to the other
+  groups is likely real though
+
 - Is there any evidence (e.g. a published paper rather than Yimeng's experience)
   that supports how most DNA polymerases have difficulty incorporating methylated
   cytosines in PCR? --> NO
 
 - Why aren't we looking at the variance caused by bottleneck effect any more?
-  --> PLOTS PENDING **
+  --> PLOTS OBTAINED, BUT WILL HAVE TO REGENERATE THEM AFTER NORMALISATION
 
 - From the k-mer plot regarding AMPure beads, how did you conclude that the bias
   from four rounds of purification is likely from the adaptor addition process?
@@ -138,7 +145,7 @@ MORE QUESTIONS/ISSUES (2019-03-13)
   nucleotide?  The absolute values of the 'a' and 'b' coefficients are very
   small.  Would this mean that points will lie on a straight line anyway?  I have
   slight doubts about the validity of using this plot to 'validate' the model.
-  --> R VALUE PENDING **
+  --> R VALUE OBTAINED
 
 - Should I include the results from investigating the biases introduced by cycles
   of PCR in the discussion?  If so, what features of the k-mer plots should I
