@@ -98,7 +98,9 @@ TO DO
 
 - Results
 
-  - Add numbers to describe 'spread' of CX sequences in radial plots
+  - Add numbers to describe 'spread' of CX sequences in radial plots -> fuck that,
+    the plots are rotated with respect to each other and nobody could be bothered
+    to find out how much
 
 - Discussion
 
