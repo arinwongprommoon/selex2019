@@ -1,0 +1,22 @@
+library(stringr)
+
+rgb2hex <- function(r,g,b) sprintf('#%s',paste(as.hexmode(c(r,g,b)),collapse = ''))
+
+normcnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-4DiffCycle-Phusion-2xx16dilu-0cycPCR-IIIc1-E1-ZhuBar96p1-bTAGTGTTG_S49_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
+
+kmercolours <- c()
+
+teststring <- "AAAAAAATT"
+kk <- nchar(teststring)
+bases <- c(
+    str_count(teststring, "A"),
+    str_count(teststring, "C"),
+    str_count(teststring, "G"),
+    str_count(teststring, "T")
+)
+aa <- round((bases[1]/kk)*c(255, 0, 0))
+cc <- round((bases[2]/kk)*c(0, 255, 0))
+gg <- round((bases[3]/kk)*c(0, 255, 255))
+tt <- round((bases[4]/kk)*c(0, 0, 255))
+rgb <- aa + cc + gg + tt
+mycolour <- rgb2hex(rgb[1], rgb[2], rgb[3])
