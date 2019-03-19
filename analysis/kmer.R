@@ -9,8 +9,8 @@ ycnt <- readRDS("~/selex2019/kmer_cnt_R_EMSASELEX/Trulig147v1III-Arin1-NuEMSA-Ph
 
 # Define axis labels here
 # (trust me, this is easier than extracting this info from the filenames)
-xlabel = "Normalised CpGmC_bound"
-ylabel = "Normalised CpGmC_unbound"
+xlabel = "CpGmC_bound fold change"
+ylabel = "CpGmC_unbound fold change"
 
 kmers <- nrow(normcnt)
 
@@ -20,7 +20,7 @@ colnames(xcnt_norm) <- c("kmer", "x_normcounts")
 ycnt_norm <- data.frame(normcnt$kmer, ycnt$counts/normcnt$counts)
 colnames(ycnt_norm) <- c("kmer", "y_normcounts")
 
-plotorder <- sample(kmers) # random order for plotting
+#plotorder <- sample(kmers) # random order for plotting
 
 # Prepare data frame for plotting
 mydata <- data.frame(normcnt$kmer, xcnt_norm$x_normcounts, ycnt_norm$y_normcounts, kmercolours, plotorder)
