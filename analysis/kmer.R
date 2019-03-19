@@ -10,5 +10,7 @@ ycnt_norm <- data.frame(normcnt$kmer, ycnt$counts/normcnt$counts)
 mydata <- data.frame(xcnt_norm$xcnt.counts.normcnt.counts, ycnt_norm$ycnt.counts.normcnt.counts)
 colnames(mydata) <- c("x_normcounts", "y_normcounts")
 
+cor.test(mydata$x_normcounts, mydata$y_normcounts, method="pearson", conf.level=0.95)
+
 ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(shape=1)
