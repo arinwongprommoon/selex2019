@@ -21,5 +21,6 @@ kmer2colour <- function(kmer) {
 
 normcnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-4DiffCycle-Phusion-2xx16dilu-0cycPCR-IIIc1-E1-ZhuBar96p1-bTAGTGTTG_S49_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
 
-kmercolours <- lapply(normcnt$kmer, kmer2colour)
-# colourtable <- data.frame(normcnt$kmer, kmercolours)
+kmercolourslist <- lapply(normcnt$kmer, kmer2colour)
+kmercolours <- as.data.frame(kmercolours)
+saveRDS(kmercolours, file="~/github/selex2019/analysis/kmercolours.RDS", refhook=NULL)
