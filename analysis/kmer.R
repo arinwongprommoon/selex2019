@@ -7,9 +7,9 @@ ycnt <- readRDS("~/selex2019/kmer_cnt_R_EMSASELEX/Trulig147v1III-Arin1-NuEMSA-Ph
 kmercolours <- readRDS("~/github/selex2019/analysis/kmercolours.RDS", refhook=NULL)
 kmers <- nrow(normcnt)
 
-xcnt_norm <- data.frame(normcnt$kmer, xcnt$counts)
+xcnt_norm <- data.frame(normcnt$kmer, xcnt$counts/normcnt$counts)
 colnames(xcnt_norm) <- c("kmer", "x_normcounts")
-ycnt_norm <- data.frame(normcnt$kmer, ycnt$counts)
+ycnt_norm <- data.frame(normcnt$kmer, ycnt$counts/normcnt$counts)
 colnames(ycnt_norm) <- c("kmer", "y_normcounts")
 
 plotorder <- sample(kmers) # random order for plotting
