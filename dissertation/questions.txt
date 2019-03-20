@@ -2,9 +2,6 @@ TO DO
 
 - Make figures great again
 
-  - All-important figure 1: draw in computer and replace some text (as I noted
-    down)
-
   - Gel images: add ticks for weights; put ratios onto images in addition to
     caption
 
