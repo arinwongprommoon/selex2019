@@ -47,9 +47,10 @@ NewReds <- colorRampPalette(brewer.pal(9,"Reds"))(10)
 # Define plots
 plot_a <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_a)), shape=".") +
-    scale_colour_manual(values=NewGreens) +
+    scale_colour_manual(values=NewGreens, name="As in kmer") +
     scale_x_continuous(name=xlabel, limits=c(0, 1)) +
     scale_y_continuous(name=ylabel, limits=c(0, 1)) +
+    guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
         plot.background = element_blank()
@@ -62,9 +63,10 @@ plot_a <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 
 plot_c <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_c)), shape=".") +
-    scale_colour_manual(values=NewBlues) +
+    scale_colour_manual(values=NewBlues, name="Cs in kmer") +
     scale_x_continuous(name=xlabel, limits=c(0, 1)) +
     scale_y_continuous(name=ylabel, limits=c(0, 1)) +
+    guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
         plot.background = element_blank()
@@ -77,9 +79,10 @@ plot_c <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 
 plot_g <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_g)), shape=".") +
-    scale_colour_manual(values=NewPurples) +
+    scale_colour_manual(values=NewPurples, name="Gs in kmer") +
     scale_x_continuous(name=xlabel, limits=c(0, 1)) +
     scale_y_continuous(name=ylabel, limits=c(0, 1)) +
+    guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
         plot.background = element_blank()
@@ -92,9 +95,26 @@ plot_g <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 
 plot_t <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_t)), shape=".") +
-    scale_colour_manual(values=NewReds) +
+    scale_colour_manual(values=NewReds, name="Ts in kmer") +
     scale_x_continuous(name=xlabel, limits=c(0, 1)) +
     scale_y_continuous(name=ylabel, limits=c(0, 1)) +
+    guides(colour = guide_legend(override.aes = list(shape=15))) +
+    theme_bw() +
+    theme(
+        plot.background = element_blank()
+        ,panel.grid.major = element_blank()
+        ,panel.grid.minor = element_blank()
+        ,panel.border = element_blank()
+    ) +
+    theme(axis.line.x = element_line(color="black", size = 0.5),
+          axis.line.y = element_line(color="black", size = 0.5))
+
+plot_a <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
+    geom_point(aes(colour=factor(no_a)), shape=".") +
+    scale_colour_manual(values=NewGreens, name="As in kmer") +
+    scale_x_continuous(name=xlabel, limits=c(0, 1)) +
+    scale_y_continuous(name=ylabel, limits=c(0, 1)) +
+    guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
         plot.background = element_blank()
