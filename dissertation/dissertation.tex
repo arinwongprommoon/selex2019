@@ -494,7 +494,7 @@ For each enzyme, the input library was diluted by factors and then amplified for
   \item Dilute by a factor of $2^{20}$, then amplify for 24 cycles
 \end{itemize}
     
-To investigate bottleneck effects, the product from 24-cycle amplification was diluted by a factor of $2^{20}$.  From this, three samples were taken to be amplified using 24 cycles.
+To investigate bottleneck effects, the product from 24-cycle amplification was diluted by a factor of $2^{20}$.  From this, two samples were taken to be amplified using 24 cycles, and then the resulting amplification product was sequenced.
 
 \subsection{Biases from PCR cycles}
 \label{ssec:pcrbias_methods_pcr}
@@ -570,6 +570,42 @@ Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes w
   \end{subfigure}
   \caption{9-mer count scatter plots comparing biases from different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
   \label{fig:kmer_enz}
+\end{figure}
+
+\subsection{Biases from bottleneck effect}
+\label{ssec:pcrbias_result_bn}
+
+The effect of the bottleneck effect on PCR bias was then investigated.  In this context, the bottleneck effect refers to how some members of a large amplification library are likely to be lost by chance if a small sample of the library is taken for amplification.  For each enzyme investigated in subsection~\ref{ssec:pcrbias_result_enz}, the PCR product after 24 cycles diluted and sample from this dilution was amplified.  Comparing two samples for each enzyme suggested that bottleneck effects did not introduce large biases (figure~\ref{fig:kmer_bn}).
+
+% Might end up just including one of the four just to make my point that the bottleneck effect doesn't introduce a lot of bias
+\begin{figure}[htb]
+  \centering
+  \begin{subfigure}[htb]{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{kmer_dreamtaqBN}
+    \caption{DreamTaq, R = 0.884}
+    \label{fig:kmer_bn_dreamtaq}
+  \end{subfigure}
+  \begin{subfigure}[htb]{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{kmer_phireBN}
+    \caption{Phire, R = 0.697}
+    \label{fig:kmer_bn_phire}
+  \end{subfigure}
+  \begin{subfigure}[htb]{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{kmer_q5BN}
+    \caption{Q5, R = 0.767}
+    \label{fig:kmer_bn_q5}
+  \end{subfigure}
+  \begin{subfigure}[htb]{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{kmer_phusionBN}
+    \caption{Phusion, R = 0.844}
+    \label{fig:kmer_bn_phusion}
+  \end{subfigure}
+  \caption{9-mer count scatter plots showing the bottleneck effect for different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
+  \label{fig:kmer_bn}
 \end{figure}
 
 \subsection{Biases from purification}
@@ -658,11 +694,12 @@ The model was then verified with experimental data (figure~\ref{fig:linearmodel_
 %% - Relevance of such bias to previous sequencing data
 %% - Hints to data analysis in the future 
 %% - A few discussions about Troubleshooting
-%%% BOTTLENECK EFFECT?? QUESTION: why aren't we looking at it now?
 
-As biases introduced by AMPure bead purification and reagent vendors were minimal, PCR bias is likely due to the reactions themselves.  All DNA polymerase enzymes tested showed biases towards A and T, similar to that seen in nucleosome EMSA SELEX.  However, the question of how much contribution A/T bias explains the variances observed in the \emph{k}-mer plots remains to be solved.  The initial lig147 input library has been shown to be biased towards G and T, likely because of the synthesis process, but this does not completely explain the variances.  To improve on these experiments, a better input library should be constructed.  This would lead to a better understanding of the biases introduced by nucleosome reconstitution and the use of different DNA polymerase enzymes.
+%% REWRITE ENTIRE THING, and add bottleneck
 
-An input library with improved filtering to remove sequences that have a tendency to form primer dimers can be used to investigate the effect of increased cycles of PCR on PCR bias.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.
+% As biases introduced by AMPure bead purification and reagent vendors were minimal, PCR bias is likely due to the reactions themselves.  All DNA polymerase enzymes tested showed biases towards A and T, similar to that seen in nucleosome EMSA SELEX.  However, the question of how much contribution A/T bias explains the variances observed in the \emph{k}-mer plots remains to be solved.  The initial lig147 input library has been shown to be biased towards G and T, likely because of the synthesis process, but this does not completely explain the variances.  To improve on these experiments, a better input library should be constructed.  This would lead to a better understanding of the biases introduced by nucleosome reconstitution and the use of different DNA polymerase enzymes.
+
+% An input library with improved filtering to remove sequences that have a tendency to form primer dimers can be used to investigate the effect of increased cycles of PCR on PCR bias.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.
 
 \chapter{Acknowledgements}
 \label{ch:ack}
