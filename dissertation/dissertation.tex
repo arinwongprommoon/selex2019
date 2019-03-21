@@ -366,7 +366,11 @@ Certain dinucleotides containing cytosines were enriched when the cytosines were
 \subsection{Sequence preferences from sequence \emph{k}-mer counts}
 \label{ssec:nuseqpref_kmer}
 
-For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.  With the half-C-methylated, all-C-methylated, and CpG-methylated experimental groups (figure~\ref{fig:kmer_bound}), the unbound libraries were enriched in A and T compared to the bound libraries.  This effect was less significant when all cytosines were methylated (figure~\ref{fig:kmer_bound_all}).  However, both the bound and unbound all-C-methylated libraries were enriched in A and T as compared to the corresponding plain DNA libraries (figure~\ref{fig:kmer_bias}). 
+For each library, the frequency of each possible continuous 9-mer of nucleotides was counted.
+
+Low correlation between bound and unbound libraries for CpG-methylated and half-C-methylated groups were observed (figure~\ref{fig:kmer_bound_cpg} and figure~\ref{fig:kmer_bound_half}), suggesting that bound and unbound libraries differ for these experimental groups.  Additonally, for these experimental groups, the nucleosome disfavours A/T-rich sequences, indicated by the A/T bias exhibited by the unbound libraries.  This effect seems to be stronger for the CpG-methylated group.  In contrast, there is a relatively high positive correlation between bound and unbound libraries for the all-C-methylated group (figure~\ref{fig:kmer_bound_all}).  This suggests that the bound and unbound libraries are similar, and that the effect of the nucleosome disfavouring A/T-rich sequences is weaker for all-C-methylated DNA.
+
+However, both the bound and unbound all-C-methylated libraries -- relative to the corresponding bound or unbound plain DNA library -- exhibit the same patterns of bias (figure~\ref{fig:kmer_bound}).  More specifically, the biases are stronger for the bound libraries.  Bound and unbound libraries having the same bias in this case would likely be due to PCR bias (see section~\ref{ch:pcrbias}).
 
 \begin{figure}[htb]
   \centering
@@ -442,7 +446,9 @@ However, additional biological replicates must be done in order to evaluate the 
 
 Thus these results provide preliminary insights into \emph{in vitro} sequence preference data for nucleosomes binding to CpG-methylated and CH-methylated DNA.  Further study could lead to better insights on how organisms use both forms of methylation to regulate developmental and physiological processes.  Such regulation may take advantage of how nucleosome positioning inhibits transcription.
 
-From the \emph{k}-mer plots, libraries from unbound DNA were enriched in A and T compared to bound DNA, but this effect was less pronounced when all cytosines were methylated.  Investigating sequence enrichments in the all-C-methylated group relative to the plain DNA group revealed that the same bias was present in both unbound and bound DNA, suggesting that PCR accounted for this bias.  Quantifying the sequence biases introduced by PCR would then allow removal of this bias to reveal the biases introduced by nucleosome sequence preferences.
+From the \emph{k}-mer plots, for the CpG-methylated group, the nucleosome disfavours A/T-rich sequences, as suggested by the enrichment of A and T in the unbound libraries.  This nucleosome preference against A/T-rich sequences in CpG-methylated DNA is similar to how unmethylated DNA disfavours tracts of adenines and thymines \citep{struhl_determinants_2013}.  However, when half of or all of the cytosines were methylated, this effect of the nucleosome disfavouring A/T-rich sequences is diminished (figure~\ref{fig:kmer_bound_all}).  A potential explanation is that cytosine methylation make the DNA ligand apart from the A/T-rich tracts stiffer, and therefore different sections of the DNA ligand have `bendabilities' that are more similar.  As a result, the nucleosome exhibits sequence preferences that are less strong.
+
+Investigating sequence enrichments in the all-C-methylated group relative to the plain DNA group revealed that similar biases were present in both unbound and bound DNA, suggesting that PCR accounted for this bias.  There is evidence to suggest that there are strong PCR biases in the presence of methylated cytosines.  Quantifying the sequence biases introduced by PCR would then allow removal of this bias to reveal the biases introduced by nucleosome sequence preferences.
 
 \chapter{PCR Bias}
 \label{ch:pcrbias}
@@ -540,7 +546,7 @@ The initial input library lig147 was amplified and processed, with conditions va
 \subsection{Biases from enzymes}
 \label{ssec:pcrbias_result_enz}
 
-Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  All enzymes exhibited biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
+Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  All enzymes exhibited weak biases, as suggested by the relatively high correlation coefficients between 8 cycles and 24 cycles, indicating that the amplification products from these two groups were similar.  To be more precise, the enzymes all showed slight biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
 \begin{figure}[htb]
   \centering
@@ -575,9 +581,8 @@ Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes w
 \subsection{Biases from bottleneck effect}
 \label{ssec:pcrbias_result_bn}
 
-The effect of the bottleneck effect on PCR bias was then investigated.  In this context, the bottleneck effect refers to how some members of a large amplification library are likely to be lost by chance if a small sample of the library is taken for amplification.  For each enzyme investigated in subsection~\ref{ssec:pcrbias_result_enz}, the PCR product after 24 cycles diluted and sample from this dilution was amplified.  Comparing two samples for each enzyme suggested that bottleneck effects did not introduce large biases (figure~\ref{fig:kmer_bn}).
+The effect of the bottleneck effect on PCR bias was then investigated.  In this context, the bottleneck effect refers to how some members of a large amplification library are likely to be lost by chance if a small sample of the library is taken for amplification.  For each enzyme investigated in subsection~\ref{ssec:pcrbias_result_enz}, the PCR product after 24 cycles diluted and sample from this dilution was amplified.  Comparing two samples for each enzyme suggested that bottleneck effects did not introduce large biases, as indicated by the strong correlations between the two samples for each enzyme (figure~\ref{fig:kmer_bn}).  However, Phire exhibited the greatest bias from the bottleneck effect, judging by the smallest correlation coefficient.
 
-% Might end up just including one of the four just to make my point that the bottleneck effect doesn't introduce a lot of bias
 \begin{figure}[htb]
   \centering
   \begin{subfigure}[htb]{0.5\textwidth}
@@ -695,11 +700,11 @@ The model was then verified with experimental data (figure~\ref{fig:linearmodel_
 %% - Hints to data analysis in the future 
 %% - A few discussions about Troubleshooting
 
-%% REWRITE ENTIRE THING, and add bottleneck
+All DNA polymerase enzymes tested -- Phusion, Phire, DreamTaq, and Q5  -- showed similar weak biases towards A and T.  Specifically, Phire showed the strongest bias, while Phusion showed the weakest bias.  The bottleneck effect of amplifying a small sample from a large input library was small, with Phire producing the largest bottleneck effect.  Biases introduced by AMPure bead purification and reagent vendors were minimal compared to biases from DNA polymerase enzymes.  As a result, PCR bias is most likely due to the reactions in PCR themselves rather than other procedures.  Furthermore, in the interests of preparing a sequencing library, Phire should be avoided as it introduces the greatest PCR biases.
 
-% As biases introduced by AMPure bead purification and reagent vendors were minimal, PCR bias is likely due to the reactions themselves.  All DNA polymerase enzymes tested showed biases towards A and T, similar to that seen in nucleosome EMSA SELEX.  However, the question of how much contribution A/T bias explains the variances observed in the \emph{k}-mer plots remains to be solved.  The initial lig147 input library has been shown to be biased towards G and T, likely because of the synthesis process, but this does not completely explain the variances.  To improve on these experiments, a better input library should be constructed.  This would lead to a better understanding of the biases introduced by nucleosome reconstitution and the use of different DNA polymerase enzymes.
+However, the question of how much contribution A/T bias explains the variances observed in the \emph{k}-mer plots remains to be solved.  The initial lig147 input library has been shown to be biased towards G and T, likely because of the synthesis process, but this does not completely explain the variances.  To improve on these experiments, a better input library should be constructed.  This would lead to a better understanding of the biases introduced by nucleosome reconstitution and the use of different DNA polymerase enzymes.
 
-% An input library with improved filtering to remove sequences that have a tendency to form primer dimers can be used to investigate the effect of increased cycles of PCR on PCR bias.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.
+An input library with improved filtering to remove sequences that have a tendency to form primer dimers can be used to investigate the effect of increased cycles of PCR on PCR bias.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.
 
 \chapter{Acknowledgements}
 \label{ch:ack}
