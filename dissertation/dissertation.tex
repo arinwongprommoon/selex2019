@@ -672,17 +672,30 @@ These fractions were then used to construct a linear model (equation~\ref{eqn:li
   \centering
   \begin{tabular}{r}
      \\
-    Phusion NEB\\
+    New England Biolabs\\
+  \end{tabular}%
+  \pgfplotstabletypeset[
+  col sep = comma,
+  ]{linearmodel_a.csv}  
+  \caption{Coefficients for the linear model to describe the contribution of Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions (`$a$' in equation~\ref{eqn:linearmodel}).  This is relative to the ThermoFisher High-Fidelity DNA polymerase.}
+  \label{tab:linearmodel_coeffs_a}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{r}
+     \\
     dNTP Kapa\\
     dNTP Agilent\\
     dNTP ZymoMeC\\
   \end{tabular}%
   \pgfplotstabletypeset[
   col sep = comma,
-  ]{linearmodel.csv}  
-  \caption{Coefficients for the linear model to describe the contributions of dNTP and Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions}
-  \label{tab:linearmodel_coeffs}
+  ]{linearmodel_b.csv}  
+  \caption{Coefficients for the linear model to describe the contribution of dNTP vendors to nucleotide fractions (`$b$' in equation~\ref{eqn:linearmodel}).  This is relative to the ThermoFisher dNTPs.}
+  \label{tab:linearmodel_coeffs_b}
 \end{table}
+
 
 The model was then verified with experimental data (figure~\ref{fig:linearmodel_ver}).
 

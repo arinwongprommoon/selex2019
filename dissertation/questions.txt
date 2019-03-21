@@ -2,15 +2,12 @@ TO DO
 
 - Make figures great again
 
-  - Replace Fangjie's line plot with a dot plot
+  - Replace Fangjie's line plot with a dot plot --> MIGHT EVEN REMOVE THIS
 
   - Make A-stretch plot more glamorous
 
   - Convert plots for individual nucleotides in linear model to dot plots, and
     make the vertical axis surround 0.25
-
-- Make table more informative: separate the 'a' coefficient from the 'b'
-  coefficient
 
 - Introduction
 
