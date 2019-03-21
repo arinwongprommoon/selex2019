@@ -2,8 +2,6 @@ TO DO
 
 - Make figures great again
 
-  - Blow up size of text on Python plots
-
   - Replace Fangjie's line plot with a dot plot
 
   - Make A-stretch plot more glamorous
@@ -28,6 +26,12 @@ TO DO
     - Try computing the A-stretch lengths using the 94N-bound and 94N-unbound
       datasets to confirm my assertions that the aberrant results are due to
       weak signals. ***
+
+- General
+
+  - Write abstract
+  - Make sure everything makes sense, especially the discussion
+  - Resize figures, etc
 
 MORE QUESTIONS/ISSUES (2019-03-13)
  
