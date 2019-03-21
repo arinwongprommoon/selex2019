@@ -32,11 +32,20 @@
   \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \usepackage{booktabs}
 \usepackage{pgfplotstable}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+\tikzstyle{reagent} = [trapezium, trapezium left angle=70, trapezium right angle=110, text width=7em, text centered, draw=black, fill=blue!20]
+\tikzstyle{process} = [rectangle, text width=7em, text centered, draw=black, fill=orange!30]
+\tikzstyle{cloud} = [draw, ellipse]
+%\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{line} = [draw, -latex']
 
 \title{Quantifying the bias in SELEX procedure}
 \author{Candidate number XXXXX}
 
 \begin{document}
+
+%% NOTE ABOUT KMER PLOTS: currently I've added the PNG images so that the report isn't 60 MB.  Near the end I'll replace them with the corresponding PDF images.
 
 \maketitle
 % Will deal with the intricacies of the cover pages at the very end.
@@ -114,12 +123,84 @@ Fast Fourier transformation (FFT) was performed using the position along the seq
 \section{Results}
 \label{sec:emsaselex_results}
 
-% replace with properly-drawn version later
 \begin{figure}[htpb]
-  \centering
-  \includegraphics[width=\textwidth]{selexoverview}
-  \caption{Overview of nucleosome EMSA-SELEX procedure}
-  \label{fig:selex}
+  \hspace*{-1cm}
+\begin{tikzpicture}[node distance=2cm]
+  %% nodes
+  % input lib and amplification
+  \node [reagent] (lig147) {lig147};
+  \node [cloud, below of=lig147] (circle01) { };
+  \node [process, below of=circle01] (amphalfmc) {Amplify with methyl-C + C};
+  \node [process, left of=amphalfmc, xshift=-6cm] (amp) {Amplify};
+  \node [process, right of=amphalfmc, xshift=2cm] (ampallmc) {Amplify with methyl-C};
+  \node [reagent, below of=amp] (plain01) {Plain DNA};
+  % amplified libraries (broadly)
+  \node [reagent, below of=plain01] (plain02) {Plain DNA};
+  \node [reagent, below of=amphalfmc, yshift=-2cm] (half-c-methylated) {Half-C-methylated};
+  \node [reagent, below of=ampallmc, yshift=-2cm] (all-c-methylated) {All-C-methylated};
+  \node [reagent, left of=half-c-methylated, xshift=-2cm] (cpg-methylated) {CpG-methylated};
+  \node [process, above of=cpg-methylated, yshift=-0.75cm] (cpg) {CpG methylation};
+  % nucleosome reconstitution
+  \node [process, below of=half-c-methylated] (reconstitution) {Nucleosome reconstitution};
+  % reconstituted nucleosomes
+  \node [reagent, below of=reconstitution] (half-c-methylated-nuc) {Half-C-methylated nucleosome};
+  \node [reagent, left of=half-c-methylated-nuc, xshift=-6cm] (plain-dna-nuc) {Plain DNA nucleosome};
+  \node [reagent, left of=half-c-methylated-nuc, xshift=-2cm] (cpg-methylated-nuc) {CpG-methylated nucleosome};
+  \node [reagent, right of=half-c-methylated-nuc, xshift=2cm] (all-c-methylated-nuc) {All-C-methylated nucleosome};
+  % emsa
+  \node [process, below of=half-c-methylated-nuc] (emsa) {EMSA and elute};
+  % eluted
+  \node [reagent, below of=emsa] (half-c-methylated-bub) {Half-C-methylated DNA bound and unbound};
+  \node [reagent, left of=half-c-methylated-bub, xshift=-6cm] (plain-dna-bub) {Plain DNA bound and unbound};
+  \node [reagent, left of=half-c-methylated-bub, xshift=-2cm] (cpg-methylated-bub) {CpG-methylated DNA bound and unbound};
+  \node [reagent, right of=half-c-methylated-bub, xshift=2cm] (all-c-methylated-bub) {All-C-methylated DNA bound and unbound};
+  % the bottom bit
+  \node [cloud, below of=half-c-methylated-bub] (circle02) { };
+  \node [process, below of=circle02] (barcoding) {Barcoding and sequencing};
+  %% edges
+  % lig147 to circle01
+  \path [line] (lig147) -- (circle01);
+  % between circle01 and amped libs
+  \path [line] (circle01) --++ (0cm,-1cm) -| (amp);
+  \path [line] (circle01) -- (amphalfmc);
+  \path [line] (circle01) --++ (0cm,-1cm) -| (ampallmc);
+  \path [line] (amp) -- (plain01);
+  \path [line] (plain01) -| (cpg);
+  \path [line] (plain01) -- (plain02);
+  \path [line] (cpg) -- (cpg-methylated);
+  \path [line] (amphalfmc) -- (half-c-methylated);
+  \path [line] (ampallmc) -- (all-c-methylated);
+  % amped libs to nucleosome reconstitution
+  \path [line] (plain02) --++ (0cm, -1cm) -| (reconstitution);
+  \path [line] (cpg-methylated) --++ (0cm, -1cm) -| (reconstitution);
+  \path [line] (half-c-methylated) -- (reconstitution);
+  \path [line] (all-c-methylated) --++ (0cm, -1cm) -| (reconstitution);
+  % nucleosome reconstitution to nucleosomes
+  \path [line] (reconstitution) --++ (0cm, -1cm) -| (plain-dna-nuc);
+  \path [line] (reconstitution) --++ (0cm, -1cm) -| (cpg-methylated-nuc);
+  \path [line] (reconstitution) -- (half-c-methylated-nuc);
+  \path [line] (reconstitution) --++ (0cm, -1cm) -| (all-c-methylated-nuc);
+  % nucleosomes to emsa
+  \path [line] (plain-dna-nuc) --++ (0cm, -1cm) -| (emsa);
+  \path [line] (cpg-methylated-nuc) --++ (0cm, -1cm) -| (emsa);
+  \path [line] (half-c-methylated-nuc) -- (emsa);
+  \path [line] (all-c-methylated-nuc) --++ (0cm, -1cm) -| (emsa);
+  % emsa to eluteds
+  \path [line] (emsa) --++ (0cm, -0.75cm) -| (plain-dna-bub);
+  \path [line] (emsa) --++ (0cm, -0.75cm) -| (cpg-methylated-bub);
+  \path [line] (emsa) -- (half-c-methylated-bub);
+  \path [line] (emsa) --++ (0cm, -0.75cm) -| (all-c-methylated-bub);
+  % eluteds to circle02
+  \path [line] (plain-dna-bub) --++ (0cm, -1.5cm) -| (circle02);
+  \path [line] (cpg-methylated-bub) --++ (0cm, -1.5cm) -| (circle02);
+  \path [line] (half-c-methylated-bub) -- (circle02);
+  \path [line] (all-c-methylated-bub) --++ (0cm, -1.5cm) -| (circle02);
+  % bottom bit
+  \path [line] (circle02) -- (barcoding);
+  \path [line] (circle02) --++ (-11cm, 0cm) --++ (0cm, 16cm) -- (circle01) node[midway, above] {4 cycles};
+\end{tikzpicture}
+\caption{Overview of nucleosome EMSA-SELEX procedure}
+\label{fig:selex}
 \end{figure}
 
 Four cycles of nucleosome EMSA SELEX (figure~\ref{fig:selex}) were carried out.  147-bp oligonucleotides with a 101-bp central random sequence -- termed lig147 \citep{zhu_interaction_2018} -- constituted the initial input library.  The experiment had four groups: plain (non-methylated) DNA, CpG-methylated DNA, DNA with all cytosines methylated (all-C-methylated DNA), and DNA with half of its cytosines methylated (half-C-methylated DNA).
@@ -129,8 +210,6 @@ Four cycles of nucleosome EMSA SELEX (figure~\ref{fig:selex}) were carried out. 
 
 EMSA in all cycles yielded one strong band between 100 and 200 bp. It also yielded bands corresponding to reconstituted nucleosomes that became fainter as the proportion of histone octamer decreased in the solution (figure~\ref{fig:reconstnuc}).  DNA ligands that were not bound to nucleosomes and ligands that were bound to nucleosomes were eluted and then sequenced.
 
-% add ticks for weights on gels
-% put the ratios onto the images instead of in the caption
 \begin{figure}[h]
   \centering
   \begin{subfigure}[htpb]{0.4\textwidth}
@@ -165,27 +244,27 @@ The frequency of all mononucleotide and dinucleotide sequences at each position 
 
 \begin{figure}[htb]
   \centering
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_e8_counts}
+    \includegraphics[width=0.6\textwidth]{emsa_e8_counts}
     \caption{Plain DNA}
     \label{fig:freqplots_e8}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_f8_counts}
+    \includegraphics[width=0.6\textwidth]{emsa_f8_counts}
     \caption{Half-C-methylated}
     \label{fig:freqplots_f8}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_g8_counts}
+    \includegraphics[width=0.6\textwidth]{emsa_g8_counts}
     \caption{All-C-methylated}
     \label{fig:freqplots_g8}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_h8_counts}
+    \includegraphics[width=0.6\textwidth]{emsa_h8_counts}
     \caption{CpG methylated}
     \label{fig:freqplots_h8}
   \end{subfigure}
@@ -216,11 +295,21 @@ An additional library of plain DNA bound to nucleosomes prepared with additional
 In contrast, all DNA libraries not bound to nucleosomes were depleted of this periodic signal.  This periodicity was assessed by fast Fourier transform, and the resulting power spectra showed that the periodicity was near 10 bp (figure~\ref{fig:powerspectra}).  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, % QUESTION: quantification of strength/height of peak?
 CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Among the octamer-to-DNA concentrations tested, the 1:0.74 ratio gave rise to the strongest signals, and the signal intensity decreased as the proportion of DNA increased (data not shown).  Libraries corresponding to this octamer:DNA ratio were therefore used for all subsequent analyses.
 
-% kind of a placeholder at the moment...
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=\textwidth]{emsacycle4all}
-  \caption{Power spectra derived from the frequencies of all mononucleotide and dinucleotides.  Libraries are from the fourth cycle of EMSA-SELEX.  The ligand type and the octamer:DNA ratios were varied.}
+  \begin{subfigure}[htb]{0.6\textwidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{emsa_g7_power}
+    \caption{DNA not bound to nucleosomes}
+    \label{fig:powerspectra_unbound}
+  \end{subfigure}
+  \begin{subfigure}[htb]{0.6\textwidth}
+    \centering
+    \includegraphics[width=0.6\textwidth]{emsa_g8_power}
+    \caption{DNA bound to nucleosomes}
+    \label{fig:powerspectra_bound}
+  \end{subfigure}
+  \caption{Power spectra derived from the frequencies of all mononucleotide and dinucleotides, showing the effect of nucleosome binding.  Libraries from the all-C-methylated group in the fourth cycle of nucleosome EMSA-SELEX were shown here as representative spectra.  The 1:0.74 octamer:DNA ratio was chosen as it showed the strongest signals.}
   \label{fig:powerspectra}
 \end{figure}
 
@@ -236,27 +325,27 @@ These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_m
 
 \begin{figure}[htb]
   \centering
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_e8_radial}
+    \includegraphics[width=0.6\textwidth]{emsa_e8_radial}
     \caption{Plain DNA}
     \label{fig:radial_mc_plain}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_f8_radial}
+    \includegraphics[width=0.6\textwidth]{emsa_f8_radial}
     \caption{Half-C-methylated}
     \label{fig:radial_mc_halfmc}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_g8_radial}
+    \includegraphics[width=0.6\textwidth]{emsa_g8_radial}
     \caption{All-C-methylated}
     \label{fig:radial_mc_allmc}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.6\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{emsa_h8_radial}
+    \includegraphics[width=0.6\textwidth]{emsa_h8_radial}
     \caption{CpG methylated}
     \label{fig:radial_mc_cpg}
   \end{subfigure}
@@ -281,43 +370,43 @@ For each library, the frequency of each possible continuous 9-mer of nucleotides
 
 \begin{figure}[htb]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htb]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_CpGubXCpGb}
-    \caption{CpG methylated}
+    \includegraphics[width=0.8\textwidth]{kmer_CpGubXCpGb}
+    \caption{CpG methylated, R = -0.402}
     \label{fig:kmer_bound_cpg}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htb]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_halfubXhalfb}
-    \caption{Half-C-methylated}
+    \includegraphics[width=0.8\textwidth]{kmer_halfubXhalfb}
+    \caption{Half-C-methylated, R = -0.226}
     \label{fig:kmer_bound_half}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htb]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_allubXallb}
-    \caption{All-C-methylated}
+    \includegraphics[width=0.8\textwidth]{kmer_allubXallb}
+    \caption{All-C-methylated, R = +0.710}
     \label{fig:kmer_bound_all}
   \end{subfigure}
-  \caption{9-mer count scatter plots showing the effect of nucleosome reconstitution on each experimental group.  Horizontal axes correspond to DNA bound in nucleosomes, while vertical axes correspond to unbound DNA.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.  Data for plain DNA not shown as signal was too weak.}
+  \caption{9-mer count scatter plots showing the effect of nucleosome reconstitution on each experimental group.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.  Data for plain DNA not shown as signal was too weak.}
   \label{fig:kmer_bound}
 \end{figure}
 
 \begin{figure}[htb]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htb]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_plainbXallb}
-    \caption{Bound DNA}
+    \includegraphics[width=0.8\textwidth]{kmer_plainbXallb}
+    \caption{Bound DNA, R = -0.162}
     \label{fig:kmer_bias_bound}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htb]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_plainubXallub}
-    \caption{Unbound DNA}
+    \includegraphics[width=0.8\textwidth]{kmer_plainubXallub}
+    \caption{Unbound DNA, R = -0.479}
     \label{fig:kmer_bias_unbound}
   \end{subfigure}
-  \caption{9-mer count scatter plots showing sequence biases.  Horizontal axes correspond to the all-C-methylated libraries, while vertical axes correspond to the plain DNA libraries.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \caption{9-mer count scatter plots comparing sequence biases.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
   \label{fig:kmer_bias}
 \end{figure}
 
@@ -455,31 +544,31 @@ Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes w
 
 \begin{figure}[htb]
   \centering
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{kmer_dreamtaq}
-    \caption{DreamTaq}
+    \includegraphics[width=0.5\textwidth]{kmer_dreamtaq}
+    \caption{DreamTaq, R = 0.709}
     \label{fig:kmer_enz_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{kmer_phire}
-    \caption{Phire}
+    \includegraphics[width=0.5\textwidth]{kmer_phire}
+    \caption{Phire, R = 0.839}
     \label{fig:kmer_enz_phire}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{kmer_q5}
-    \caption{Q5}
+    \includegraphics[width=0.5\textwidth]{kmer_q5}
+    \caption{Q5, R = 0.760}
     \label{fig:kmer_enz_q5}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.45\textwidth}
+  \begin{subfigure}[htb]{0.5\textwidth}
     \centering
-    \includegraphics[width=0.45\textwidth]{kmer_phusion}
-    \caption{Phusion}
+    \includegraphics[width=0.5\textwidth]{kmer_phusion}
+    \caption{Phusion, R = 0.659}
     \label{fig:kmer_enz_phusion}
   \end{subfigure}
-  \caption{9-mer count scatter plots showing the effect of polymerase enzyme.  Horizontal axes correspond to libraries after 24 cycles of PCR, while vertical axes correspond to libraries after 8 cycles of PCR.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \caption{9-mer count scatter plots comparing biases from different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
   \label{fig:kmer_enz}
 \end{figure}
 
@@ -490,8 +579,8 @@ Eight rounds of purification of the lig147 input library by AMPure beads did not
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.2\textwidth]{kmer_ampure}
-  \caption{9-mer count scatter plot showing the effect of AMPure bead purification.  The horizontal axis corresponds to the library after eight rounds of purification, while the vertical axis corresponds to the library after one round of purification.  Green indicates 9-mers consisting of predominantly adenines, blue cytosines, yellow guanines, and red thymines.}
+  \includegraphics[width=0.8\textwidth]{kmer_ampure}
+  \caption{9-mer count scatter plot showing the effect of AMPure bead purification.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
   \label{fig:kmer_pur}
 \end{figure}
 

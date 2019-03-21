@@ -7,13 +7,13 @@ library(RColorBrewer)
 normcnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-4DiffCycle-Phusion-2xx16dilu-0cycPCR-IIIc1-E1-ZhuBar96p1-bTAGTGTTG_S49_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
 kmerbasefreqs <- readRDS("~/github/selex2019/analysis/kmerbasefreqs.RDS", refhook=NULL)
 
-xcnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-5AmpureBeads-8xPurify-r1-IIIc1-G7-ZhuBar96p1-bATCAAGAA_S79_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
-ycnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-5AmpureBeads-1xPurify-r1-IIIc1-G1-ZhuBar96p1-bAACGCCGT_S73_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
+xcnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-3DiffEnzyme-Phire-1xbottolNeckPCR-IIIc1-B6-ZhuBar96p1-bGACGGTGC_S18_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
+ycnt <- readRDS("~/selex2019/kmer_cnt_R_PCRBIAS/Trulig147v1III-Arin2-PCRbias-3DiffEnzyme-Phire-2xbottolNeckPCR-IIIc1-B7-ZhuBar96p1-bACTTACTC_S19_R1_001.peared_trimmed.fq.gz.RDS", refhook=NULL)
 
 # Define axis labels here
 # (trust me, this is easier than extracting this info from the filenames)
-xlabel = "8 rounds of purification fold change"
-ylabel = "1 round of purification fold change"
+xlabel = "Phire bottleneck 1 fold change"
+ylabel = "Phire bottleneck 2 fold change"
 
 kmers <- nrow(normcnt)
 
@@ -37,8 +37,8 @@ NewReds <- colorRampPalette(brewer.pal(9,"Reds"))(10)
 plot_a <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_a)), shape=".") +
     scale_colour_manual(values=NewGreens, name="As in kmer") +
-    scale_x_continuous(name=xlabel, limits=c(0, 2)) +
-    scale_y_continuous(name=ylabel, limits=c(0, 2)) +
+    scale_x_continuous(name=xlabel, limits=c(0, 3)) +
+    scale_y_continuous(name=ylabel, limits=c(0, 3)) +
     guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
@@ -53,8 +53,8 @@ plot_a <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 plot_c <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_c)), shape=".") +
     scale_colour_manual(values=NewBlues, name="Cs in kmer") +
-    scale_x_continuous(name=xlabel, limits=c(0, 2)) +
-    scale_y_continuous(name=ylabel, limits=c(0, 2)) +
+    scale_x_continuous(name=xlabel, limits=c(0, 3)) +
+    scale_y_continuous(name=ylabel, limits=c(0, 3)) +
     guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
@@ -69,8 +69,8 @@ plot_c <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 plot_g <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_g)), shape=".") +
     scale_colour_manual(values=NewPurples, name="Gs in kmer") +
-    scale_x_continuous(name=xlabel, limits=c(0, 2)) +
-    scale_y_continuous(name=ylabel, limits=c(0, 2)) +
+    scale_x_continuous(name=xlabel, limits=c(0, 3)) +
+    scale_y_continuous(name=ylabel, limits=c(0, 3)) +
     guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
@@ -85,8 +85,8 @@ plot_g <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 plot_t <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_t)), shape=".") +
     scale_colour_manual(values=NewReds, name="Ts in kmer") +
-    scale_x_continuous(name=xlabel, limits=c(0, 2)) +
-    scale_y_continuous(name=ylabel, limits=c(0, 2)) +
+    scale_x_continuous(name=xlabel, limits=c(0, 3)) +
+    scale_y_continuous(name=ylabel, limits=c(0, 3)) +
     guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
@@ -101,8 +101,8 @@ plot_t <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) +
 plot_a <- ggplot(mydata, aes(x=x_normcounts, y=y_normcounts)) + 
     geom_point(aes(colour=factor(no_a)), shape=".") +
     scale_colour_manual(values=NewGreens, name="As in kmer") +
-    scale_x_continuous(name=xlabel, limits=c(0, 2)) +
-    scale_y_continuous(name=ylabel, limits=c(0, 2)) +
+    scale_x_continuous(name=xlabel, limits=c(0, 3)) +
+    scale_y_continuous(name=ylabel, limits=c(0, 3)) +
     guides(colour = guide_legend(override.aes = list(shape=15))) +
     theme_bw() +
     theme(
