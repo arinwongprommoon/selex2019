@@ -72,7 +72,6 @@ Summary.
 \item [MNase] micrococcal nuclease
 \item [PCR] polymerase chain reaction
 \item [SELEX] systematic evolution of ligands by exponential enrichment
-\item [SNP] single nucleotide polymorphism
 \item [TBE] tris-borate EDTA
 \end{description}
 
@@ -120,7 +119,7 @@ PCR amplification was adapted from manufacturer's recommended protocols for Phus
 \subsection{Nucleosome EMSA-SELEX}
 \label{ssec:emsaselex_methods_selex}
 
-Nucleosomes were reconstituted from DNA libraries and \emph{Xenopus laevis} histone octamers using \SI{2}{\Molar} \ce{KCl} refolding buffer and periodic addition of dilution buffer as described by \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particules').  Reconstituted nucleosomes were analysed by EMSA by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  For the 1.48:1 octamer:DNA ratio, the faster-migrating gel band corresponding to DNA not bound to nucleosomes was silced.  The slower-migrating bands corresponding to DNA bound to nucleosomes were sliced for all other octamer:DNA ratios.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight to elute DNA.  Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature were followed by 10 cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.  Four such rounds of nucleosome EMSA-SELEX were carried out.
+Nucleosomes were reconstituted from DNA libraries and \emph{Xenopus laevis} histone octamers using \SI{2}{\Molar} \ce{KCl} refolding buffer and periodic addition of dilution buffer as described by \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particules').  Reconstituted nucleosomes were analysed by EMSA(electrophoretic mobility shift assay) by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  For the 1.48:1 octamer:DNA ratio, the faster-migrating gel band corresponding to DNA not bound to nucleosomes was silced.  The slower-migrating bands corresponding to DNA bound to nucleosomes were sliced for all other octamer:DNA ratios.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight to elute DNA.  Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature were followed by 10 cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.  Four such rounds of nucleosome EMSA-SELEX were carried out.
 
 \subsection{Sequencing}
 \label{ssec:emsaselex_methods_seq}
@@ -479,7 +478,7 @@ There are methods to mitigate this bias, including choosing the source for the D
 \subsection{How PCR bias affects reliability of sequencing results}
 \label{ssec:pcrbias_intro_effects}
 
-Commonly-used model organisms have GC content within the range in which bias is least likely introduced.  \emph{E. coli} and humans have genomes that have moderate GC content, with \emph{E. coli} having a GC content of 51\%.  PCR bias is still significant for these model organisms as they have important sequences that may be affected by PCR bias.  This includes single-nucleotide polymorphisms (SNPs), and GC-rich sequences like transcription start sites and first exons in eukaryotes.  %Additionally, humans exhibit `bad promoters'. % expand on the `bad promoters' data set from Ross et al.  Where did they get them, and what is their importance?
+Commonly-used model organisms have GC content within the range in which bias is least likely introduced.  \emph{E. coli} and humans have genomes that have moderate GC content, with \emph{E. coli} having a GC content of 51\%.  PCR bias is still significant for these model organisms as they have important sequences that may be affected by PCR bias.  This includes single-nucleotide polymorphisms and GC-rich sequences like transcription start sites and first exons in eukaryotes.  %Additionally, humans exhibit `bad promoters'. % expand on the `bad promoters' data set from Ross et al.  Where did they get them, and what is their importance?
 
 \subsection{Purpose of study}
 \label{ssec:pcrbias_intro_why}
