@@ -1,4 +1,14 @@
-\documentclass[parskip=full, numbers=noenddot]{scrreprt}
+\documentclass[parskip=full, numbers=noenddot]{scrbook}
+
+% starts new page with new section
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+
+% makes abstract possible in scrbook
+\newenvironment{abstract}%
+{\cleardoublepage\null \vfill\begin{center}%
+    \bfseries \abstractname \end{center}}%
+    {\vfill \null}
 
 % language
 \usepackage[english]{babel}
@@ -46,6 +56,9 @@
 \begin{document}
 
 %% NOTE ABOUT KMER PLOTS: currently I've added the PNG images so that the report isn't 60 MB.  Near the end I'll replace them with the corresponding PDF images.
+%% Also I'm supposed to make the spacing between lines 1.5x but still can't bring myself to do it, it looks so pleasing atm
+
+\frontmatter
 
 \maketitle
 % Will deal with the intricacies of the cover pages at the very end.
@@ -74,6 +87,8 @@ Summary.
 \item [SELEX] systematic evolution of ligands by exponential enrichment
 \item [TBE] tris-borate EDTA
 \end{description}
+
+\mainmatter
 
 \chapter{Nucleosome EMSA-SELEX}
 \label{ch:emsaselex}
@@ -698,6 +713,8 @@ As a result, PCR bias is most likely due to the reactions in PCR themselves rath
 However, from the data it is difficult to see how much such PCR bias would contribute to procedures that employ PCR, such as nucleosome EMSA-SELEX.  The question of how much A/T bias contributes to the variances observed in the \emph{k}-mer plots remains to be solved.  Furthermore, the input library was biased towards T and G, as apparent from the measurements of nucleotide fractions in subsection~\ref{ssec:pcrbias_result_reagent} and counting nucleotide frequencies along sequencing reads in subsection~\ref{ssec:nuseqpref_fft}.  This T/G bias, likely due to the DNA synthesis process, may confound quantification of PCR bias.
 
 To improve on these experiments, a better input library with improved filtering to remove sequences that have a tendency to form primer dimers should be constructed.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR cycles.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.  Such a model would lead to a better quantification of the biases introduced by nucleosome positioning.
+
+\backmatter
 
 \chapter{Acknowledgements}
 \label{ch:ack}
