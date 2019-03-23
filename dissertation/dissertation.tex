@@ -248,15 +248,15 @@ EMSA in all cycles yielded a strong band between 100 and 200 bp. It also yielded
 
 Taking sequence reads from the library of plain DNA bound to nucleosomes, the frequency of each of the four nucleotides at each position along the reads was calculated.  Characterisation of frequencies of nucleotides at each position along the reads for this library yielded clear periodicities (figure~\ref{fig:enriched_counts}), which were confirmed to be approximately 10 bp by fast Fourier transform (figure~\ref{fig:enriched_power}).  However, this library exhibited biases towards G and T nucleotides.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{enriched-counts}
     \caption{}
     \label{fig:enriched_counts}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{enriched-power}
     \caption{}
@@ -270,27 +270,27 @@ The frequency of all mononucleotide and dinucleotide sequences at each position 
 
 In contrast, all unbound DNA libraries were depleted of the periodic signal (figure~\ref{fig:powerspectra_unbound}).
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_e8_counts}
     \caption{Plain DNA}
     \label{fig:freqplots_e8}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_f8_counts}
     \caption{Half-C-methylated}
     \label{fig:freqplots_f8}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_g8_counts}
     \caption{All-C-methylated}
     \label{fig:freqplots_g8}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_h8_counts}
     \caption{CpG methylated}
@@ -300,15 +300,15 @@ In contrast, all unbound DNA libraries were depleted of the periodic signal (fig
   \label{fig:freqplots}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_g7_power}
     \caption{DNA not bound to nucleosomes}
     \label{fig:powerspectra_unbound}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_g8_power}
     \caption{DNA bound to nucleosomes, 1:074 octamer:DNA}
@@ -326,27 +326,27 @@ When the cytosines were methylated, the amplitude for dinucleotides beginning wi
 
 These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_mc_cpg}).  Relative to AA, the amplitudes of CC and CT increased.  However, the CA, CC, CG, and CT sequences were still spread over a wide range of phases, covering \ang{80} to \ang{160}.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_e8_radial}
     \caption{Plain DNA}
     \label{fig:radial_mc_plain}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_f8_radial}
     \caption{Half-C-methylated}
     \label{fig:radial_mc_halfmc}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_g8_radial}
     \caption{All-C-methylated}
     \label{fig:radial_mc_allmc}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{emsa_h8_radial}
     \caption{CpG methylated}
@@ -358,7 +358,7 @@ These effects were less pronounced for CpG methylation (figure~\ref{fig:radial_m
 
 Certain dinucleotides containing cytosines were enriched when the cytosines were methylated, especially in CpG methylation (figure~\ref{fig:c2nt}).  In particular CC, CG, and GC were enriched in the CpG methylated group.  In constrast, CC was depleted in the all-C-methylated group.  However, in all samples, the dinucleotide counts in the bound library relative to the dinucleotide counts in the corresponding unbound library did not deviate much from 1.0.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{c2nt}
   \caption{Enrichment of dinucleotides in the 0.74:1 octamer:DNA ratio libraries for each experimental group.  The number of occurences of each dinucleotide in each library was calculated.  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.} 
@@ -374,21 +374,21 @@ Low correlation between bound and unbound libraries for CpG-methylated and half-
 
 However, both the bound and unbound all-C-methylated libraries -- relative to the corresponding bound or unbound plain DNA library -- exhibited the same patterns of bias (figure~\ref{fig:kmer_bias}).  More specifically, the biases were stronger for the bound libraries.  Bound and unbound libraries having the same bias in this case would likely be due to PCR bias.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{kmer_CpGubXCpGb}
     \caption{CpG methylated, R = -0.402}
     \label{fig:kmer_bound_cpg}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{kmer_halfubXhalfb}
     \caption{Half-C-methylated, R = -0.226}
     \label{fig:kmer_bound_half}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{kmer_allubXallb}
     \caption{All-C-methylated, R = +0.710}
@@ -398,15 +398,15 @@ However, both the bound and unbound all-C-methylated libraries -- relative to th
   \label{fig:kmer_bound}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{kmer_plainbXallb}
     \caption{Bound DNA, R = -0.162}
     \label{fig:kmer_bias_bound}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.8\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
     \includegraphics[width=0.8\textwidth]{kmer_plainubXallub}
     \caption{Unbound DNA, R = -0.479}
@@ -418,8 +418,7 @@ However, both the bound and unbound all-C-methylated libraries -- relative to th
 
 The frequencies of continuous stretches of adenines (A-stretches) were also counted in each library (figure~\ref{fig:astretch}).  Methylation was associated with A-stretches being depleted in the libraries containing DNA bound to nucleosomes.  Compared to plain DNA, the half-C-methylated and all-C-methylated groups exhibited greater depletions in A-stretches.  This effect was more pronounced in the CpG methylated group.  Almost all of the groups exhibited ratios below 1.0.  This suggests that A-stretches are disfavoured in nucleosome binding, and this disfavouring is enhanced when cytosines are methylated.
 
-% make this look more glamorous later by changing around the R code.  it's already informative
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{astretch}
   \caption{Enrichment of continuous stretches of adenines for each experimental group.  The number of occurences of each adenine \emph{k}-mer in each library was calculated (e.g. `5' corresponds to `AAAAA').  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.}
@@ -514,27 +513,27 @@ The initial input library lig147 was amplified and processed, with conditions va
 
 Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  High correlation coefficients between 8-cycle libraries and 24-cycle libraries for all enzymes sources were observed, suggesting that libraries were similar within each pair.  All enzymes showed slight biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_dreamtaq}
     \caption{DreamTaq, R = 0.709}
     \label{fig:kmer_enz_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_phire}
     \caption{Phire, R = 0.839}
     \label{fig:kmer_enz_phire}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_q5}
     \caption{Q5, R = 0.760}
     \label{fig:kmer_enz_q5}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_phusion}
     \caption{Phusion, R = 0.659}
@@ -549,27 +548,27 @@ Libraries amplified by Phusion, Phire, Dreamtaq, and Q5 DNA polymerase enzymes w
 
 The effect of the bottleneck effect on PCR bias was then investigated.  In this context, the bottleneck effect refers to how some members of a large DNA library are likely to be lost by chance if a small sample of the library is taken for amplification.  For each enzyme investigated in subsection~\ref{ssec:pcrbias_result_enz}, the PCR product after 24 cycles was diluted and samples from this dilution were amplified.  Comparing two samples for each enzyme suggested that bottleneck effects did not introduce large biases, as indicated by the strong correlations between the two samples for each enzyme (figure~\ref{fig:kmer_bn}).  However, Phire exhibited the greatest bias from the bottleneck effect, judging by the smallest correlation coefficient.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_dreamtaqBN}
     \caption{DreamTaq, R = 0.884}
     \label{fig:kmer_bn_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_phireBN}
     \caption{Phire, R = 0.697}
     \label{fig:kmer_bn_phire}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_q5BN}
     \caption{Q5, R = 0.767}
     \label{fig:kmer_bn_q5}
   \end{subfigure}
-  \begin{subfigure}[htb]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.6\textwidth}
     \centering
     \includegraphics[width=0.6\textwidth]{kmer_phusionBN}
     \caption{Phusion, R = 0.844}
@@ -584,7 +583,7 @@ The effect of the bottleneck effect on PCR bias was then investigated.  In this 
 
 To investigate the effect of DNA purification, the hlig147 input library was purified by AMPure beads multiple times before sequencing.  The normalised 9-mer counts from the library after eight rounds of purification strongly correlated with that from the library after one round of purification (figure~\ref{fig:kmer_pur}).  This suggested that purification did not introduce strong nucleotide biases.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{kmer_ampure}
   \caption{9-mer count scatter plot showing the effect of AMPure bead purification.  Each point represents a nucleotide 9-mer and the shading indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.  R = 0.865}
@@ -596,7 +595,7 @@ To investigate the effect of DNA purification, the hlig147 input library was pur
 
 Different combinations of four vendors for dNTPs -- including one source with dCTPs replaced by 5-methylcytosines -- and two vendors of Phusion High-Fideltiy DNA polymerase were investigated.  The fractions of each nucleotide after 24 rounds of PCR were calculated for each combination (figure~\ref{fig:linearmodel_nt}).
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{linearmodel_acgt}
   \caption{Fraction of each nucleotide after 24 cycles of amplification by each combination of dNTP and Phusion High-Fidelity DNA polymerase vendors}
@@ -641,7 +640,7 @@ These fractions were then used to construct a linear model (equation~\ref{eqn:li
 % This plot may go -- it doesn't add much
 The predictive power of this model was verified by assessing the correlation between observed nucleotide fractions and nucleotide fractions predicted by the linear model (figure~\ref{fig:linearmodel_ver}).  The high correlation coefficient suggested that hthe model had high predictability.  Alternatively such a value is expected from theh low values of linear coefficients relative to the nucleotide fractions observed.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.4\textwidth]{linearmodel_plot}
   \caption{Verification of linear model by a scatter plot between observed fractions of each nucleotide and fractions of each nucleotide predicted by the linear model (equation~\ref{eqn:linearmodel}).  R = 0.998}
