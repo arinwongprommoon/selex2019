@@ -121,31 +121,6 @@ SELEX is a promising method to identify the DNA sequences preferred for nucleoso
 
 In this project, I aimed to study the sequence specificity of the nucleosome on methylated and non-methylated DNA.  I conducted four cycles of nucleosome EMSA SELEX using random DNA methylated at different level as input libraries, using affinity to the histone octamer as part of the evolution process.  After sequencing, the periodicity and amplitudes of mononucleotides and dinucleotides in all DNA libraries were characterised using fast Fourier transform \citep{lowary_new_1998, zhu_interaction_2018}.  Additionally, I assessed sequence biases by producing \emph{k}-mer plots.
 
-\section{Materials and Methods}
-\label{sec:emsaselex_methods}
-
-\subsection{DNA ligand design and preparation}
-\label{ssec:emsaselex_methods_lig}
-
-The sequence of the initial input library (lig147) is \texttt{5' GCTCTTCCGATCT nnnnnnnnn\-nnnnnnnnnnn AGATCGGAAGAGC 3'}, where n denotes any nucleotide chosen at random. The input library DNA was made up to \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA at pH 8.0.
-
-PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530).  The sequence of the forward primer was \texttt{5' CCCTACACGAC GCTCTTCC 3'}, and the sequence of the reverse primer was \texttt{3' GCCTTCTCG TGTGCAGAC 5'}.  Thirteen cycles of PCR with recommended temperatures were followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the dCTPs in the amplification mix were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the dCTPs were replaced with 5-methylcytosine.  To create the libraries for the CpG-methylated group, plain DNA was incubated with methyltransferase (M.SssI), S-adenomethionine, and \ce{MgCl2} according to the protocols suggested by the enzyme manufacturer.
-
-\subsection{Nucleosome EMSA-SELEX}
-\label{ssec:emsaselex_methods_selex}
-
-Nucleosomes were reconstituted from DNA libraries and \emph{Xenopus laevis} histone octamers using \SI{2}{\Molar} \ce{KCl} refolding buffer and periodic addition of dilution buffer as described by \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particules').  Reconstituted nucleosomes were analysed by EMSA(electrophoretic mobility shift assay) by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  For the 1.48:1 octamer:DNA ratio, the faster-migrating gel band corresponding to DNA not bound to nucleosomes was silced.  The slower-migrating bands corresponding to DNA bound to nucleosomes were sliced for all other octamer:DNA ratios.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight to elute DNA.  Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature were followed by 10 cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.  Four such rounds of nucleosome EMSA-SELEX were carried out.
-
-\subsection{Sequencing}
-\label{ssec:emsaselex_methods_seq}
-
-The eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x AMPure beads once (Beckman Coulter) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.  Sequencing was performed using Illumina HiSeq 4000, following standard protocols, with $>$ 60 bp paired-end settings.  Raw sequences were demultiplexed, then the R1 and R2 reads of paired-end sequencing were merged according to \citet{zhu_interaction_2018}.
-
-\subsection{Data analysis}
-\label{ssec:emsaselex_methods_anal}
-
-Fast Fourier transformation (FFT) was performed using the position along the read as the time domain and the frequency of mononucleotides or dinucleotides at a specific position within the read as the frequency domain, following \citet{zhu_interaction_2018}.  From this, power spectra for mononucleotides and dinucleotides were obtained.  The phases and amplitudes of FFT were also examined at a periodicity of 10.2 bp.
-
 \section{Results}
 \label{sec:emsaselex_results}
 
@@ -477,6 +452,31 @@ Thus these results provide preliminary insights into \emph{in vitro} sequence pr
 
 Calculating sequence enrichments in the all-C-methylated group relative to the plain DNA group revealed that similar biases were present in both unbound and bound DNA.  Most likely, PCR bias accounted for the similar biases exhibited by both bound and unbound DNA, but this also calls into question the validity of concluding that nucleosomes disfavour A/T-rich sequences in CpG-methylated and half-C-methylated DNA.  There is evidence to suggest that there are strong PCR biases in the presence of methylated cytosines.  Quantifying the sequence biases introduced by PCR would then allow removal of this bias to reveal the biases introduced by nucleosome sequence preferences.
 
+\section{Materials and Methods}
+\label{sec:emsaselex_methods}
+
+\subsection{DNA ligand design and preparation}
+\label{ssec:emsaselex_methods_lig}
+
+The sequence of the initial input library (lig147) is \texttt{5' GCTCTTCCGATCT nnnnnnnnn\-nnnnnnnnnnn AGATCGGAAGAGC 3'}, where n denotes any nucleotide chosen at random. The input library DNA was made up to \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA at pH 8.0.
+
+PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530).  The sequence of the forward primer was \texttt{5' CCCTACACGAC GCTCTTCC 3'}, and the sequence of the reverse primer was \texttt{3' GCCTTCTCG TGTGCAGAC 5'}.  Thirteen cycles of PCR with recommended temperatures were followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the dCTPs in the amplification mix were replaced with 5-methylcytosine, and for the `all-C-methylated group', all of the dCTPs were replaced with 5-methylcytosine.  To create the libraries for the CpG-methylated group, plain DNA was incubated with methyltransferase (M.SssI), S-adenomethionine, and \ce{MgCl2} according to the protocols suggested by the enzyme manufacturer.
+
+\subsection{Nucleosome EMSA-SELEX}
+\label{ssec:emsaselex_methods_selex}
+
+Nucleosomes were reconstituted from DNA libraries and \emph{Xenopus laevis} histone octamers using \SI{2}{\Molar} \ce{KCl} refolding buffer and periodic addition of dilution buffer as described by \citet{dyer_reconstitution_2003} (`Reconstitution of Nucleosome Core Particules').  Reconstituted nucleosomes were analysed by EMSA(electrophoretic mobility shift assay) by using TBE 6\% DNA retardation gel and 0.2\% TBE buffer on ice.  For the 1.48:1 octamer:DNA ratio, the faster-migrating gel band corresponding to DNA not bound to nucleosomes was silced.  The slower-migrating bands corresponding to DNA bound to nucleosomes were sliced for all other octamer:DNA ratios.  The sliced bands were dissolved in \SI{70}{\micro\litre} Tris pH 8.0, and then incubated at \SI{70}{\celsius} overnight to elute DNA.  Eluted DNA was amplified using procedures adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase.  Here, 21 cycles of PCR with a \SI{98}{\celsius} denaturation temperature and a \SI{67}{\celsius} annealing temperature were followed by 10 cycles with a \SI{79}{\celsius} denaturation temperature and a \SI{64}{\celsius} annealing temperature.  Four such rounds of nucleosome EMSA-SELEX were carried out.
+
+\subsection{Sequencing}
+\label{ssec:emsaselex_methods_seq}
+
+The eluted DNA was barcoded for sequencing.  Amplification was carried out using the procedures recommended for Phusion DNA polymerase for 29 PCR cycles, using \SI{5}{\micro\Molar} barcoded PE primer obtained from IDT.  All barcoded DNA was then pooled together and purified using 1.2x AMPure beads once (Beckman Coulter) according to manufacturer's protocols.  Subsequently, the DNA was diluted to \SI{2}{\nano\Molar}.  Sequencing was performed using Illumina HiSeq 4000, following standard protocols, with $>$ 60 bp paired-end settings.  Raw sequences were demultiplexed, then the R1 and R2 reads of paired-end sequencing were merged according to \citet{zhu_interaction_2018}.
+
+\subsection{Data analysis}
+\label{ssec:emsaselex_methods_anal}
+
+Fast Fourier transformation (FFT) was performed using the position along the read as the time domain and the frequency of mononucleotides or dinucleotides at a specific position within the read as the frequency domain, following \citet{zhu_interaction_2018}.  From this, power spectra for mononucleotides and dinucleotides were obtained.  The phases and amplitudes of FFT were also examined at a periodicity of 10.2 bp.
+
 \chapter{PCR Bias}
 \label{ch:pcrbias}
 
@@ -501,60 +501,6 @@ Commonly-used model organisms have GC content within the range in which bias is 
 Although it is well-characterised that PCR introduces sequence biases, it is unknown which process within procedures that employ PCR amplification contributes the most to this bias, and to which degree.  Specifically, the biases introduced from the number of PCR cycles and from purification have not been characterised.  Such characterisation would be beneficial in developing a model to quantify PCR bias.  With such a model, these PCR biases can be removed in genomic studies to reveal true signals introduced by the factors tested in the relevant experiments.  PCR bias is especially relevant for nucleosome EMSA-SELEX.  Sequence affinities for the nucleosome is weak, at least compared to transcription factors \citep{struhl_determinants_2013}.  This makes the signal enrichment in the sequencing library weak, and makes it difficult to separate signals introduced by nucleosome binding from biases introduced by PCR.  In other words, both sequences bound to nucleosomes and sequences that are not exhibit the same PCR-introduced bias, rather than have biases that separate these two groups.
 
 Here I assesed the sequence biases that could be introduced to the initial input library for nucleosome EMSA-SELEX.  I tested sequence biases introduced by the choice of DNA polymerase, bottleneck effects, choice of reagent vendors, cycles of PCR, and purification of DNA after PCR.  From the resulting sequencing data, the distribution of \emph{k}-mer nucleotides was assessed.
-
-\section{Materials and Methods}
-\label{sec:pcrbias_methods}
-
-\subsection{DNA ligand design and preparation}
-\label{ssec:pcrbias_methods_lig}
-
-The same input library (lig147) as \ref{ssec:emsaselex_methods_lig} was used, without methylation.
-
-\subsection{Biases from DNA polymerase enzymes and bottleneck effects}
-\label{ssec:pcrbias_methods_enz}
-
-PCR amplification followed manufacturers' protocols for the following DNA polymerases: Phire Hot Start II DNA polymerase (ThermoFisher, F122S), Q5 Hot Start High-Fidelity DNA polymerase (New England BioLabs, M0493S), DreamTaq Hot Start DNA Polymerase (ThermoFisher, EP1701), and Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).
-
-Specifically, for each enzyme, the input library was diluted and then amplified in five experimental groups as specified:
-
-\begin{itemize}
-  \item Dilute by a factor of $2^{4}$, then amplify for 8 cycles
-  \item Dilute by a factor of $2^{8}$, then amplify for 12 cycles
-  \item Dilute by a factor of $2^{12}$, then amplify for 16 cycles
-  \item Dilute by a factor of $2^{16}$, then amplify for 20 cycles
-  \item Dilute by a factor of $2^{20}$, then amplify for 24 cycles
-\end{itemize}
-
-The amplified product for each experimental group was then sequenced.
-
-To investigate bottleneck effects, the product from the 24-cycle amplification was diluted by a factor of $2^{20}$.  From this, two samples were taken to be amplified for 24 cycles, and then the resulting amplification product was sequenced.
-
-\subsection{Biases from PCR cycles}
-\label{ssec:pcrbias_methods_pcr}
-
-lig147 was diluted by a factor of $2^{20}$.  PCR amplification followed manufacturer's protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  DNA was amplified for 4, 8, 12, 16, 20, 24, and 28 cycles, then were re-diluted so that their theoretical concentrations matched DNA amplified for 4 cycles.  The libraries for each experimental group were then sequenced.
-
-\subsection{Biases from purification}
-\label{ssec:pcrbias_methods_pur}
-
-lig147 was purified using 1.2x AMPure beads (Beckman Coulter) according to manufacturer's protocols, but with a \SI{15}{\micro\litre} elution volume.  Purification was repeated for 1, 2, 4, and 8 times.
-
-\subsection{Biases from reagent vendors}
-\label{ssec:pcrbias_methods_reagent}
-
-lig147 was diluted by a factor of $2^{20}$.  It was then amplified for 24 cycles using manufacturer's protocols for PCR amplification using Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L) and the reagents supplied by this vendor.
-
-Combinations of Phusion High-Fidelity DNA Polymerase and dNTPs were investigated.  The polymerases used were from ThermoFisher (F530L) and New England BioLabs (M0530L).  The dNTPs used were from ThermoFisher (R0192), Agilent Technologies (200415-51), Kapa Biosystems (KN1009), and dNTPs containing 5-methylcytosine in place of dCTP from Zymo Research (D1030).  Twenty-four cycles of PCR using the eight combinations of polymerases and dNTPs proceeded according to manufacturer's protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).
-
-\subsection{Sequencing}
-\label{ssec:pcrbias_methods_seq}
-
-The same procedures for sequencing as \ref{ssec:emsaselex_methods_seq} were used.
-
-\subsection{Data analysis}
-\label{ssec:pcrbias_methods_anal}
-
-The same methods for fast Fourier transform as \ref{ssec:emsaselex_methods_anal} were used.  To investigate the effect of different vendors, a linear regression model was constructed.  The model used the frequencies of each nucleotide in the amplified library as the response variable.  The input variables were the enzyme vendor and dNTP vendor.
 
 \section{Results}
 \label{sec:pcrbias_results}
@@ -713,6 +659,60 @@ As a result, PCR bias is most likely due to the reactions in PCR themselves rath
 However, from the data it is difficult to see how much such PCR bias would contribute to procedures that employ PCR, such as nucleosome EMSA-SELEX.  The question of how much A/T bias contributes to the variances observed in the \emph{k}-mer plots remains to be solved.  Furthermore, the input library was biased towards T and G, as apparent from the measurements of nucleotide fractions in subsection~\ref{ssec:pcrbias_result_reagent} and counting nucleotide frequencies along sequencing reads in subsection~\ref{ssec:nuseqpref_fft}.  This T/G bias, likely due to the DNA synthesis process, may confound quantification of PCR bias.
 
 To improve on these experiments, a better input library with improved filtering to remove sequences that have a tendency to form primer dimers should be constructed.  The information obtained, supplementing data from this project, would be useful in creating a model to predict biases introduced by PCR cycles.  PCR bias is at the same order as biases introduced by the weak affinity of the histone octamer towards specific DNA sequences.  An explicit PCR bias model would therefore be able to separate bias introduced by PCR and bias introduced by nucleosome positioning.  Such a model would lead to a better quantification of the biases introduced by nucleosome positioning.
+
+\section{Materials and Methods}
+\label{sec:pcrbias_methods}
+
+\subsection{DNA ligand design and preparation}
+\label{ssec:pcrbias_methods_lig}
+
+The same input library (lig147) as \ref{ssec:emsaselex_methods_lig} was used, without methylation.
+
+\subsection{Biases from DNA polymerase enzymes and bottleneck effects}
+\label{ssec:pcrbias_methods_enz}
+
+PCR amplification followed manufacturers' protocols for the following DNA polymerases: Phire Hot Start II DNA polymerase (ThermoFisher, F122S), Q5 Hot Start High-Fidelity DNA polymerase (New England BioLabs, M0493S), DreamTaq Hot Start DNA Polymerase (ThermoFisher, EP1701), and Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).
+
+Specifically, for each enzyme, the input library was diluted and then amplified in five experimental groups as specified:
+
+\begin{itemize}
+  \item Dilute by a factor of $2^{4}$, then amplify for 8 cycles
+  \item Dilute by a factor of $2^{8}$, then amplify for 12 cycles
+  \item Dilute by a factor of $2^{12}$, then amplify for 16 cycles
+  \item Dilute by a factor of $2^{16}$, then amplify for 20 cycles
+  \item Dilute by a factor of $2^{20}$, then amplify for 24 cycles
+\end{itemize}
+
+The amplified product for each experimental group was then sequenced.
+
+To investigate bottleneck effects, the product from the 24-cycle amplification was diluted by a factor of $2^{20}$.  From this, two samples were taken to be amplified for 24 cycles, and then the resulting amplification product was sequenced.
+
+\subsection{Biases from PCR cycles}
+\label{ssec:pcrbias_methods_pcr}
+
+lig147 was diluted by a factor of $2^{20}$.  PCR amplification followed manufacturer's protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).  DNA was amplified for 4, 8, 12, 16, 20, 24, and 28 cycles, then were re-diluted so that their theoretical concentrations matched DNA amplified for 4 cycles.  The libraries for each experimental group were then sequenced.
+
+\subsection{Biases from purification}
+\label{ssec:pcrbias_methods_pur}
+
+lig147 was purified using 1.2x AMPure beads (Beckman Coulter) according to manufacturer's protocols, but with a \SI{15}{\micro\litre} elution volume.  Purification was repeated for 1, 2, 4, and 8 times.
+
+\subsection{Biases from reagent vendors}
+\label{ssec:pcrbias_methods_reagent}
+
+lig147 was diluted by a factor of $2^{20}$.  It was then amplified for 24 cycles using manufacturer's protocols for PCR amplification using Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L) and the reagents supplied by this vendor.
+
+Combinations of Phusion High-Fidelity DNA Polymerase and dNTPs were investigated.  The polymerases used were from ThermoFisher (F530L) and New England BioLabs (M0530L).  The dNTPs used were from ThermoFisher (R0192), Agilent Technologies (200415-51), Kapa Biosystems (KN1009), and dNTPs containing 5-methylcytosine in place of dCTP from Zymo Research (D1030).  Twenty-four cycles of PCR using the eight combinations of polymerases and dNTPs proceeded according to manufacturer's protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530L).
+
+\subsection{Sequencing}
+\label{ssec:pcrbias_methods_seq}
+
+The same procedures for sequencing as \ref{ssec:emsaselex_methods_seq} were used.
+
+\subsection{Data analysis}
+\label{ssec:pcrbias_methods_anal}
+
+The same methods for fast Fourier transform as \ref{ssec:emsaselex_methods_anal} were used.  To investigate the effect of different vendors, a linear regression model was constructed.  The model used the frequencies of each nucleotide in the amplified library as the response variable.  The input variables were the enzyme vendor and dNTP vendor.
 
 \backmatter
 
