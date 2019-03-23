@@ -19,6 +19,8 @@ TO DO
 
   - Write abstract
   - Make sure everything makes sense, especially the discussion
+  - Write list of abbreviations
+  - Write acknowledgements
   - Resize figures, etc
 
 MORE QUESTIONS/ISSUES (2019-03-13)
