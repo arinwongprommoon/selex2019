@@ -65,3 +65,14 @@ All enzymes seem to have the similar (relatively weak) biases. The fold change v
 In general, the bottleneck effect doesn't seem to introduce much bias.
 AMPure beads don't seem to introduce much bias.
 >> Yes, just discuss this. Probably mention that Phire still have a relatively larger bias among them. So that we should avoid to use Phire in sequencing library preparations.
+
+
+
+
+TO DO FOR SECOND DRAFT
+
+- Cut abstract down to 250 words
+- Go through the entire thing to ensure consistency
+- Write acknowledgements
+- Write cover page
+- Format document 100% according to department guidelines
