@@ -71,8 +71,8 @@ AMPure beads don't seem to introduce much bias.
 
 TO DO FOR SECOND DRAFT
 
-- Cut abstract down to 250 words
-- Go through the entire thing to ensure consistency
-- Write acknowledgements
+
+
+
 - Write cover page
 - Format document 100% according to department guidelines
