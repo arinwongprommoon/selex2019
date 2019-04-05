@@ -71,8 +71,4 @@ AMPure beads don't seem to introduce much bias.
 
 TO DO FOR SECOND DRAFT
 
-
-
-
-
-- Format document 100% according to department guidelines
+all done
