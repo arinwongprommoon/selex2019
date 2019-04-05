@@ -39,8 +39,9 @@
 
 % floats
 \usepackage{graphicx}
-  \graphicspath{ {./graphics/} }
-\usepackage{subcaption}
+\graphicspath{ {./graphics/} }
+\usepackage[font=small]{caption}
+\usepackage[font=small]{subcaption}
 \usepackage{tabularx}
   \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \usepackage{booktabs}
@@ -646,7 +647,7 @@ Different combinations of four vendors for dNTPs -- including one source with dC
   \label{fig:linearmodel_nt}
 \end{figure}
 
-These fractions were then used to construct a linear model to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides.  The coefficients for the linear model are described in tables~\ref{tab:linearmodel_coeffs_a} and~\ref{tab:linearmodel_coeffs_b}.
+These fractions were then used to construct a linear model to describe the effects of dNTP and Phusion High-Fidelity DNA polymerase vendor on the fraction of the nucleotides:  %The coefficients for the linear model are described in tables~\ref{tab:linearmodel_coeffs_a} and~\ref{tab:linearmodel_coeffs_b}.
 
 \begin{equation}
   \label{eqn:linearmodel}
@@ -656,11 +657,21 @@ These fractions were then used to construct a linear model to describe the effec
 \begin{table}[h]
   \centering
   \begin{tabular}{r}
-     \\
+    \toprule
+    \\
+    \midrule
     New England BioLabs\\
+    \bottomrule
   \end{tabular}%
   \pgfplotstabletypeset[
   col sep = comma,
+  every head row/.style = {
+    before row = \toprule,
+    after row = \midrule
+  },
+  every last row/.style = {
+    after row = \bottomrule
+    }
   ]{linearmodel_a.csv}  
   \caption{Coefficients for the linear model to describe the contribution of Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions (`$a$' in equation~\ref{eqn:linearmodel}) for each nucleotide.  These coefficients describe increases relative to the ThermoFisher High-Fidelity DNA polymerase.}
   \label{tab:linearmodel_coeffs_a}
@@ -669,13 +680,23 @@ These fractions were then used to construct a linear model to describe the effec
 \begin{table}[h]
   \centering
   \begin{tabular}{r}
-     \\
+    \toprule
+    \\
+    \midrule
     dNTP Kapa\\
     dNTP Agilent\\
     dNTP ZymoMeC\\
+    \bottomrule
   \end{tabular}%
   \pgfplotstabletypeset[
   col sep = comma,
+    every head row/.style = {
+    before row = \toprule,
+    after row = \midrule
+  },
+  every last row/.style = {
+    after row = \bottomrule
+    }
   ]{linearmodel_b.csv}  
   \caption{Coefficients for the linear model to describe the contribution of dNTP vendors to nucleotide fractions (`$b$' in equation~\ref{eqn:linearmodel}) for each nucleotide.  These coefficients describe increases relative to the ThermoFisher dNTPs.}
   \label{tab:linearmodel_coeffs_b}
