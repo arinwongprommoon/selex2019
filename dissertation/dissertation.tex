@@ -1,8 +1,11 @@
-\documentclass[parskip=full, numbers=noenddot]{scrbook}
+\documentclass[a4paper, parskip=full, numbers=noenddot]{scrbook}
 
 % starts new page with new section
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
+
+\usepackage{setspace}
+%\onehalfspacing
 
 % makes abstract possible in scrbook
 \newenvironment{abstract}%
@@ -88,7 +91,7 @@
 \begin{abstract}
 % problem, approaches (in outline), major findings. make main points absolutely clear. aim for 200-250 words
   
-  Nucleosome positioning on the genome is closely related to gene expression.  CpG methylation has been found to disfavour nucleosomes \emph{in vivo}, but the explanation of this preference is not clear.  Furthermore, the effects of non-CpG methylation have not been characterised.  In the first part of this study, we use nucleosome EMSA-SELEX to select oligonucleotides that bind to histone octamers, and characterised the nucleosome's sequence preferences for methylated DNA.  This approach not only confirmed existing `rules' for nucleosome positioning, but also revealed that cytosine methylation aligns the phases of dinucleotides harbouring cytosines, as compared to unmethylated DNA.  These new rules regarding methylated cytosines are useful for more precise prediction of gene regulation.
+  Nucleosome positioning on the genome is closely related to gene expression.  CpG methylation has been found to disfavour nucleosomes \emph{in vivo}, but the explanation of this preference is not clear.  Furthermore, the effects of non-CpG methylation have not been characterised.  In the first part of this study, we used nucleosome EMSA-SELEX to select oligonucleotides that bind to histone octamers, and characterised the nucleosome's sequence preferences for methylated DNA.  This approach not only confirmed existing `rules' for nucleosome positioning, but also revealed that cytosine methylation aligns the phases of dinucleotides harbouring cytosines, as compared to unmethylated DNA.  These new rules regarding methylated cytosines are useful for more precise prediction of gene regulation.
 
   PCR is indispensable in most workflows of next-generation sequencing.  However, PCR biases undermines the reliability of sequencing.  To understand such PCR biases, in the second part of this study, we studied the effects from PCR cycles, enzyme identity, bottlenecking, template concentration, DNA purification, and reagent vendors.  Our findings suggest that DreamTaq, Phusion, Phire, and Q5 DNA polymerases had weak biases towards A and T, with Phusion exhibiting the least and Phire the greatest.  Compared to the intrinsic biases of the enzymes, the effects were minor for the bottlenecking effect, DNA purification by AMPure beads, and for the vendors of DNA polymerase and dNTPs.  Such information would help develop an explicit model accounting for PCR bias, which would allow reduction of the effect of PCR bias in the analysis of sequencing data.
  
@@ -288,7 +291,7 @@ The frequency of each of the four nucleotides at each position along the reads w
   \label{fig:enriched}
 \end{figure}
 
-Similarly, we further examined the frequency of all dinucleotide sequences at each position along the reads in all libraries.  The data from the fourth cycle of nucleosome EMSA-SELEX were used in all subsequent analyses because they exhibited the strongest signals.  All bound DNA libraries showed a clear periodicity in mononucleotide and dinucleotide frequencies (figure~\ref{fig:freqplots}).  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Fast Fourier transform confirmed that this periodicity was at approximately 0.1 per base pair (figure~\ref{fig:powerspectra_bound}).  Among the octamer:DNA ratios tested, the 1:0.74 ratio gave the strongest signals, and the signal intensity decreased as the proportion of histone octamer decreased (data not shown).  Libraries corresponding to this octamer:DNA ratio were therefore used for all subsequent analyses.
+Similarly, we further examined the frequency of all dinucleotide sequences at each position along the reads in all libraries.  The data from the fourth cycle of nucleosome EMSA-SELEX were used in all subsequent analyses because they exhibited the strongest signals.  All bound DNA libraries showed a clear periodicity in mononucleotide and dinucleotide frequencies (figure~\ref{fig:freqplots}).  Specifically, half-C-methylated and all-C-methylated DNA showed the strongest signals, CpG-methylated DNA showed signals of intermediate strength, and plain DNA showed the weakest signals.  Fast Fourier transform confirmed that this periodicity is at approximately 0.1 per base pair (figure~\ref{fig:powerspectra_bound}).  Among the octamer:DNA ratios tested, the 1:0.74 ratio gave the strongest signals, and the signal intensity decreased as the proportion of histone octamer decreased (data not shown).  Libraries corresponding to this octamer:DNA ratio were therefore used for all subsequent analyses.
 
 In contrast, all unbound DNA libraries were depleted of the periodic signal (figure~\ref{fig:powerspectra_unbound}).
 
@@ -336,7 +339,7 @@ In contrast, all unbound DNA libraries were depleted of the periodic signal (fig
     \caption{DNA bound to nucleosomes, 1:074 octamer:DNA}
     \label{fig:powerspectra_bound}
   \end{subfigure}
-  \caption{Power spectra showing the effect of nucleosome binding on sequence periodicity.  Libraries from the all-C-methylated group in the fourth cycle of nucleosome EMSA-SELEX were shown here as representative spectra.  Other experimental groups showed similar patterns.}
+  \caption{Power spectra showing the effect of nucleosome binding on sequence periodicity.  Libraries from the all-C-methylated group in the fourth cycle of nucleosome EMSA-SELEX are shown here as representative spectra.  Other experimental groups showed similar patterns.}
   \label{fig:powerspectra}
 \end{figure}
 
@@ -441,7 +444,7 @@ The frequencies of continuous stretches of adenines (A-stretches) were also coun
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.6\textwidth]{astretch}
-  \caption{Enrichment of continuous stretches of adenines for each experimental group.  The number of occurrences of each adenine \emph{k}-mer in each library was calculated (e.g. `5' corresponds to `AAAAA').  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.}
+  \caption{Enrichment of continuous stretches of adenines for each experimental group.  The number of occurrences of each adenine \emph{k}-mer in each library was calculated (e.g.\ `5' corresponds to `AAAAA').  Dividing the count from the bound DNA library by the count from the unbound DNA library gave the ratios shown.}
   \label{fig:astretch}
 \end{figure}
 
@@ -479,7 +482,7 @@ Calculating sequence enrichments in the all-C-methylated group relative to the p
 \subsection{DNA ligand design and preparation}
 \label{ssec:emsaselex_methods_lig}
 
-The sequence of the initial input library (lig147) is \texttt{5' GCTCTTCCGATCT nnnnnnnnn\-nnnnnnnnnnn AGATCGGAAGAGC 3'}, where n denotes any nucleotide chosen at random. The input library DNA was made up to \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA at pH 8.0.
+The sequence of the initial input library (lig147) was \texttt{5' GCTCTTCCGATCT nnnnnnnnn\-nnnnnnnnnnn AGATCGGAAGAGC 3'}, where n denotes any nucleotide chosen at random. The input library DNA was made up to \SI{200}{\nano\Molar} in TE buffer with \SI{0.2}{\milli\Molar} EDTA at pH 8.0.
 
 PCR amplification was adapted from manufacturer's recommended protocols for Phusion High-Fidelity DNA Polymerase (ThermoFisher, F530).  The sequence of the forward primer was \texttt{5' CCCTACACGAC GCTCTTCC 3'}, and the sequence of the reverse primer was \texttt{5' CAGACGTGT GCTCTTCCG 3'}.  Thirteen cycles of PCR with recommended temperatures were followed by ten cycles with the \SI{98}{\celsius} denaturation temperature replaced with \SI{72}{\celsius}.  For the `half-C-methylated group', half of the dCTP in the amplification mix were replaced with 5-methyl dCTP, and for the `all-C-methylated group', all of the dCTP were replaced with 5-methyl dCTP.  To create the libraries for the CpG-methylated group, plain DNA was incubated with methyltransferase (M.SssI), S-adenomethionine, and \ce{MgCl2} according to the protocols suggested by the enzyme manufacturer.
 
@@ -638,7 +641,7 @@ These fractions were then used to construct a linear model to describe the effec
   \pgfplotstabletypeset[
   col sep = comma,
   ]{linearmodel_a.csv}  
-  \caption{Coefficients for the linear model to describe the contribution of Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions (`$a$' in equation~\ref{eqn:linearmodel}) for each nucleotide.  These coefficients describe increments relative to the ThermoFisher High-Fidelity DNA polymerase.}
+  \caption{Coefficients for the linear model to describe the contribution of Phusion High-Fidelity DNA polymerase vendors to nucleotide fractions (`$a$' in equation~\ref{eqn:linearmodel}) for each nucleotide.  These coefficients describe increases relative to the ThermoFisher High-Fidelity DNA polymerase.}
   \label{tab:linearmodel_coeffs_a}
 \end{table}
 
@@ -653,7 +656,7 @@ These fractions were then used to construct a linear model to describe the effec
   \pgfplotstabletypeset[
   col sep = comma,
   ]{linearmodel_b.csv}  
-  \caption{Coefficients for the linear model to describe the contribution of dNTP vendors to nucleotide fractions (`$b$' in equation~\ref{eqn:linearmodel}) for each nucleotide.  These coefficients describe increments relative to the ThermoFisher dNTPs.}
+  \caption{Coefficients for the linear model to describe the contribution of dNTP vendors to nucleotide fractions (`$b$' in equation~\ref{eqn:linearmodel}) for each nucleotide.  These coefficients describe increases relative to the ThermoFisher dNTPs.}
   \label{tab:linearmodel_coeffs_b}
 \end{table}
 
