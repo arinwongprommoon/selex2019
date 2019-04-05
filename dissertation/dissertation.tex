@@ -1,11 +1,11 @@
-\documentclass[a4paper, parskip=full, numbers=noenddot]{scrbook}
+\documentclass[a4paper, numbers=noenddot]{scrbook}
 
 % starts new page with new section
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 
 \usepackage{setspace}
-%\onehalfspacing
+\onehalfspacing
 
 % makes abstract possible in scrbook
 \newenvironment{abstract}%
@@ -64,18 +64,15 @@
 
 \frontmatter
 
-%\maketitle
-% Will deal with the intricacies of the cover pages at the very end.
-
 \begin{titlepage}
   \centering
   \includegraphics[width=0.15\textwidth]{University_Crest}\par\vspace{1cm}
   {\scshape\LARGE University of Cambridge \par}
-  \vspace{1cm}
+  \vspace{0.5cm}
   {\scshape\Large Part II Biochemistry Project Dissertation\par}
-  \vspace{1.5cm}
+  \vspace{1cm}
   {\huge\bfseries Sequence Preferences of the Nucleosome and PCR Enzymes\par}
-  \vspace{2cm}
+  \vspace{1.5cm}
   {\Large\itshape Candidate Number XXXXX\par}
   \vfill
   supervised by\par
@@ -88,6 +85,9 @@
   This dissertation contains XXXX words, excluding the bibliography, figures, figure legends, tables, table headings, abbrevations, acknowledgements, and tables of contents.
   \end{titlepage}
 
+  % Note to state which experiments were carried out on behalf of the student
+Preparation for next-generation DNA sequencing, the sequencing itself, and demultiplexing was carried out by the day-to-day supervisor on behalf of the student.  All other experiments were carried out by the student.
+  
 \begin{abstract}
 % problem, approaches (in outline), major findings. make main points absolutely clear. aim for 200-250 words
   
@@ -745,6 +745,6 @@ To investigate the effect of different vendors, a linear regression model was co
 
 I would like to thank Prof Jussi Taipale for overseeing the project and for providing feedback regarding the experiment design and data analysis.  I also express my gratitude towards Dr Fangjie Zhu for his assistance in designing the experiments, for his mentorship throughout the project, for assistance with DNA sequencing, and for valuable feedback for this dissertation.  Lastly, I would also like to thank all members of the Taipale lab for their hospitality and general assistance.  In particular, I would like to thank Dr Otto Kauko for technical aid with the nucleosome EMSA-SELEX procedure, and Dr Minna Taipale for assistance with DNA sequencing.
 
-\printbibliography
+{\setstretch{1.0}\printbibliography[title={References}]}
 
 \end{document}
