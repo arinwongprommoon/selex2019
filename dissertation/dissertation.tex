@@ -82,6 +82,7 @@
 
   % Bottom of the page
   {\large \today\par}
+  \vfill
   This dissertation contains XXXX words, excluding the bibliography, figures, figure legends, tables, table headings, abbrevations, acknowledgements, and tables of contents.
   \end{titlepage}
 
@@ -536,34 +537,42 @@ The initial input library lig147 was amplified and processed, with conditions va
 
 Libraries amplified by Phusion, Phire, DreamTaq, and Q5 DNA polymerase enzymes were analysed.  For each enzyme, the library from 24 cycles of PCR was compared to the library from 8 cycles of PCR (figure~\ref{fig:kmer_enz}).  High correlation coefficients between 8-cycle libraries and 24-cycle libraries for all enzymes sources were observed, suggesting that libraries were similar within each pair.  Thus, the effect from PCR is moderate for about 15 cycles of PCR amplification.  All enzymes showed slight biases towards A and T, with Phusion exhibiting the weakest bias and Phire exhibiting the strongest bias.
 
+% Split this into two LaTeX figures so that I can get them to be an appreciably big size
 \begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_dreamtaq}
+    \includegraphics[width=0.8\textwidth]{kmer_dreamtaq}
     \caption{DreamTaq, R = 0.709}
     \label{fig:kmer_enz_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_phire}
+    \includegraphics[width=0.8\textwidth]{kmer_phire}
     \caption{Phire, R = 0.839}
     \label{fig:kmer_enz_phire}
   \end{subfigure}
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \caption{9-mer count scatter plots comparing biases from different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading (A: green, C: blue, G: purple, T: red) indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
+  \label{fig:kmer_enz}
+\end{figure}
+
+\begin{figure}[htbp]
+  \ContinuedFloat
+  \centering  
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_q5}
+    \includegraphics[width=0.8\textwidth]{kmer_q5}
     \caption{Q5, R = 0.760}
     \label{fig:kmer_enz_q5}
   \end{subfigure}
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_phusion}
+    \includegraphics[width=0.8\textwidth]{kmer_phusion}
     \caption{Phusion, R = 0.659}
     \label{fig:kmer_enz_phusion}
   \end{subfigure}
   \caption{9-mer count scatter plots comparing biases from different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading (A: green, C: blue, G: purple, T: red) indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
-  \label{fig:kmer_enz}
+%  \label{fig:kmer_enz}
 \end{figure}
 
 \subsection{Biases from bottleneck effect}
@@ -571,34 +580,42 @@ Libraries amplified by Phusion, Phire, DreamTaq, and Q5 DNA polymerase enzymes w
 
 In SELEX, a limited amount DNA is bound by the target protein, so a bottlenecking effect is applied between cycles.  In this context, the bottleneck effect refers to how some members of a large DNA library are likely to be lost by chance if a small sample of the library is taken for amplification.  This bottleneck effect on PCR bias was therefore investigated.  For each enzyme investigated in subsection~\ref{ssec:pcrbias_result_enz}, the PCR product after 24 cycles was diluted and $\frac{1}{2^{20}}$ of the samples from this dilution was used as the template and then amplified.  Comparing two samples for each enzyme suggested that bottleneck effects did not introduce large biases, as indicated by the strong correlations between the two samples for each enzyme (figure~\ref{fig:kmer_bn}).  However, Phire exhibited the greatest bias from the bottleneck effect, as revealed by the smallest correlation coefficient.
 
+% Split this into two LaTeX figures so that I can get them to be an appreciably big size
 \begin{figure}[htbp]
   \centering
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_dreamtaqBN}
+    \includegraphics[width=0.8\textwidth]{kmer_dreamtaqBN}
     \caption{DreamTaq, R = 0.884}
     \label{fig:kmer_bn_dreamtaq}
   \end{subfigure}
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_phireBN}
+    \includegraphics[width=0.8\textwidth]{kmer_phireBN}
     \caption{Phire, R = 0.697}
     \label{fig:kmer_bn_phire}
   \end{subfigure}
-  \begin{subfigure}[htbp]{0.6\textwidth}
+    \caption{9-mer count scatter plots showing the bottleneck effect for different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading (A: green, C: blue, G: purple, T: red) indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
+\label{fig:kmer_bn}
+\end{figure}
+
+\begin{figure}[htbp]
+  \ContinuedFloat
+  \centering
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_q5BN}
+    \includegraphics[width=0.8\textwidth]{kmer_q5BN}
     \caption{Q5, R = 0.767}
     \label{fig:kmer_bn_q5}
   \end{subfigure}
-  \begin{subfigure}[htbp]{0.6\textwidth}
+  \begin{subfigure}[htbp]{0.8\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{kmer_phusionBN}
+    \includegraphics[width=0.8\textwidth]{kmer_phusionBN}
     \caption{Phusion, R = 0.844}
     \label{fig:kmer_bn_phusion}
   \end{subfigure}
   \caption{9-mer count scatter plots showing the bottleneck effect for different polymerase enzymes.  Each point represents a nucleotide 9-mer and the shading (A: green, C: blue, G: purple, T: red) indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.}
-  \label{fig:kmer_bn}
+%  \label{fig:kmer_bn}
 \end{figure}
 
 \subsection{Biases from purification}
@@ -608,7 +625,11 @@ To investigate the effect of DNA purification, the lig147 input library was puri
 
 \begin{figure}[htbp]
   \centering
+  % This figure has one subfigure as a `hack' to make it the same size as all other kmer plots
+  \begin{subfigure}[htbp]{0.8\textwidth}
+  \centering
   \includegraphics[width=0.8\textwidth]{kmer_ampure}
+  \end{subfigure}
   \caption{9-mer count scatter plot showing the effect of AMPure bead purification.  Each point represents a nucleotide 9-mer and the shading (A: green, C: blue, G: purple, T: red) indicates the number of the respective nucleotide in the 9-mer.  9-mer counts were normalised against lig147 to give fold changes.  R = 0.865}
   \label{fig:kmer_pur}
 \end{figure}
