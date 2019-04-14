@@ -32,8 +32,12 @@
   isbn=false,
   url=false,
   date=year,
-  style=apa,
-  citestyle=apa]{biblatex}
+  style=authoryear,
+  citestyle=authoryear,
+  minnames=1,
+  maxnames=2,
+  minbibnames=1,
+  maxbibnames=99]{biblatex}
 \addbibresource{dissertation.bib}
 \usepackage{varioref}
 
@@ -81,7 +85,8 @@
   \vfill
 
   % Bottom of the page
-  {\large \today\par}
+  % {\large \today\par}
+  {\large 1 May 2019 \par}
   \vfill
   This dissertation contains 4,XXX words, excluding the bibliography, figures, figure legends, tables, table headings, abbreviations, acknowledgements, and tables of contents.
   \end{titlepage}
@@ -136,7 +141,7 @@ For a given 147-bp DNA sequence, the affinity of the histone octamer to it can v
 
 The dinucleotide sequences AA, AT, and TA confer high bendability to DNA.  Therefore, they are present preferentially at the phase of the helical repeat that directly interacts with the histone octamer, and occur at a periodicity of approximately 10 bp \citep{struhl_determinants_2013}.  GC dinucleotides also occur periodically, but out of phase with the aforementioned dinucleotides.  These preferences were confirmed by a yeast-based genome-wide assay based on MNase-seq \citep{segal_genomic_2006}.  Experiments with synthetic DNA in SELEX (systematic evolution of ligands by exponential enrichment) \citep{lowary_new_1998} have elucidated more rules for nucleosome positioning.  For example, the `pentameric TG' sequence -- [(A or T)3NN(G or C)3NN]\textsubscript{n} -- has a very high affinity for the histone octamer, consistent with how AT-rich and GC-rich units confer flexibility to DNA.
 
-In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) form stiff structures that inhibit nucleosome formation.  These sequences are enriched within linker DNA between nucleosomes.  Poly(dA:dT) sequences are also enriched within promoters, in particular that of \emph{Saccharomyces cerevisiae} \citep{struhl_determinants_2013}.  Depletion of nucleosomes at promoters on artificial chromosomes based on \emph{S. cerevisiae} genomic regions was shown to be dependent on the number and length of poly(dA:dT) sequences \citep{hughes_functional_2012}.
+In contrast, the homopolymeric sequences poly(dA:dT) and poly(dG:dC) form stiff structures that inhibit nucleosome formation.  These sequences are enriched within linker DNA between nucleosomes.  Poly(dA:dT) sequences are also enriched within promoters, in particular that of \emph{Saccharomyces cerevisiae} \citep{struhl_determinants_2013}.  Depletion of nucleosomes at promoters on artificial chromosomes based on \emph{S. cerevisiae} genomic regions was shown to be dependent on the number and length of poly(dA:dT) sequences \citep{hughes_functional_2012}. % -- did this instead of the proper way because it shows up with four names instead of one, and I couldn't be bothered to play around with LaTeX black magic fuckery to get this one situation to work.  It's bad practice, I know.
 
 Additionally, DNA methylation disfavours nucleosome positioning \emph{in vivo}, as it increases the rigidity of DNA \citep{huff_dnmt1-independent_2014}.  Specifically, multiple tracts of methylated CpG islands makes DNA have lower rise, lower twist, and higher roll values, thus making the DNA stiffer \citep{rao_systematic_2018, perez_impact_2012}.  However, the negative correlation between nucleosome occupancy and DNA methylation varies across genomic locations.  For example, this negative correlation holds true for CTCF regions, but not for promoters \citep{kelly_genome-wide_2012}.
 
@@ -455,7 +460,7 @@ The frequencies of continuous stretches of adenines (A-stretches) were also coun
 \subsection{Mechanisms leading to nucleosome sequence preferences}
 \label{ssec:emsaselex_discussion_seqpref}
 
-From nucleosome EMSA-SELEX, nucleosome binding introduced an approximately 10-bp periodicity in mononucleotide and dinucleotide frequencies.  These observations confirmed previous studies that suggest a $\sim$10-bp helical repeat in DNA within chromatin and that dinucleotides that confer flexibility are positioned at the same phase of the periodicity \citep{struhl_determinants_2013}.  Furthermore, phases and amplitudes of the dinucleotides supported findings that indicate that TA occurs out of phase with GC \citep{struhl_determinants_2013}.
+From nucleosome EMSA-SELEX, nucleosome binding introduced an approximately 10-bp periodicity in mononucleotide and dinucleotide frequencies.  These observations confirmed previous studies that suggest a $\sim$10-bp helical repeat in DNA within chromatin and that dinucleotides that confer flexibility are positioned at the same phase of the periodicity \citep{struhl_determinants_2013}.  Furthermore, phases and amplitudes of the dinucleotides from our experiments supported findings that indicate that TA occurs out of phase with GC \citep{struhl_determinants_2013}.
 
 Stretches of adenines between five and nine nucleotides were depleted in libraries of DNA bound to nucleosomes, as indicated by normalised counts below 1.0 (figure~\ref{fig:astretch}).  Previous experiments with plain DNA libraries enriched for signal by the group suggested that A-stretches were depleted as their length increases.  These agree with studies that reveal that poly(dA) tracts disfavour nucleosome positioning by making DNA stiff and therefore not conducive to the bending needed for nucleosome positioning \citep{struhl_determinants_2013}.  Data trends suggested that A-stretches were more depleted in methylated DNA than in plain DNA.  However, the signals from plain DNA were weak and the extent of depletion cannot be assessed with the one biological replicate used in the experiment.  To draw better conclusions, additional replicates should be performed.
 
