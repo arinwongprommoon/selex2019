@@ -4,8 +4,8 @@ THINGS TO DO NEXT
 2. Review layout/structure [DONE]
 3. Change date to 1 May [DONE]
 4. Final bouncing around between me and Fangjie/Jussi [DONE]
-5. Count number of words
+5. Count number of words [DONE]
 6. Add candidate number
-7. Replace PNG images of k-mer plots with PDF images
+7. Replace PNG images of k-mer plots with PDF images [DONE]
 8. Print + add blank sheet of paper at the end if appropriate
 9. Bind and submit
