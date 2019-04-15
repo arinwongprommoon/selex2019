@@ -1,74 +1,11 @@
-TO DO
+THINGS TO DO NEXT
 
-- Introduction
-
-  - WHY (biological question, biochemical question) -> WHAT -> HOW -> Conclusion
-    work backwards to the key question
-
-- Discussion
-
-  - EMSA SELEX: talk about A-stretches -- this is a perfect thing to link to both
-    previous research and physiological relevance --> WAIT ACTUALLY IT DOESN'T
-    LOOK LIKE IT MAKES SENSE --> OH YEAH IT KIND OF DOES NOW
-
-    - Try computing the A-stretch lengths using the 94N-bound and 94N-unbound
-      datasets to confirm my assertions that the aberrant results are due to
-      weak signals. ***
-
-- General
-
-  - Write abstract
-  - Make sure everything makes sense, especially the discussion
-  - Write list of abbreviations
-  - Write acknowledgements
-  - Resize figures, etc
-
-MORE QUESTIONS/ISSUES (2019-03-13)
- 
-- What is the significance of the amplitude of CG exhibiting a small decrease in
-  the all-C-methylated and CpG methylated groups, the two groups in which all CG
-  sequences are methylated at the cytosine? --> THE DECREASE PROBABLY ISN'T REAL,
-  QUANTIFY ON DATA TO MAKE SURE ***
-
-  DONE:
-  plain 0.4392
-  halfmc 0.2435
-  allmc 0.2563
-  cpg 0.2621
-
-  so the decrease is definitely not real. The decrease from plain to the other
-  groups is likely real though
-
-Introduction notes from Jussi
-
-We want to understand the effect of CpG methylation. THIS IS THE BROAD BIOLOGICAL QUESTION AND SHOULD BE NEAR THE BEGINNING OF THE DISSERTATION
-
-Binding between the histone octamer and DNA is weak.  Why are we studying something that's weak?  The genome is BIG so the effect on the genome is significant.  In other words, the `law of big numbers' applies: any given interaction is stochastic, but because there are so many of them, it behaves like a deterministic model.  Effects on cellular fitness.
-
-
-Fangjie 2019-03-20
-
-1. Nucleosome EMSA SELEX
-
-The plots have relatively low R values and the shapes are very varied. I'm not sure how best to interpret the shapes. It seems like that the unbound CpG is enriched in A/T, and unbound all-C-methylated is enriched in A/C.
-    >> Low R value is a good thing because we hoped to find difference between libraries. Do not have to interpret the R value, but discuss the difference between different libraries. For the observed difference, we can write something like “for CpG methylated lib, nucleosome disfavours A/T rich sequences, such preference is similar to that observed before for the plain DNA (cite "Determinants of nucleosome positioning”). However, such disfavouring effect against A/T decreases when half or all Cs are methylated, because our results suggest that methylated Cs are strongly disfavoured by nucleosome (point to the half or all C pictures).
-
-Plain bound vs all-C-methylated bound and plain unbound vs all-C-methylated bound seem to have similar shapes and similar biases, but it seems that the biases are stronger for the bound libraries. I think it's still difficult to untangle biases from nucleosome binding and biases from PCR. R values suggest that the libraries being compared do not correlate.
-      >> For these pairs of comparison, we only discuss about the PCR bias, because it is impossible otherwise for the bound and the unbound library (all mC) to enrich the same bias. They do not correlate because of the strong PCR bias in the presence of mC.
-
-
-2. PCR bias
-
-All enzymes seem to have the similar (relatively weak) biases. The fold change values vary a lot between enzymes. Phusion seems to have a strong bias.
->> I suppose we have the same conclusion before. From the data, it seems to me that Phusion has the weakest bias (small changes against input library, and good correlation between 8 and 24 cycle, in kmer_phusion.png), and Phire the strongest, which also agrees with previous results.
-
-In general, the bottleneck effect doesn't seem to introduce much bias.
-AMPure beads don't seem to introduce much bias.
->> Yes, just discuss this. Probably mention that Phire still have a relatively larger bias among them. So that we should avoid to use Phire in sequencing library preparations.
-
-
-
-
-TO DO FOR SECOND DRAFT
-
-all done
+1. Proofreading/copyediting [DONE]
+2. Review layout/structure [DONE]
+3. Change date to 1 May [DONE]
+4. Final bouncing around between me and Fangjie/Jussi [DONE]
+5. Count number of words
+6. Add candidate number
+7. Replace PNG images of k-mer plots with PDF images
+8. Print + add blank sheet of paper at the end if appropriate
+9. Bind and submit
